@@ -15,5 +15,5 @@
 
 · 下发与接收摄像机指令功能
 
-说明文档：https://wangtao1991200.github.io/KHJCameraTest1/index.html
+说明文档：https://wangtao1991200.github.io/KHJCameraDoc/index.html
 
