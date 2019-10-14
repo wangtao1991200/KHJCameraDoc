@@ -1,0 +1,20 @@
+/* 
+  InfoPlist.strings
+*/
+"CFBundleDisplayName"="看护家Demo";
+
+"NSPhotoLibraryUsageDescription" ="此App在修改头像和拍照时需访问您的相册权限";
+"NSCameraUsageDescription" = "此App在扫描二维码和修改头像时需访问您的相机权限";
+"NSMicrophoneUsageDescription" = "此App在和设备对讲时需访问您的录音权限";
+
+
+
+
+
+
+
+
+
+
+
+

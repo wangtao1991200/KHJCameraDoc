@@ -1,0 +1,68 @@
+
+//
+//  PrefixHeader.pch
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MBProgressHUD.h"
+#import "Calculate.h"
+#import "KHJHub.h"
+#import "KHJToast.h"
+#import "PublicDefine.h"
+#import "UIImageView+WebCache.h"
+
+#import "NSString+FFToast.h"
+#import "UIImage+FFToast.h"
+#import <FFToast/FFToast.h>
+
+// 获取全局单例类
+#define bgVCcolor ssRGB(240,240,240)
+#define DeCcolor UIColor.orangeColor
+
+
+#define ssRGB(r, g, b)   [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
+#define LZYBlueColor  [UIColor colorWithHexString:@"7DA6FF"] //LZYColor(0,140,240)
+
+#define SCREENWIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREENHEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define WeakSelf __weak typeof(self) weakSelf = self;
+#define DeWindow [UIApplication sharedApplication].keyWindow
+
+#define IS_IPHONE_X (SCREENHEIGHT == 812.0f) ? YES : NO
+#define IS_IPHONE_5 (SCREENHEIGHT == 568.0f) ? YES : NO
+
+
+#define Height_NavContentBar 44.0f
+
+#define Height_StatusBar ((IS_IPHONE_X==YES)?44.0f: 20.0f)
+#define Height_NavBar    ((IS_IPHONE_X==YES)?88.0f: 64.0f)
+#define Height_TabBar    ((IS_IPHONE_X==YES)?83.0f: 49.0f)
+
+
+
+#define REQUEST_URLH_FOR_PAY @"https://www.khjtecapp.com/smart-camera-ucenter/h5/pay"
+
+#define KHJLocalizedString(key,comment) [[NSBundle mainBundle] localizedStringForKey:(key)value:@"" table:nil]
+
+#define NAVColor @"#F48D54"
+#ifdef DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+#ifdef DEBUG
+#define CLog(fmt, ...) NSLog((fmt), ##__VA_ARGS__);
+#else
+#define CLog(...);
+#endif
+
+#endif /* PrefixHeader_pch */
+
+
+
+
+
+
+

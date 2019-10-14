@@ -1,0 +1,18 @@
+/* 
+  InfoPlist.strings
+*/
+
+"CFBundleDisplayName"="Care Home";
+"NSPhotoLibraryUsageDescription" ="This App needs to access your album permission when modifying your head and taking photos.";
+"NSCameraUsageDescription"="This App needs access to your camera when scanning the two-dimensional code and modifying the avatar.";
+"NSMicrophoneUsageDescription"="This App needs to access your recordings when communicating with the device.";
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "热点配网"; ObjectID = "1gL-pH-IIj"; */
+"1gL-pH-IIj.normalTitle" = "Hotspot configuration network";
+
+/* Class = "UILabel"; text = "2.通过手机给设备配置wifi"; ObjectID = "5bU-of-DIo"; */
+"5bU-of-DIo.text" = "2.configuring WiFi through mobile phones";
+
+/* Class = "UILabel"; text = "1.手机与设备直接连接"; ObjectID = "Do7-Ew-qhy"; */
+"Do7-Ew-qhy.text" = "1.connection between mobile phone and device";
+
+/* Class = "UIButton"; normalTitle = "热点直连"; ObjectID = "WUT-lp-bHx"; */
+"WUT-lp-bHx.normalTitle" = "Hot spot direct connection";

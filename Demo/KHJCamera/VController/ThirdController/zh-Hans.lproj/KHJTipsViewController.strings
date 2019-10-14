@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "听到提示音"; ObjectID = "JmZ-n3-PJC"; */
+"JmZ-n3-PJC.normalTitle" = "听到提示音";
+
+/* Class = "UILabel"; text = "请接通电源，按下设备上的复位按键，保持5秒钟，直到听到设备提示“复位成功”"; ObjectID = "Xt2-mC-4up"; */
+"Xt2-mC-4up.text" = "请接通电源，按下设备上的复位按键，保持5秒钟，直到听到设备提示“复位成功”";
+
+/* Class = "UILabel"; text = "设备发出语音提示"; ObjectID = "dV7-n5-obP"; */
+"dV7-n5-obP.text" = "设备发出语音提示";
+
+/* Class = "UIButton"; normalTitle = "未听到提示音？"; ObjectID = "jAb-uv-OwR"; */
+"jAb-uv-OwR.normalTitle" = "未听到提示音？";

@@ -1,0 +1,6 @@
+framework module KHJCameraLib {
+  umbrella header "KHJCameraLib.h"
+
+  export *
+  module * { export * }
+}

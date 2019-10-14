@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KHJShareTwoCodeVController">
+            <connections>
+                <outlet property="TipsLabel" destination="a5t-Se-YTJ" id="RSi-MG-aY4"/>
+                <outlet property="tImageview" destination="ZAN-Rz-6MB" id="Efw-hG-zwv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fck-NK-aKV">
+                    <rect key="frame" x="20" y="120" width="335" height="427"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-Se-YTJ">
+                            <rect key="frame" x="20" y="8" width="295" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="lec-7r-uJL"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="APP扫描以下二维码">
+                                    <attributes>
+                                        <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZAN-Rz-6MB">
+                            <rect key="frame" x="47.5" y="93.5" width="240" height="240"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="240" id="Isb-98-lfA"/>
+                                <constraint firstAttribute="width" constant="240" id="siO-09-gmw"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="a5t-Se-YTJ" secondAttribute="trailing" constant="20" id="LRH-ua-bF6"/>
+                        <constraint firstItem="ZAN-Rz-6MB" firstAttribute="centerX" secondItem="fck-NK-aKV" secondAttribute="centerX" id="V6A-Pa-ilG"/>
+                        <constraint firstItem="a5t-Se-YTJ" firstAttribute="top" secondItem="fck-NK-aKV" secondAttribute="top" constant="8" id="dSO-Ft-csS"/>
+                        <constraint firstItem="a5t-Se-YTJ" firstAttribute="leading" secondItem="fck-NK-aKV" secondAttribute="leading" constant="20" id="h1I-8E-qpB"/>
+                        <constraint firstItem="ZAN-Rz-6MB" firstAttribute="centerY" secondItem="fck-NK-aKV" secondAttribute="centerY" id="vee-gm-3yD"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="NO"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fck-NK-aKV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="CiR-Sd-rpX"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="fck-NK-aKV" secondAttribute="bottom" constant="120" id="MVC-S7-or6"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fck-NK-aKV" secondAttribute="trailing" constant="20" id="ctY-Bl-Dqd"/>
+                <constraint firstItem="fck-NK-aKV" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="100" id="lLe-hm-WUf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-408" y="-65"/>
+        </view>
+    </objects>
+</document>

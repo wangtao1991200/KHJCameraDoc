@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "smtp授权码"; ObjectID = "2SS-sh-tlK"; */
+"2SS-sh-tlK.text" = "smtp授权码";
+
+/* Class = "UITextField"; placeholder = "请输入smtp授权码"; ObjectID = "3Xa-zO-Y1R"; */
+"3Xa-zO-Y1R.placeholder" = "请输入smtp授权码";
+
+/* Class = "UITextField"; placeholder = "请输入smtp地址"; ObjectID = "KM4-mf-qsK"; */
+"KM4-mf-qsK.placeholder" = "请输入smtp地址";
+
+/* Class = "UILabel"; text = "端口"; ObjectID = "UEj-Xj-mUJ"; */
+"UEj-Xj-mUJ.text" = "端口";
+
+/* Class = "UITextView"; text = "多个邮箱请用逗号分隔"; ObjectID = "ag9-9O-dtE"; */
+"ag9-9O-dtE.text" = "多个邮箱请用逗号分隔";
+
+/* Class = "UILabel"; text = "收件人"; ObjectID = "cZF-2u-ImZ"; */
+"cZF-2u-ImZ.text" = "收件人";
+
+/* Class = "UITextField"; placeholder = "请输入发件人邮箱"; ObjectID = "d2P-2V-vfl"; */
+"d2P-2V-vfl.placeholder" = "请输入发件人邮箱";
+
+/* Class = "UITextField"; placeholder = "请输入端口号"; ObjectID = "eod-19-Gsk"; */
+"eod-19-Gsk.placeholder" = "请输入端口号";
+
+/* Class = "UILabel"; text = "开启报警邮箱"; ObjectID = "fO2-ls-PsT"; */
+"fO2-ls-PsT.text" = "开启报警邮箱";
+
+/* Class = "UILabel"; text = "smtp地址"; ObjectID = "mO2-iw-ib1"; */
+"mO2-iw-ib1.text" = "smtp地址";
+
+/* Class = "UILabel"; text = "发件人"; ObjectID = "plY-lZ-GHd"; */
+"plY-lZ-GHd.text" = "发件人";

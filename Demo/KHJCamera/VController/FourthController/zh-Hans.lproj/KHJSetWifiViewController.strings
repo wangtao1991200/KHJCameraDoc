@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "设备需要连接的wifi"; ObjectID = "13F-ip-FQq"; */
+"13F-ip-FQq.text" = "设备需要连接的wifi";
+
+/* Class = "UIButton"; normalTitle = "生成二维码"; ObjectID = "6Eu-g9-11u"; */
+"6Eu-g9-11u.normalTitle" = "下一步";
+
+/* Class = "UITextField"; placeholder = "WIFI密码"; ObjectID = "AJa-J1-6qo"; */
+"AJa-J1-6qo.placeholder" = "WIFI密码";
+
+/* Class = "UILabel"; text = "设备暂不支持5GWIFI"; ObjectID = "YiV-er-xjz"; */
+"YiV-er-xjz.text" = "设备暂不支持5G WIFI";

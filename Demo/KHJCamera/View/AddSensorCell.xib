@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="168" id="KGk-i7-Jjw" customClass="AddSensorCell">
+            <rect key="frame" x="0.0" y="0.0" width="512" height="168"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="512" height="167.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRb-hJ-NJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="168"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="5h6-Uo-Jow"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="传感器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPv-AL-wPN">
+                        <rect key="frame" x="12" y="10" width="120" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="XFO-TV-Y2p"/>
+                            <constraint firstAttribute="height" constant="22" id="auW-M4-klA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pd9-F5-9nW">
+                        <rect key="frame" x="152" y="12" width="160" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="1YB-fD-6Tn"/>
+                            <constraint firstAttribute="width" constant="160" id="BBV-IV-IaJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lc-on-5rh">
+                        <rect key="frame" x="12" y="125" width="280" height="32"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="280" id="YZo-jQ-tU8"/>
+                            <constraint firstAttribute="height" constant="32" id="jWc-hl-Cf0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNJ-pV-4Hy">
+                        <rect key="frame" x="448" y="113" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="Hgb-mj-eyQ"/>
+                            <constraint firstAttribute="height" constant="44" id="bx1-Wl-G7z"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="addBlue"/>
+                        <connections>
+                            <action selector="addClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xkc-hi-beB"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VRb-hJ-NJ1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5cj-8R-3Vh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ZNJ-pV-4Hy" secondAttribute="trailing" id="7ZV-pN-GH9"/>
+                    <constraint firstItem="VRb-hJ-NJ1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BU9-Dd-NjF"/>
+                    <constraint firstAttribute="bottom" secondItem="6lc-on-5rh" secondAttribute="bottom" constant="10" id="Fu2-30-zIz"/>
+                    <constraint firstItem="Pd9-F5-9nW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="PVZ-Mc-BiU"/>
+                    <constraint firstItem="ZNJ-pV-4Hy" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="c0P-vK-78O"/>
+                    <constraint firstItem="6lc-on-5rh" firstAttribute="leading" secondItem="VRb-hJ-NJ1" secondAttribute="trailing" constant="8" id="dKt-OK-Gh2"/>
+                    <constraint firstAttribute="bottom" secondItem="VRb-hJ-NJ1" secondAttribute="bottom" id="fpd-QU-iAa"/>
+                    <constraint firstItem="Pd9-F5-9nW" firstAttribute="leading" secondItem="IPv-AL-wPN" secondAttribute="trailing" constant="20" id="gMQ-qD-Bhz"/>
+                    <constraint firstItem="IPv-AL-wPN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="tBD-RY-R8l"/>
+                    <constraint firstItem="IPv-AL-wPN" firstAttribute="leading" secondItem="VRb-hJ-NJ1" secondAttribute="trailing" constant="8" id="uHd-8L-rTK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="examLabel" destination="6lc-on-5rh" id="Sun-tW-fRa"/>
+                <outlet property="remarkLabel" destination="Pd9-F5-9nW" id="JrH-IT-HvB"/>
+                <outlet property="sensorNameLab" destination="IPv-AL-wPN" id="ia1-5P-tfw"/>
+                <outlet property="showBgView" destination="VRb-hJ-NJ1" id="C5C-Z6-PKB"/>
+            </connections>
+            <point key="canvasLocation" x="-381" y="-539"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="addBlue" width="44" height="44"/>
+    </resources>
+</document>
