@@ -32,6 +32,11 @@ typedef enum : NSUInteger {
 - (void)creatKHJCameraBase:(NSString *)deviceID;
 
 /**
+ create HM Camera
+ */
+- (void)creatHMCameraBase:(NSString *)deviceID;
+
+/**
  create MAEVIACamera
  */
 - (void)creatMAEVIACameraBase:(NSString *)deviceID;
@@ -437,6 +442,9 @@ offLineCallBack:(void(^)(void))offLineBlock;
  */
 - (void)notifyUpgrade:(void(^)(int success))resultBlock;
 
+/**
+ The application exits the background for more than 40s. When it enters again, it calls reinitsocket, frees resources, and reconnects.
+ */
 + (void)reinitsocket;
 
 /**

@@ -701,36 +701,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - 33db9046ecba8f98"
+                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - 9fa269dda48f9a5f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[KHJVideoPlayViewController sendAudio]"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/Documents/%E7%9C%8B%E6%8A%A4%E5%AE%B6%E9%A1%B9%E7%9B%AE/CCCoging_CameraDemo/KHJCameraDemo_cn/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-                  timestampString = "589275099.414571"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1727"
                   endingLineNumber = "1727"
-                  offsetFromSymbolStart = "660">
+                  offsetFromSymbolStart = "639">
                </Location>
                <Location
-                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - 7e1323425f30e268"
+                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - d26adad91705f7af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__39-[KHJVideoPlayViewController sendAudio]_block_invoke"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/Documents/%E7%9C%8B%E6%8A%A4%E5%AE%B6%E9%A1%B9%E7%9B%AE/CCCoging_CameraDemo/KHJCameraDemo_cn/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-                  timestampString = "589275099.4159631"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1727"
                   endingLineNumber = "1727"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -769,36 +767,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - 9c2a01cd8514192b"
+                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - d06fad82fe870e95"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[KHJAddHotVController connectDevice:withUid:]"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/Documents/%E7%9C%8B%E6%8A%A4%E5%AE%B6%E9%A1%B9%E7%9B%AE/CCCoging_CameraDemo/KHJCameraDemo_cn/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-                  timestampString = "589275099.422949"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
                   endingLineNumber = "146"
-                  offsetFromSymbolStart = "108">
+                  offsetFromSymbolStart = "99">
                </Location>
                <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - 8bdaf962bd316bb9"
+                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - c79f552dc6a27c07"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/Documents/%E7%9C%8B%E6%8A%A4%E5%AE%B6%E9%A1%B9%E7%9B%AE/CCCoging_CameraDemo/KHJCameraDemo_cn/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-                  timestampString = "589275099.424932"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "147"
                   endingLineNumber = "147"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
