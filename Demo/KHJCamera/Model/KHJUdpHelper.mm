@@ -68,7 +68,7 @@
     
     KHJBaseDevice *bdevice = [[KHJBaseDevice alloc] init];
     bdevice.mDeviceManager = [[KHJDeviceManager alloc] init];
-    [bdevice.mDeviceManager creatKHJCameraBase:body[@"uid"]];
+    [bdevice.mDeviceManager creatCameraBase:body[@"uid"] keyword:@""];
     [bdevice.mDeviceManager connect:@"888888" withUid:body[@"uid"] flag:0 successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (isSuccess == 0) {

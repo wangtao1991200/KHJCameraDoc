@@ -713,7 +713,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1727"
                   endingLineNumber = "1727"
-                  offsetFromSymbolStart = "639">
+                  offsetFromSymbolStart = "660">
                </Location>
                <Location
                   uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - d26adad91705f7af"
@@ -728,7 +728,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1727"
                   endingLineNumber = "1727"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -779,21 +779,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
                   endingLineNumber = "146"
-                  offsetFromSymbolStart = "99">
+                  offsetFromSymbolStart = "316">
                </Location>
                <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - c79f552dc6a27c07"
+                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - ebec4d14827d7125"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke"
+                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke.178"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -898,6 +898,22 @@
             startingLineNumber = "172"
             endingLineNumber = "172"
             landmarkName = "-createTwoCode:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EBEEF09-DF7C-4E07-A0C1-98F81704E4D8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KHJCamera/VController/DevieceViewController.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-handleHotConnect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

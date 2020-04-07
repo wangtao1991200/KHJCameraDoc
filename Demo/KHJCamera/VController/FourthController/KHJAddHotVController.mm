@@ -101,11 +101,7 @@
         if (self.isAP) {
             KHJBaseDevice *bdevice = [[KHJBaseDevice alloc] init];
             bdevice.mDeviceManager = [[KHJDeviceManager alloc] init];
-            
-            // KHJ
-            [bdevice.mDeviceManager creatKHJCameraBase:devUid];
-            // MAEVIA
-//            [bdevice.mDeviceManager creatMAEVIACameraBase:devUid];
+            [bdevice.mDeviceManager creatCameraBase:devUid keyword:@""];
             DeviceInfo *dInfo = [[DeviceInfo alloc] init];
             dInfo.deviceUid = devUid;
             dInfo.deviceRealPwd = @"888888";

@@ -106,11 +106,7 @@
         if (!bDevice) {
             bDevice = [[KHJBaseDevice alloc] init];
             bDevice.mDeviceInfo = ddInfo;
-            
-            // KHJ
-            [bDevice.mDeviceManager creatKHJCameraBase:ddInfo.deviceUid];
-            // MAEVIA
-//            [bDevice.mDeviceManager creatMAEVIACameraBase:ddInfo.deviceUid];
+            [bDevice.mDeviceManager creatCameraBase:ddInfo.deviceUid keyword:@""];
         }
         
         WeakSelf
@@ -157,34 +153,22 @@
 
 - (void)addDeviceTest
 {
-    /*
-     //    dInfo.devicePwd = @"888888";
-     //    dInfo.deviceRealPwd = @"888888";
-     //    dInfo.deviceUid = @"MAEVIA-000006-UKUWG";
-     */
     DeviceInfo *dInfo = [[DeviceInfo alloc] init];
     dInfo.devicePwd = @"888888";
     dInfo.deviceRealPwd = @"888888";
-    dInfo.deviceUid = @"KHJA-034130-JPFGM";
+    dInfo.deviceUid = @"";
     dInfo.isOpen = YES;
     dInfo.isShare = YES;
-//    dInfo.isAPMode = YES;
     
-    KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:@"KHJA-034130-JPFGM"];
+    KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:@""];
     if (!bDevice) {
         bDevice             = [[KHJBaseDevice alloc] init];
         dInfo.isOpen        = YES;
         dInfo.deviceRealPwd = @"888888";
         bDevice.mDeviceInfo = dInfo;
-        
-//        [bDevice.mDeviceManager creatCameraBase:@""];
-        // KHJ
-        [bDevice.mDeviceManager creatKHJCameraBase:@"KHJA-034130-JPFGM"];
-        // MAEVIA
-//        [bDevice.mDeviceManager creatMAEVIACameraBase:@"KHJA-233719-PVNDB"];
-        
+        [bDevice.mDeviceManager creatCameraBase:@"" keyword:@""];
         /* 创建摄像头对象，并加入到 全局变量 addKHJManager */
-        [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@"KHJA-034130-JPFGM"];
+        [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@""];
     }
     
     KHJVideoPlayViewController *vCtrl = [[KHJVideoPlayViewController alloc] init];

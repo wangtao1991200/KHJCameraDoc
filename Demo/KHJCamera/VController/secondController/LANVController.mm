@@ -169,10 +169,7 @@
     KHJBaseDevice *bdevice = [[KHJBaseDevice alloc] init];
     bdevice.mDeviceManager = [[KHJDeviceManager alloc] init];
     
-    // KHJ
-    [bdevice.mDeviceManager creatKHJCameraBase:str];
-    // MAEVIA
-//    [bdevice.mDeviceManager creatMAEVIACameraBase:str];
+    [bdevice.mDeviceManager creatCameraBase:str keyword:@""];
     DeviceInfo *dInfo = [[DeviceInfo alloc] init];
     dInfo.deviceUid = str;
     dInfo.deviceRealPwd = @"888888";

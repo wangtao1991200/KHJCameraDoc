@@ -27,19 +27,12 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong) OpenGLView20 *glView;
 
 /**
- create KHJCamera
- */
-- (void)creatKHJCameraBase:(NSString *)deviceID;
+Create Camera
 
-/**
- create HM Camera
- */
-- (void)creatHMCameraBase:(NSString *)deviceID;
-
-/**
- create MAEVIACamera
- */
-- (void)creatMAEVIACameraBase:(NSString *)deviceID;
+@param deviceID deviceID
+@param keyword keyword
+*/
+- (void)creatCameraBase:(NSString *)deviceID keyword:(NSString *)keyword;
 
 /**
  Device connection
