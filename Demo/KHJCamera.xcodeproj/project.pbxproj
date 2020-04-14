@@ -14,6 +14,7 @@
 		AB4808AD230D4BA00086C9D2 /* KHJCameraLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABCBCEF021BE00D300E48F6A /* KHJCreateQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCBCEEF21BE00D300E48F6A /* KHJCreateQRCodeViewController.m */; };
 		ABE924DD21B4CE0C00D7952B /* KHJToast.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE924DC21B4CE0C00D7952B /* KHJToast.m */; };
+		ABF6BDE52445478300414A89 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA09106210041B500C26D51 /* libiconv.tbd */; };
 		ABF9059721C0EEFD00761A4F /* KHJAllBaseManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ABF9059621C0EEFD00761A4F /* KHJAllBaseManager.mm */; };
 		ABF9059921C0EF3500761A4F /* KHJBaseDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = ABF9059821C0EF3500761A4F /* KHJBaseDevice.mm */; };
 		ABF9059C21C1FD4800761A4F /* KHJHelpCameraData.mm in Sources */ = {isa = PBXBuildFile; fileRef = ABF9059A21C1FD4800761A4F /* KHJHelpCameraData.mm */; };
@@ -527,6 +528,7 @@
 				CA80E2C4212A967000F0158E /* OpenGLES.framework in Frameworks */,
 				CA80E2C2212A966100F0158E /* GameController.framework in Frameworks */,
 				CA80E2C0212A965500F0158E /* Foundation.framework in Frameworks */,
+				ABF6BDE52445478300414A89 /* libiconv.tbd in Frameworks */,
 				CA80E2BE212A963A00F0158E /* CoreMotion.framework in Frameworks */,
 				CA80E2BC212A962B00F0158E /* CoreAudio.framework in Frameworks */,
 				CA80E2BA212A961B00F0158E /* AudioToolbox.framework in Frameworks */,
