@@ -38,7 +38,11 @@
 {
     NSString *uString = [NSString stringWithFormat:@"{\"code\":\"%@\",\"deviceUid\":\"%@\"}",codeStr,self.devUid];
    UIImage *erImage = [CreateTwoCode createTCode:uString];
-    //显示二维码
+    
+    // 显示二维码
+    
+    // Show QR code
+    
     self.tImageview.image = erImage;
 }
 
@@ -46,7 +50,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];

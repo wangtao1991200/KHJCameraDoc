@@ -23,6 +23,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         // 固定各个控件的frame，以及相关属性。
+        // Fix the frame of each control and related properties.
         UILabel *cShowLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
         cShowLab.text = [NSString stringWithFormat:@"    %@",KHJLocalizedString(@"closeTime", nil)];
         cShowLab.textAlignment =NSTextAlignmentLeft;
@@ -35,7 +36,7 @@
         openLab = [[UILabel alloc] initWithFrame:CGRectMake(SCREENWIDTH-140, 40, 120, 40)];
 
         
-        closeLab.font  = [UIFont fontWithName:@"Helvetica Neue" size:17.f];//解决数字宽度不一样
+        closeLab.font  = [UIFont fontWithName:@"Helvetica Neue" size:17.f];
         openLab.font  = [UIFont fontWithName:@"Helvetica Neue" size:17.f];
 
         

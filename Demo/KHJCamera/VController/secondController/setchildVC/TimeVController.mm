@@ -12,11 +12,20 @@
 @interface TimeVController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *TAreaTable;
-    NSArray *areaArray;//
+    NSArray *areaArray;
     UIView *backgroundView;
-    __block NSInteger currentIndex;//当前的时区索引
-    __block NSInteger preIndex;//改变之前的
-    UILabel *showAreaLab;//显示时区
+    
+    // 当前的时区索引
+    // Current time zone index
+    __block NSInteger currentIndex;
+    
+    // 改变之前的
+    // Before the change
+    __block NSInteger preIndex;
+    
+    // 显示时区
+    // Show time zone
+    UILabel *showAreaLab;
 }
 @end
 
@@ -27,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         areaArray = [NSArray arrayWithObjects:@"UTC-11",@"UTC-10",@"UTC-9",@"UTC-8",@"UTC-7",@"UTC-6",@"UTC-5",@"UTC-4",@"UTC-3.5",@"UTC-3",@"UTC-2",@"UTC-1",@"UTC+0",@"UTC+1",@"UTC+2",@"UTC+3",@"UTC+3.5",@"UTC+4",@"UTC+4.5",@"UTC+5",@"UTC+5.5",@"UTC+6",@"UTC+6.5",@"UTC+7",@"UTC+8",@"UTC+9",@"UTC+9.5",@"UTC+10",@"UTC+11",@"UTC+12", nil];
-    self.title = @"时间设置";
+    self.title = KHJLocalizedString(@"timeSet", nil);
     [self setbackBtn];
     self.view.backgroundColor = bgVCcolor;
     [self setShowView];
@@ -55,9 +64,8 @@
     }
     
 }
-- (void)backSuccessCallbackGetTimezone:(int)success{//获取时区成功，设置显示
-    
-    CLog(@"success == %d", success);
+- (void)backSuccessCallbackGetTimezone:(int)success
+{
     switch (success) {
         case -660:{
             currentIndex = 0;
@@ -206,7 +214,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -320,8 +328,14 @@
 - (void)changArea:(NSInteger) index
 {
     [TAreaTable removeFromSuperview];
-    //发送命令
-    //参数是分钟，如+8 ，则 +480， -6，则-360;
+    // 发送命令
+    
+    // send command
+    
+    // 参数是分钟，如+8 ，则 +480， -6，则-360
+    
+    // The parameter is minutes, such as +8, then +480, -6, then -360
+    
     NSInteger timeZone = 0;
     switch (index) {
         case 0:
@@ -447,7 +461,6 @@
     }else
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-//            [ showText:@"setFail" addToView:self.view];
             [[KHJToast share] showToastActionWithToastType:_WarningType
                                               toastPostion:_CenterPostion
                                                        tip:@""
@@ -456,7 +469,6 @@
     }
 }
 
-//添加遮罩
 - (void)addShadow
 {
     backgroundView = [[UIView alloc] init];
@@ -465,18 +477,16 @@
     backgroundView.alpha = 0.6;
     [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-//- (float)
 - (void)changeSuccess
 {
     showAreaLab.text = [areaArray objectAtIndex:preIndex];
     currentIndex = preIndex;
-//    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",currentIndex] forKey:@"currentIndex"];
-
 }
 @end
 

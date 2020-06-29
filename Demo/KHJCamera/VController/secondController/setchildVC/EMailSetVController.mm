@@ -33,13 +33,6 @@
     [self getAlarmEmailInfo];
     [self getAlarmState];
     self.recvTextV.text = KHJLocalizedString(@"MNeedSeparate", nil);
-
-//    nvnzcepwwzsybica,授权码
-
-//    授权码地址 qq.compop.qq.comsmtp.qq.comSMTP
-//    端口 SMTP服务器（端口465或587
-
-    
 }
 
 #pragma mark - setbackBtn
@@ -47,7 +40,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -140,6 +133,15 @@
  * param4: 邮箱服务器端口
  * param5: 接收邮箱
  */
+
+#pragma mark-return email message
+/**
+  * param1: email user
+  * param2: email password
+  * param3: mail server
+  * param4: email server port
+  * param5: receive email
+  */
 - (void)getEmailCallback:(NSString *)user andPwd:(NSString *)pass andServer:(NSString *)server andSendto:(NSString *)sendO andPort:(int)port
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -169,7 +171,7 @@
     });
    
 }
-- (void)saveAllData//保存设置邮箱数据
+- (void)saveAllData
 {
     BOOL canSave = ![self.recvTextV.text isEqualToString:@""] && ![self.sendTextV.text isEqualToString:@""] && ![self.smtpCodeTextV.text isEqualToString:@""] && ![self.smtpAddressTextV.text isEqualToString:@""] && ![self.portTextV.text isEqualToString:@""];
     if (canSave) {

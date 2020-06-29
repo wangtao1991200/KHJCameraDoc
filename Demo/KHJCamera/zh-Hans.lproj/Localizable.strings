@@ -529,3 +529,7 @@
 "TwoCodeError"="二维码格式错误";
 "DevShareMax"="设备分享达到最大";
 "recordFinish" = "视频录制完成";
+
+"ScreenRecord"="录屏";
+"speakig"="正在说话";
+"keySpeakig"="按键说话";

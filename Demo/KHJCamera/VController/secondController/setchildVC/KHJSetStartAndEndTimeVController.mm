@@ -2,7 +2,12 @@
 //  SetStartAndEndTimeVController.m
 //
 //  开关机计划 + 录像计划
+//
+//  Power on/off plan + video plan
+//
 //  设置开始和结束时间
+//
+//  Set start and end time
 //
 //
 
@@ -10,16 +15,20 @@
 #import "KHJAllBaseManager.h"
 #import "HZWPicker.h"
 #import <KHJCameraLib/KHJCameraLib.h>
-//#import "KHJDeviceManager.h"
-//#import "TimeInfo.h"
+
 @interface KHJSetStartAndEndTimeVController ()
 {
-    BOOL isClickClose;//点击closeTime
+    BOOL isClickClose;
     UIButton *closeTimeButton;
     UIButton *openTimeButton;
     UILabel *clab;
     UILabel *olab;
-    UIButton *deletePlanBtn;//删除计划按钮
+    
+    // 删除计划按钮
+    
+    // Delete plan button
+    
+    UIButton *deletePlanBtn;
 }
 
 @end
@@ -64,17 +73,20 @@
     UIBarButtonItem *informationCardItem = [[UIBarButtonItem alloc] initWithCustomView:changeVideo];
     self.navigationItem.rightBarButtonItem  = informationCardItem;
 }
-- (void)saveTime//
+
+- (void)saveTime
 {
-    //1.判断开启和关闭时间是否都设置
-    if([olab.text isEqualToString:@""] || [clab.text isEqualToString:@""]) {
+    // 1. 判断开启和关闭时间是否都设置
+    // 1. Determine whether the opening and closing time are set
+    if ([olab.text isEqualToString:@""] || [clab.text isEqualToString:@""]) {
         [[KHJToast share] showToastActionWithToastType:_WarningType
                                           toastPostion:_CenterPostion
                                                    tip:@""
                                                content:KHJLocalizedString(@"CloseOrOpenUnSet", nil)];
         return;
     }
-    //2.比较时间是否相等
+    // 2. 比较时间是否相等
+    // 2. Compare time is equal
     NSString *oString = olab.text;
     oString = [oString stringByReplacingOccurrencesOfString:@" " withString:@""];
     oString = [Calculate formateTimeStamp:oString];
@@ -87,7 +99,9 @@
     nowTimeInfo.closeTime = cString;
     nowTimeInfo.openTime = oString;
     
-    if (sIndex != -1) {//修改之前的计划
+    if (sIndex != -1) {
+        // 修改之前的计划
+        // modify the previous plan
         [planArray removeObject:planArray[sIndex]];
     }
     if ([oString isEqualToString:cString]) {
@@ -96,17 +110,23 @@
                                                    tip:@""
                                                content:KHJLocalizedString(@"CloseOrOpenCannotSame", nil)];
     }
-    else {//3.比较时间大小
+    else {
+        // 3. 比较时间大小
+        // 3. Compare time size
         NSInteger nc =[nowTimeInfo.closeTime integerValue];
         NSInteger no = [nowTimeInfo.openTime integerValue];
-        if(nc > no){//4.open < close ,则 open需要+24小时
+        if (nc > no) {
+            // 4.open < close ,则 open需要+24小时
+            // 4.open <close, then open takes +24 hours
             no = no+24*3600;
-            nowTimeInfo.openTime = [NSString stringWithFormat:@"%ld",no];
+            nowTimeInfo.openTime = [NSString stringWithFormat:@"%ld",(long)no];
         }
-        //5.则需要遍历已保存的计划数组
+        // 5. 则需要遍历已保存的计划数组
+        // 5. You need to traverse the saved plan array
         bool isNeedAdd = true;
-        for (int i = 0; i< [planArray count]; i++) {//判断是否计划时间有重复
-                
+        // 判断是否计划时间有重复
+        // Determine if there is any duplication of planned time
+        for (int i = 0; i< planArray.count; i++) {
             TimeInfo *tInfo = [planArray objectAtIndex:i];
             NSInteger tc = [tInfo.closeTime integerValue];
             NSInteger to = [tInfo.openTime integerValue];
@@ -114,19 +134,19 @@
                 (nc >= tc && nc <= to && no> to) ||
                 (nc < tc  && no > tc  && no < to ) ||
                 (nc <= tc && no >=to)) {
-                
-                isNeedAdd = false;
-            }else if(nc <= to-24*3600){//包含了
                 isNeedAdd = false;
             }
-
+            else if(nc <= to-24*3600) {
+                isNeedAdd = false;
+            }
         }
         if (isNeedAdd) {
             [self.view resignFirstResponder];
             [[KHJToast share] showSingleToastWithContent:KHJLocalizedString(@"adding", nil)];
-            //修改或者添加排序后再发出去
+            // 修改或者添加排序后再发出去
+            // modify or add the order before sending
             NSInteger sertIndex = 0;
-            for (int i = 0; i< [planArray count]; i++) {//排序
+            for (int i = 0; i< [planArray count]; i++) {
 
                 TimeInfo *tInfo = [planArray objectAtIndex:i];
                 NSInteger tc = [tInfo.closeTime integerValue];
@@ -138,12 +158,12 @@
                 else {
                     TimeInfo *tInfo1 = [planArray objectAtIndex:i+1];
                     NSInteger tc1 = [tInfo1.closeTime integerValue];
-//                    NSInteger to1 = [tInfo1.openTime integerValue];
-                    if (no< tc) {
+                    if (no < tc) {
                         sertIndex = 0;
                         break;
-                    }else if(nc> to && no< tc1){
-                        sertIndex = i+1;
+                    }
+                    else if (nc > to && no < tc1) {
+                        sertIndex = i + 1;
                         break;
                     }
                 }
@@ -155,9 +175,7 @@
                 WeakSelf
                 KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.uuidStr];
                 if (dDevice) {
-                    
                     [dDevice.mDeviceManager addTimedCameraTask:planArray returnBloc:^(BOOL success) {
-                        
                         [weakSelf successCallbackAddTimedCameraTask:success];
                     }];
                 }
@@ -167,9 +185,7 @@
                 WeakSelf
                 KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.uuidStr];
                 if (dDevice) {
-                    
                     [dDevice.mDeviceManager addTimedRecordVideoTask:planArray returnBloc:^(BOOL success) {
-                        
                         [weakSelf setTimedRecordVideoTaskCallback:success];
                     }];
                 }
@@ -247,8 +263,8 @@
 
     if (sIndex == -1) {
         deletePlanBtn.hidden = YES;
-        
-    }else{
+    }
+    else {
         deletePlanBtn.hidden = NO;
         TimeInfo *tInfo = [planArray objectAtIndex:sIndex];
         NSString *Cstring = [Calculate getTimeFormat:tInfo.closeTime];
@@ -256,21 +272,24 @@
         clab.text =  Cstring;
         NSInteger clTime = [Calculate getUTCTime:Cstring];
         NSInteger olTime = [Calculate getUTCTime:Ostring];
-        
         if (clTime> olTime) {
             olab.text = [NSString stringWithFormat:@"%@%@",Ostring,KHJLocalizedString(@"nextDay", nil)];
-            
-        }else
+        }
+        else {
             olab.text =  Ostring;
-        
+        }
     }
     
 }
-- (void)deletePlan//删除计划
+
+// 删除计划
+// Delete plan
+- (void)deletePlan
 {
-    if ([planArray count] - 1 >= sIndex) {
+    if (planArray.count - 1 >= sIndex) {
         [planArray removeObjectAtIndex:sIndex];
-        //添加计划
+        // 添加计划
+        // Add plan
         if (self.vIndex == 0) {
             WeakSelf
             KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.uuidStr];
@@ -343,7 +362,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -367,6 +386,9 @@
 {
     if (success) {
         CLog(@"添加录像任务成功");
+        
+        CLog(@"Successfully added recording task");
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_SuccessType
                                               toastPostion:_CenterPostion
@@ -386,6 +408,8 @@
                                                    content:KHJLocalizedString(@"addFail", nil)];
         });
         CLog(@"添加录像任务失败");
+        
+        CLog(@"Failed to add recording task");
     }
 }
 - (void)successCallbackAddTimedCameraTask:(bool)success
@@ -393,6 +417,9 @@
   
     if (success) {
         CLog(@"添加定时成功");
+        
+        CLog(@"Add timing success");
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_SuccessType
                                               toastPostion:_CenterPostion
@@ -412,6 +439,8 @@
                                                    content:KHJLocalizedString(@"addFail", nil)];
         });
         CLog(@"添加定时失败");
+        
+        CLog(@"Failed to add timer");
     }
 }
 

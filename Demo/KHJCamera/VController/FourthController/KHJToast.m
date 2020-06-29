@@ -55,13 +55,11 @@
     CGFloat bottomSpaceToContentView        = 10;
     CGSize topImgSize                       = CGSizeMake(50, 50);
     
-    //顶部图片
     CGFloat topImgViewY     = 0;
     CGFloat topImgViewX     = (SCREENWIDTH - 2*horizontalSpaceToScreen)/2 - topImgSize.width/2;
     UIImageView *topImgView = [[UIImageView alloc]initWithFrame:CGRectMake(topImgViewX, topImgViewY, topImgSize.width, topImgSize.height)];
     topImgView.image        = [UIImage imageWithName:@"test_ok"];
     
-    //设置字体
     UIFont *titleFont       = [UIFont systemFontOfSize:15.f weight:UIFontWeightMedium];
     UIFont *messageFont     = [UIFont systemFontOfSize:13.f];
     
@@ -69,7 +67,6 @@
     CGSize titleSize        = [NSString sizeForString:tip font:titleFont maxWidth:maxTextWidth];
     CGSize messageSize      = [NSString sizeForString:content font:messageFont maxWidth:maxTextWidth];
     
-    //内容和标题
     CGFloat titleLabelX = (SCREENWIDTH - 2*horizontalSpaceToScreen - titleSize.width)/2;
     CGFloat titleLabelY = topSpaceViewToView;
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(titleLabelX, titleLabelY, titleSize.width, titleSize.height)];
@@ -88,7 +85,6 @@
     messageLabel.textAlignment  = NSTextAlignmentCenter;
     messageLabel.numberOfLines  = 0;
     
-    //OK按钮
     CGFloat okBtnX      = 40;
     CGFloat okBtnY      = messageLabelY + messageSize.height + topSpaceViewToView + 5 + 15;
     CGFloat okBtnW      = SCREENWIDTH - 2*horizontalSpaceToScreen - 80;
@@ -141,6 +137,15 @@
  @param postion toast位置（顶，中，下）
  @param tip     提示信息
  @param content 内容信息
+ */
+
+/**
+ Status prompt: success, failure, warning, prompt
+
+ @param type toast type
+ @param postion toast location (top, middle, bottom)
+ @param tip information
+ @param content content information
  */
 - (void)showToastActionWithToastType:(KHJToastType)type
                         toastPostion:(KHJToastPosition)postion

@@ -1,13 +1,7 @@
 //
 //  LANVController.m
-//  KHJCamera
-//
-//  Created by hezewen on 2018/6/23.
-//  Copyright © 2018年 khj. All rights reserved.
-//
 
 #import "LANVController.h"
-//#import "KHJDeviceManager.h"
 #import <KHJCameraLib/KHJCameraLib.h>
 
 #import "RemberUserListView.h"
@@ -20,7 +14,9 @@
     RemberUserListView *remListView;
     UIButton *searchBtn;
     NSArray *deviceArray;
-    NSString *newPwdString;//设备密码
+    // 设备密码
+    // Device password
+    NSString *newPwdString;
 
     NSString *deviceName;
     dispatch_source_t _timer;
@@ -71,7 +67,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -85,7 +81,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//二维码扫描uid
+// 二维码扫描uid
+// QR code scan uid
 - (IBAction)swipERClick:(UIButton *)sender
 {
     WCQRCodeScanViewController *WCVC = [[WCQRCodeScanViewController alloc] init];
@@ -111,9 +108,12 @@
                             [self.navigationController pushViewController:scanVC animated:YES];
                         });
                         NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                        NSLog(@"The user first agreed to the permission to access the camera--%@", [NSThread currentThread]);
                     }
                     else {
                         NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                        NSLog(@"User denied access to camera for the first time--%@", [NSThread currentThread]);
+                        
                     }
                 }];
                 break;
@@ -129,6 +129,7 @@
             }
             case AVAuthorizationStatusRestricted: {
                 NSLog(@"因为系统原因, 无法访问相册");
+                NSLog(@"Unable to access the album due to system reasons");
                 break;
             }
             default:
@@ -192,6 +193,7 @@
 }
 
 #pragma mark - 搜索回调
+#pragma mark - Search callback
 
 - (void)seachDevice
 {
@@ -231,7 +233,7 @@
     __block NSTimeInterval seconds = 10.f;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
      _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0); // 每秒执行一次
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0);
     
     dispatch_source_set_event_handler(_timer, ^{
         seconds--;
@@ -251,7 +253,9 @@
     });
     dispatch_resume(_timer);
 }
-//添加遮罩
+
+// 添加遮罩
+// Add mask
 - (void)addShadow
 {
     backgroundView = [[UIView alloc] init];
@@ -299,18 +303,19 @@
         [backgroundView removeFromSuperview];
     }
 }
-//连接成功的回调
+
+// callback for successful connection
 - (void)connectDevice:(int)success withUid:(NSString *)uidStr{
     
-    NSLog(@"连接成功?== %d",success);
+    CLog(@"connection succeeded?== %d",success);
     self.uuidStr = uidStr;
-    WeakSelf
-    if (success == 0) {//连接成功
-        CLog(@"连接设备成功");
+    if (success == 0) {
+        CLog (@"connected to device successfully");
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[KHJHub shareHub] showText:@"连接成功" addToView:self.view];
+            [[KHJHub shareHub] showText:KHJLocalizedString(@"configSuccess", nil) addToView:self.view];
         });
-        //此处需要SDK使用者，对设备设置相关信息，让设备去服务器注册绑定账户，
+        // 此处需要SDK使用者，对设备设置相关信息，让设备去服务器注册绑定账户，
+        // Here you need SDK users to set relevant information on the device and let the device register with the server to bind the account,
 //        [dManager setAccount:@"用户账号" andSsid:@"" andSPwd:@"" andType:3 andService:@"serverURL" returnBlock:^(BOOL success) {
 //
 //        }];
@@ -321,12 +326,14 @@
     }
     else if (success == -20009) {
         // 密码错误
+        // wrong password
     }
     else if (success == -90) {
         // 离线
+        // Offline
     }
     else {
-        CLog(@"连接设备失败");
+        CLog(@"Failed to connect device");
     }
 }
 

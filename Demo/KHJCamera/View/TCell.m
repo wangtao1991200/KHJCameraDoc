@@ -37,7 +37,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        // 固定各个控件的frame，以及相关属性。
+        // Fix the frame of each control and related properties.
         contentImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 230)];
         playImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
         playImageView.image = [UIImage imageNamed:@"header_icon_play_ap"];
@@ -75,16 +75,9 @@
         apLab.hidden = YES;
         [contentImageView addSubview:apLab];
         
-//        //分享按钮
-//        shareBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREENWIDTH-80, 0, 80, 24)];
-//        [shareBtn setBackgroundImage:[UIImage imageNamed:@"lzfx"] forState:UIControlStateNormal];
-//        [shareBtn addTarget:self.delegete action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
-//        shareBtn.hidden = YES;
-//        [self.contentView addSubview:shareBtn];
-        
         _swithV = [[UISwitch alloc] initWithFrame:CGRectMake(SCREENWIDTH-80, 10, 100, 100)];
         _swithV.on = YES;
-        _swithV.transform = CGAffineTransformMakeScale( 0.75,0.75);//缩放
+        _swithV.transform = CGAffineTransformMakeScale( 0.75,0.75);
         _swithV.layer.anchorPoint=CGPointMake(0,0.5);
         [_swithV addTarget:self.delegete action:@selector(openClick:) forControlEvents:UIControlEventValueChanged];
         _swithV.tintColor = [UIColor whiteColor];
@@ -92,14 +85,10 @@
         [self addSubview:_swithV];
         
         UIButton *editBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 40, 40)];
-        [editBtn setBackgroundImage:[UIImage imageNamed:@"editor"] forState:UIControlStateNormal];//点击事件在用到的类中实现
+        [editBtn setBackgroundImage:[UIImage imageNamed:@"editor"] forState:UIControlStateNormal];
         [editBtn addTarget:self.delegete action:@selector(clickEditBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:editBtn];
         editBtn.hidden = YES;
-        
-//        UILongPressGestureRecognizer *gest1 = [[UILongPressGestureRecognizer alloc] initWithTarget:self.delegete action:@selector(LongPressCell:)];
-//        gest1.delegate = self.delegete;
-//        [self addGestureRecognizer:gest1];
         
         self.userInteractionEnabled = YES;
         [self addSubview:shareBtn];
@@ -110,16 +99,6 @@
     return self;
 }
 
-//- (void)shareClick{
-//
-//    CLog(@"shareClick");
-//}
-//
-//- (void)clickEditBtn
-//{
-//    CLog(@"clickEditBtn");
-//
-//}
 @end
 
 

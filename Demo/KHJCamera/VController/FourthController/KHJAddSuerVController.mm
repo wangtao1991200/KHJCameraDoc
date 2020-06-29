@@ -2,7 +2,7 @@
 //  AddSuerVController.m
 //
 //  配网连接
-//
+//  Distribution network connection
 //
 //
 
@@ -12,8 +12,7 @@
 #import "UIViewController+XNProgressHUD.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
-
-// 包含头文件
+// Include header files
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
@@ -30,10 +29,13 @@
     int pCount;
     NSTimer *mTimer;
     int mCount;
-    NSString *newPwdString;//设备密码
+    // Device password
+    NSString *newPwdString;
     BOOL isFirstInto;
-    NSString *dAccount;//设备账号默认 admin
-    NSString *dVersion;//设备版本
+    // Device account default admin
+    NSString *dAccount;
+    // Device version
+    NSString *dVersion;
     UIButton *sureBtn;
     dispatch_source_t checkWifiTime;
     BOOL isNewFirmware;
@@ -90,7 +92,7 @@
     [NSThread detachNewThreadSelector:@selector(connectTCPSer) toTarget:self withObject:nil];
 }
 
-#pragma mark  - 连接成功回调
+#pragma mark  - Connection success callback
 
 - (void)changeShow
 {
@@ -124,7 +126,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -173,8 +175,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)clickSureListen:(UIButton *)sender {//连接流程，添加设备
-    
+
+// Connect process, add devices
+- (IBAction)clickSureListen:(UIButton *)sender
+{
     [self showAlertConnected];
 }
 
@@ -209,20 +213,20 @@
 - (void)connectTCPSer
 {
     BOOL success;
-    // 创建 socket
+    // Create socket
     self.clientSockfd = CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP, kCFSocketConnectCallBack, ServerConnectCallBack, NULL);
     success = (self.clientSockfd != nil);
     NSString *logStr = nil;
     if (success == NO) {
-        logStr = @"创建 socket 失败...\n";
+        logStr = @"Failed to create socket...\n";
         CLog(@"%@",logStr);
         return;
     }
     else {
-        logStr = @"创建 socket 成功...\n";
+        logStr = @"Failed to create socket...\n";
         CLog(@"%@",logStr);
 
-        // 服务器地址
+        // server address
         struct sockaddr_in ser_addr;
         memset(&ser_addr, 0, sizeof(ser_addr));
         ser_addr.sin_len         = sizeof(ser_addr);
@@ -233,25 +237,25 @@
         ser_addr.sin_addr.s_addr = inet_addr(ttS.UTF8String);
         
         CFDataRef address = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&ser_addr, sizeof((ser_addr)));
-        // 连接
+        // connection
         CFSocketError result = CFSocketConnectToAddress(self.clientSockfd, address, 5);
         CFRelease(address);
         success = (result == kCFSocketSuccess);
     }
     
     if (success == NO) {
-        logStr = @"socket 连接失败...\n";
+        logStr = @"socket connection failed...\n";
         CLog(@"%@",logStr);
         return;
     }
     else {
         
-        logStr = [NSString stringWithFormat:@"socket 连接  成功...\n"];
+        logStr = [NSString stringWithFormat:@"socket connection successful...\n"];
         CLog(@"%@",logStr);
         [self socketSendData];
         char buf[2048];
         do {
-            // 接收数据
+            // Receive data
             ssize_t recvLen = recv(CFSocketGetNative(self.clientSockfd), buf, sizeof(buf), 0);
             
             if (recvLen > 0) {
@@ -274,6 +278,9 @@
 }
 
 // 连接成功的回调函数
+
+// Callback function for successful connection
+
 void ServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType type, CFDataRef address, const void * data, void *info) {
     
     if (data != NULL) {
@@ -287,7 +294,11 @@ void ServerConnectCallBack(CFSocketRef socket, CFSocketCallBackType type, CFData
 - (void)socketSendData
 {
     NSString *codeData = [NSString stringWithFormat:@"S=%@,P=%@",self.ssidName,self.ppPwd];
+    
     // 发送数据
+    
+    // send data
+    
     ssize_t sendLen = send(CFSocketGetNative(self.clientSockfd), codeData.UTF8String, strlen(codeData.UTF8String), 0);
 }
 

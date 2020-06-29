@@ -1,12 +1,6 @@
 //
 //  SGWebView.h
 //  SGWebViewExample
-//
-//  Created by kingsic on 17/3/27.
-//  Copyright © 2017年 kingsic. All rights reserved.
-//
-//  SGWebView 使用注意点：
-//  如果 self.navigationController.navigationBar.translucent = NO；或者导航栏不存在; 那么 SGWebView 的 isNavigationBarOrTranslucent属性 必须设置 NO)
 
 #import <UIKit/UIKit.h>
 @class SGWebView;

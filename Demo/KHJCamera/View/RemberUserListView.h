@@ -7,9 +7,9 @@
 
 @property(nonatomic,copy)void(^TableClickBlock)(NSString * str);
 
-@property (nonatomic,copy)NSMutableArray *dataArray;//数据源
+@property (nonatomic,copy)NSMutableArray *dataArray;
 
-@property (nonatomic,assign)BOOL isDelete;//数据源
+@property (nonatomic,assign)BOOL isDelete;
 
 - (void)refreshTable;
 - (void)show;

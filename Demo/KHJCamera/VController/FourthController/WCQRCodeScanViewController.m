@@ -51,7 +51,6 @@
     [self.view addSubview:self.scanningView];
     [self setupQRCodeScanning];
     [self.view addSubview:self.promptLabel];
-    /// 为了 UI 效果
     [self.view addSubview:self.bottomView];
     [self setbackBtn];
 }
@@ -60,7 +59,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -91,7 +90,6 @@
 {
     self.manager = [SGQRCodeScanManager sharedManager];
     NSArray *arr = @[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-    // AVCaptureSessionPreset1920x1080 推荐使用，对于小型的二维码读取率较高
     [_manager setupSessionPreset:AVCaptureSessionPreset1920x1080 metadataObjectTypes:arr currentController:self];
     _manager.delegate = self;
 }
@@ -111,6 +109,7 @@
 - (void)QRCodeAlbumManagerDidReadQRCodeFailure:(SGQRCodeAlbumManager *)albumManager
 {
     NSLog(@"暂未识别出二维码");
+    NSLog(@"No QR code recognized");
 }
 
 #pragma mark - - - SGQRCodeScanManagerDelegate
@@ -124,7 +123,11 @@
         [scanManager videoPreviewLayerRemoveFromSuperlayer];
         
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
-        //获取二维码信息
+        
+        // 获取二维码信息
+        
+        // Get QR code information
+        
         NSString *string = [obj stringValue];
         NSLog(@"string = %@",string);
         NSDictionary *dic = [NSDictionary dictionaryWithObject:string forKey:@"erCodeMassege"];
@@ -141,6 +144,7 @@
     }
     else {
         NSLog(@"暂未识别出扫描的二维码");
+        NSLog(@"The scanned QR code is not recognized yet");
     }
 }
 
@@ -184,12 +188,13 @@
     return _bottomView;
 }
 
-#pragma mark - - - 闪光灯按钮
+#pragma mark - Flash button
 
 - (UIButton *)flashlightBtn
 {
     if (!_flashlightBtn) {
         // 添加闪光灯按钮
+        // Add flash button
         _flashlightBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
         CGFloat flashlightBtnW = 30;
         CGFloat flashlightBtnH = 30;

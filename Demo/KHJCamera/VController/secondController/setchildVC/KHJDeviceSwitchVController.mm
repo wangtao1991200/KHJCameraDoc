@@ -2,15 +2,14 @@
 //  DeviceSwitchVController.m
 //
 //  定时开关机
-//
+//  Timer switch
 //
 //
 
 #import "KHJDeviceSwitchVController.h"
 #import "KHJAllBaseManager.h"
 #import <KHJCameraLib/KHJCameraLib.h>
-//#import "KHJDeviceManager.h"
-//#import "TimeInfo.h"
+
 #import "KHJSetStartAndEndTimeVController.h"
 #import "PlanCell.h"
 #import "Calculate.h"
@@ -19,7 +18,7 @@
 
 @interface KHJDeviceSwitchVController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    NSMutableArray *ttMarray;//保存设备的计划
+    NSMutableArray *ttMarray;
     UISwitch *switchView;
     CGFloat TTableHeight;
     UITableView *ttTable;
@@ -34,7 +33,6 @@
     WeakSelf
     dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
-        // 任务1
         [weakSelf getDevicePlanList];
     });
 }
@@ -83,7 +81,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -95,6 +93,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark - UITableViewDelegate, UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
@@ -170,7 +169,10 @@
     return but;
 
 }
-- (void)addPlan//添加计划
+
+// 添加计划
+// Add plan
+- (void)addPlan
 {
     KHJSetStartAndEndTimeVController *sAndEndVC = [[KHJSetStartAndEndTimeVController alloc] init];
     sAndEndVC.sIndex = -1;

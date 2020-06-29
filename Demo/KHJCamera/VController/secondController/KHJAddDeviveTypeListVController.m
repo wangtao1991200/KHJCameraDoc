@@ -2,7 +2,7 @@
 //  KAddDevVController.m
 //
 //  添加设备方法列表，"设备扫码添加" "设备热点连接" "有线连接"
-//
+//  Add device method list, "device scan code added" "device hotspot connection" "wired connection"
 //
 //
 
@@ -68,7 +68,7 @@
 {
     UIButton *btn       = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame           = CGRectMake(0, 0, 66, 44);
-    //解决按钮不能靠左问题
+    
     btn.imageEdgeInsets = UIEdgeInsetsMake(0, -40, 0, 0);
     [btn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -127,7 +127,8 @@
     switch (indexPath.section) {
         case 0:
         {
-            //二维码连接
+            // 二维码连接
+            // QR code connection
             KHJTipsViewController *tipCtrl = [[KHJTipsViewController alloc] init];
             tipCtrl.vIndex = 0;
             [self.navigationController pushViewController:tipCtrl animated:YES];
@@ -135,7 +136,8 @@
             break;
         case 1:
         {
-            //热点连接
+            // 热点连接
+            // hotspot connection
             KHJTipsViewController *tipCtrl = [[KHJTipsViewController alloc] init];
             tipCtrl.vIndex = 1;
             [self.navigationController pushViewController:tipCtrl animated:YES];
@@ -143,7 +145,8 @@
             break;
         case 2:
         {
-            //有线链接
+            // 有线链接
+            // Wired link
             LANVController *lnVC = [[LANVController alloc] init];
             [self.navigationController pushViewController:lnVC animated:YES];
         }
@@ -166,8 +169,10 @@
                             [self.navigationController pushViewController:scanVC animated:YES];
                         });
                         NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                        NSLog(@"The user first agreed to the permission to access the camera--%@", [NSThread currentThread]);
                     } else {
                         NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                        NSLog(@"User denied access to camera for the first time--%@", [NSThread currentThread]);
                     }
                 }];
                 break;
@@ -187,6 +192,7 @@
             }
             case AVAuthorizationStatusRestricted: {
                 NSLog(@"因为系统原因, 无法访问相册");
+                NSLog(@"Unable to access the album due to system reasons");
                 break;
             }
             default:

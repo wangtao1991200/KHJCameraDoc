@@ -58,9 +58,9 @@
     
     heightt = bLine.frame.size.height+bLine.frame.origin.y + 40;
     proView = [[UIProgressView alloc] initWithFrame:CGRectMake(cWidth, heightt, bgView.frame.size.width-2*cWidth, 1)];
-    proView.progressTintColor= label.textColor;//设置已过进度部分的颜色
-    proView.trackTintColor= [UIColor lightGrayColor];//设置未过进度部分的颜色
-    proView.transform = CGAffineTransformMakeScale(1.0f, 2.0f);//改变进度条的高度
+    proView.progressTintColor= label.textColor;
+    proView.trackTintColor= [UIColor lightGrayColor];
+    proView.transform = CGAffineTransformMakeScale(1.0f, 2.0f);
         proView.progress=0;
     [bgView addSubview:proView];
     

@@ -17,18 +17,26 @@
 @interface DeviceInfoVController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *mTable;
-    NSArray *mPArr;//数组
-    NSArray *mTArr;//文字数组
+    NSArray *mPArr;
+    NSArray *mTArr;
     
-    
-    NSMutableDictionary * showDic;//存储显示信息
+    // 存储显示信息
+    // Store display information
+    NSMutableDictionary * showDic;
     UIImageView *verImageV;
-    BOOL isNeedVer;//是否有新的固件版本
-    NSString *verString;//服务端固件版本号
+    // 是否有新的固件版本
+    // Is there a new firmware version
+    BOOL isNeedVer;
+    // 服务端固件版本号
+    // Server firmware version number
+    NSString *verString;
     UILabel *devNameLab;
-    dispatch_source_t _conntimer;//定时器
+    // 定时器
+    // Timer
+    dispatch_source_t _conntimer;
 
-    /// 设备是否掉线
+    // 设备是否掉线
+    // Whether the device is offline
     bool deviceDropInfo;
 }
 @end
@@ -91,14 +99,18 @@
     }
 }
 #pragma mark - startTimerWithSeconds
+
 - (void)startTimerWithSeconds:(long)seconds endBlock:(void(^)())endBlock
 {
-    __block long timeout = seconds;//倒计时时间
+    __block long timeout = seconds;
+    
     dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
     _conntimer =dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,0,0,queue);
-    dispatch_source_set_timer(_conntimer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);//每秒执行
+    dispatch_source_set_timer(_conntimer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);
     dispatch_source_set_event_handler(_conntimer, ^{
-        if(timeout < 0){ //倒计时结束，回调block
+        if (timeout < 0) {
+            // 倒计时结束，回调block
+            // End of countdown, callback block
             dispatch_source_cancel(self->_conntimer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(endBlock) {
@@ -116,7 +128,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -156,6 +168,7 @@
         [weakSelf refreshTable];
     });
 }
+
 - (void)getDeviceInfo
 {
     KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.uuidStr];
@@ -166,6 +179,7 @@
 //        }];
     }
 }
+
 -(void)backDeviceInfo:(int)allCapacity LeftCapacity:(int)leftCapacity Version:(int)version Model:(NSString *)model Vendor:(NSString *)vendor
 {
     
@@ -180,9 +194,9 @@
         
         [weakSelf refreshTable];
     });
-    //得到设备信息，再获取设备类型。
-    if(!self.myInfo.isAPMode){
-        
+    // 得到设备信息，再获取设备类型。
+    // Get device information, and then get the device type.
+    if (!self.myInfo.isAPMode) {
         [self getDeviceType];
     }
 }
@@ -237,21 +251,25 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
             break;
-        case 1://设备ID
+        case 1:
         {
+            // 设备ID
+            // Device ID
             lab.text = self.uuidStr;
         }
             break;
             
-        case 2://设备类型
+        case 2:
         {
+            // 设备类型
+            // Equipment type
             lab.text =  [NSString stringWithFormat:@"IPC%@",self.myInfo.deviceType];
         }
             break;
         case 3:
         {
             if (deviceDropInfo) {
-                lab.text = @"未知";
+                lab.text = @"unknown";
             }
             else {
                 NSString *version = [showDic objectForKey:@"version"];
@@ -274,7 +292,7 @@
         case 4:
         {
             if (deviceDropInfo) {
-                lab.text = @"未知";
+                lab.text = @"unknown";
             }
             else {
                 NSString * ip = [showDic objectForKey:@"ip"];
@@ -287,7 +305,7 @@
         case 5:
         {
             if (deviceDropInfo) {
-                lab.text = @"未知";
+                lab.text = @"unknown";
             }
             else {
                 NSString * mac = [showDic objectForKey:@"mac"];
@@ -316,7 +334,9 @@
             }
         }
     }
-    else if (indexPath.row == 0) {//修改设备名称
+    else if (indexPath.row == 0) {
+        // 修改设备名称
+        // Modify the device name
         if (!self.myInfo.isAPMode) {
             if (!deviceDropInfo) {
                 UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -418,7 +438,8 @@
     UIAlertController *alertview=[UIAlertController alertControllerWithTitle:KHJLocalizedString(@"formatSdcard", nil) message:KHJLocalizedString(@"sureFormateSDCard", nil) preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel=[UIAlertAction actionWithTitle:KHJLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *defult = [UIAlertAction actionWithTitle:KHJLocalizedString(@"commit", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //格式化sd
+        // 格式化
+        // format
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJHub shareHub] showText:KHJLocalizedString(@"processing", nil) addToView:self.view type:_lightGray];
         });
@@ -434,9 +455,13 @@
     [alertview addAction:defult];
     [self presentViewController:alertview animated:YES completion:nil];
 }
-//* successCallbackI int: 0 成功 -1 失败 -2 没有插入sdcard
-- (void)callBackSuccessFormateSD:(int)success{
 
+// successCallbackI int: 0 成功 -1 失败 -2 没有插入sdcard
+
+// successCallbackI int: 0 Success -1 Failure -2 No sdcard inserted
+
+- (void)callBackSuccessFormateSD:(int)success
+{
     if (success == 0) {
         CLog(@"格式化成功");
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -473,8 +498,7 @@
     NSString *version = [[showDic objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
     devVer = [devVer stringByReplacingOccurrencesOfString:@"." withString:@""];
     __weak typeof(mTable) weakMtable= mTable;
-    if ([devVer intValue] > [version intValue]) {//更新界面
-        
+    if ([devVer intValue] > [version intValue]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakMtable reloadData];
             [weakSelf setNewVer];

@@ -1,3 +1,4 @@
+
 //
 //  AlarmSetVController.m
 //
@@ -24,9 +25,15 @@
 
     UIView *lv;
     CustomSlider *cslider;
-    UISwitch *swDeviceSound;//声音报警开关
-    UISwitch *swDetectSound;//声音侦测开关
-    UISwitch *swDetectMove; //移动侦测开关
+    // 声音报警开关
+    // Audible alarm switch
+    UISwitch *swDeviceSound;
+    // 声音侦测开关
+    // Sound detection switch
+    UISwitch *swDetectSound;
+    // 移动侦测开关
+    // Motion detection switch
+    UISwitch *swDetectMove;
     
     NSMutableArray *shareList;
     NSMutableArray *unShareList;
@@ -66,7 +73,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -98,7 +105,9 @@
     });
 }
 
-- (void)clickDetectSound:(UISwitch *)sw//设备声音报警开关
+// 设备声音报警开关
+// Device sound alarm switch
+- (void)clickDetectSound:(UISwitch *)sw
 {
     KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.myInfo.deviceUid];
     WeakSelf
@@ -251,11 +260,14 @@
     }
     bgView.backgroundColor = UIColor.grayColor;
     [self.view addSubview:bgView];
-    //设备声音开关
+    // 设备声音开关
+    // Device sound switch
     [self setDeviceSound];
-    //声音侦测
+    // 声音侦测
+    // sound detection
     [self setSoundDetect];
-    //移动侦测
+    // 移动侦测
+    // Motion Detection
     [self setMoveDetect];
     [bgView addSubview:deviceSoundBtn];
     [bgView addSubview:detectSoundBtn];
@@ -266,7 +278,8 @@
 
 - (void)setDeviceSound
 {
-    //设备声音开关
+    // 设备声音开关
+    // Device sound switch
     deviceSoundBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, 44)];
     [deviceSoundBtn setTitle:[NSString stringWithFormat:@"    %@",KHJLocalizedString(@"DeviceAlarmSound", nil)] forState:UIControlStateNormal];
     [deviceSoundBtn setTitleColor:UIColor.darkTextColor forState:UIControlStateNormal];
@@ -274,10 +287,10 @@
     [deviceSoundBtn setBackgroundColor:[UIColor whiteColor]];
     
     swDeviceSound = [[UISwitch alloc] initWithFrame:CGRectMake(SCREENWIDTH-82, 8, 72, 44)];
-    swDeviceSound.on = NO;//初始状态
+    swDeviceSound.on = NO;
     [self checkDeviceAlarmVolume];
     swDeviceSound.onTintColor = DeCcolor;
-    swDeviceSound.transform = CGAffineTransformMakeScale( 0.75, 0.75);//缩放
+    swDeviceSound.transform = CGAffineTransformMakeScale( 0.75, 0.75);
     swDeviceSound.layer.anchorPoint=CGPointMake(0,0.5);
     [swDeviceSound addTarget:self action:@selector(clickDevSound:) forControlEvents:UIControlEventValueChanged];
     [deviceSoundBtn addSubview:swDeviceSound];
@@ -302,17 +315,21 @@
 }
 
 #pragma mark - 设备报警开关
-- (void)clickDevSound:(UISwitch *)sw//设备发出报警声音开关
+#pragma mark - Device alarm switch
+
+// 设备发出报警声音开关
+// The device emits an alarm sound switch
+- (void)clickDevSound:(UISwitch *)sw
 {
     KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.myInfo.deviceUid];
     WeakSelf
     if (dDevice) {
         [dDevice.mDeviceManager setDeviceAlarmVolume:sw.on returnBlock:^(BOOL success) {
-            
             [weakSelf setDeviceAlarmVolumeCallback:success];
         }];
     }
 }
+
 - (void)setDeviceAlarmVolumeCallback:(BOOL)success
 {
     if (success) {
@@ -348,9 +365,9 @@
     detectSoundBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
     swDetectSound = [[UISwitch alloc] initWithFrame:CGRectMake(SCREENWIDTH-82, 8, 72, 44)];
-    swDetectSound.on = NO;//初始状态
+    swDetectSound.on = NO;
     swDetectSound.onTintColor = DeCcolor;
-    swDetectSound.transform = CGAffineTransformMakeScale( 0.75, 0.75);//缩放
+    swDetectSound.transform = CGAffineTransformMakeScale( 0.75, 0.75);
     swDetectSound.layer.anchorPoint=CGPointMake(0,0.5);
     [swDetectSound addTarget:self action:@selector(clickDetectSound:) forControlEvents:UIControlEventValueChanged];
     [detectSoundBtn addSubview:swDetectSound];
@@ -365,9 +382,9 @@
     [detectMoveBtn setTitle:[NSString stringWithFormat:@"    %@",KHJLocalizedString(@"moveDetect", nil)] forState:UIControlStateNormal];
     detectMoveBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     swDetectMove = [[UISwitch alloc] initWithFrame:CGRectMake(SCREENWIDTH-82, 8, 72, 44)];
-    swDetectMove.on = NO;//初始状态
+    swDetectMove.on = NO;
     swDetectMove.onTintColor = DeCcolor;
-    swDetectMove.transform = CGAffineTransformMakeScale( 0.75, 0.75);//缩放
+    swDetectMove.transform = CGAffineTransformMakeScale( 0.75, 0.75);
     swDetectMove.layer.anchorPoint=CGPointMake(0,0.5);
     [swDetectMove addTarget:self action:@selector(clickDetectMove:) forControlEvents:UIControlEventValueChanged];
     [detectMoveBtn addSubview:swDetectMove];
@@ -396,7 +413,6 @@
     cslider.thumbSize = CGSizeMake(32, 32);
     cslider.partSize = CGSizeMake(15, 15);
     cslider.partNameArray = @[KHJLocalizedString(@"low", nil),@" ",@" ",@" ",KHJLocalizedString(@"high", nil)];
-    //    slider.sliderColor = [UIColor lightGrayColor];
     cslider.partColor = [UIColor lightGrayColor];
     cslider.value = 4;
     [cslider addTarget:self action:@selector(valuechange:) forControlEvents:UIControlEventValueChanged];
@@ -409,7 +425,6 @@
 - (void)valuechange:(CustomSlider *)slider
 {
     slider.enabled = NO;
-    CLog(@"slider.value == %ld",slider.value);
     KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.myInfo.deviceUid];
     WeakSelf
     if (dDevice) {

@@ -6,20 +6,20 @@
 @implementation DeviceInfo
 
 @synthesize devId;
-@synthesize  deviceAccount;//设备账号
-@synthesize deviceConfigs;//配置信息
-@synthesize deviceInfoId;//设备信息ID
-@synthesize deviceName;//设备名称
-@synthesize devicePwd;//设备密码
+@synthesize  deviceAccount;
+@synthesize deviceConfigs;
+@synthesize deviceInfoId;
+@synthesize deviceName;
+@synthesize devicePwd;
 @synthesize deviceRealPwd;
-@synthesize deviceRemark;//备注
-@synthesize deviceStatus;//设备状态
-@synthesize deviceType;//设备类型
-@synthesize deviceUid;//设备UID
-@synthesize deviceVersion;//版本信息
-@synthesize ownFlag;// 设备所属
-@synthesize isShare; //是否可以分享
-@synthesize DeviceConnectState; //是否连接
+@synthesize deviceRemark;
+@synthesize deviceStatus;
+@synthesize deviceType;
+@synthesize deviceUid;
+@synthesize deviceVersion;
+@synthesize ownFlag;
+@synthesize isShare;
+@synthesize DeviceConnectState;
 @synthesize recType;
 @synthesize cloudStatus;
 @synthesize storageTime;

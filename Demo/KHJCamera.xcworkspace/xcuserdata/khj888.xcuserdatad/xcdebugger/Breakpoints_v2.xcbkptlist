@@ -602,23 +602,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D490E96-D191-4BEC-8CFF-A2645F7355DA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            timestampString = "589275099.037388"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
-            landmarkName = "-otherStopRecodeVedio"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CF99FA5E-9DCE-4096-B50D-92128410DF80"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -627,110 +610,10 @@
             timestampString = "589275099.037474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2226"
-            endingLineNumber = "2226"
+            startingLineNumber = "2404"
+            endingLineNumber = "2404"
             landmarkName = "-backGetPushListenerState:withDstring:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "64681C6D-6F32-44C6-8FDD-4B2D23EB6AA2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            timestampString = "589275099.037526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2229"
-            endingLineNumber = "2229"
-            landmarkName = "-backGetPushListenerState:withDstring:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2F448F76-D88B-4465-AD33-534A5781EDC4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            timestampString = "589275099.03757"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1719"
-            endingLineNumber = "1719"
-            landmarkName = "-sendAudio"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F9C41394-EB9C-4A45-9E93-13E340876CF4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            timestampString = "589275099.037623"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1732"
-            endingLineNumber = "1732"
-            landmarkName = "-sendAudio"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            timestampString = "589275099.03767"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1727"
-            endingLineNumber = "1727"
-            landmarkName = "-sendAudio"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - 9fa269dda48f9a5f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[KHJVideoPlayViewController sendAudio]"
-                  moduleName = "KHJCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1727"
-                  endingLineNumber = "1727"
-                  offsetFromSymbolStart = "660">
-               </Location>
-               <Location
-                  uuid = "977FFBF1-B3E4-4B38-8D1D-4DCBCE8E51E2 - d26adad91705f7af"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[KHJVideoPlayViewController sendAudio]_block_invoke"
-                  moduleName = "KHJCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1727"
-                  endingLineNumber = "1727"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -744,8 +627,8 @@
             timestampString = "589274204.696514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-saveSSID:"
             landmarkType = "7">
          </BreakpointContent>
@@ -761,8 +644,8 @@
             timestampString = "589274204.696589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-connectDevice:withUid:"
             landmarkType = "7">
             <Locations>
@@ -777,23 +660,23 @@
                   urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "316">
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "368">
                </Location>
                <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - ebec4d14827d7125"
+                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - ebec4d14827d7a12"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke.178"
+                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke.182"
                   moduleName = "KHJCamera"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -810,8 +693,8 @@
             timestampString = "589274204.696641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "-connectDevice:withUid:"
             landmarkType = "7">
          </BreakpointContent>
@@ -844,8 +727,8 @@
             timestampString = "589274204.697216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-saveSSID:"
             landmarkType = "7">
          </BreakpointContent>
@@ -878,8 +761,8 @@
             timestampString = "589275318.0558"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-createTwoCode:"
             landmarkType = "7">
          </BreakpointContent>
@@ -895,8 +778,8 @@
             timestampString = "589275322.115505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-createTwoCode:"
             landmarkType = "7">
          </BreakpointContent>
@@ -911,8 +794,8 @@
             filePath = "KHJCamera/VController/DevieceViewController.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-handleHotConnect:"
             landmarkType = "7">
          </BreakpointContent>

@@ -15,7 +15,10 @@
     UISwitch   *switchView;
     CustomSlider *cslider;
     UISlider *voiceSlider;
-    UILabel *vLabel;//音量显示
+   
+    // 音量显示
+    // Volume display
+    UILabel *vLabel;
 }
 @end
 
@@ -38,7 +41,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -125,6 +128,7 @@
 - (void)getDeviceVolumeCallback:(int)success
 {
     CLog(@"音量 == %d",success);
+    CLog(@"volume == %d",success);
     __weak typeof(voiceSlider) weakVoiceSlider= voiceSlider;
     __weak typeof(vLabel) weakVLabel= vLabel;
     dispatch_async(dispatch_get_main_queue(), ^{

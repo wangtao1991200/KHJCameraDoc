@@ -10,16 +10,16 @@
 #import "FFToast.h"
 
 typedef enum : NSUInteger {
-    _SuccessType = 2,   //绿色背景+成功图标
-    _ErrorType,         //红色背景+错误图标
-    _WarningType,       //橙色背景+警告图标
-    _TipType,           //灰蓝色背景+信息图标
+    _SuccessType = 2,
+    _ErrorType,
+    _WarningType,
+    _TipType,
 } KHJToastType;
 
 typedef enum : NSUInteger {
-    _TopPostion = 0,    //在屏幕顶部
-    _BottomPostion,     //在屏幕底部
-    _CenterPostion,     //在屏幕中间
+    _TopPostion = 0,
+    _BottomPostion,
+    _CenterPostion,
 } KHJToastPosition;
 
 @interface KHJToast : NSObject
@@ -29,11 +29,19 @@ typedef enum : NSUInteger {
 /**
  底部 - 轻量级toast
  */
+
+/**
+Bottom-Lightweight toast
+*/
 - (void)showSingleToastWithContent:(NSString *)content;
 
 /**
  中部 - toast
  */
+
+/**
+Central-toast
+*/
 - (void)showOKBtnToastWith:(NSString *)tip content:(NSString *)content;
 
 /**
@@ -43,6 +51,15 @@ typedef enum : NSUInteger {
  @param postion toast位置（顶，中，下）
  @param tip     提示信息
  @param content 内容信息
+ */
+
+/**
+ Status prompt: success, failure, warning, prompt
+
+ @param type toast type
+ @param postion toast location (top, middle, bottom)
+ @param tip information
+ @param content content information
  */
 - (void)showToastActionWithToastType:(KHJToastType)type
                         toastPostion:(KHJToastPosition)postion

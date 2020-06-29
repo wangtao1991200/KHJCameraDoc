@@ -31,7 +31,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
 
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(popMainViewCtrl) forControlEvents:UIControlEventTouchUpInside];
@@ -65,22 +65,21 @@
     
 }
 
-- (IBAction)listenBtn:(UIButton *)sender {
-    
-    //停止定时器
+- (IBAction)listenBtn:(UIButton *)sender
+{
+    // 停止定时器
+    // Stop timer
     [mmTimer invalidate];
     mmTimer = nil;
-    
-    if(self.vIndex == 0){
+    if (self.vIndex == 0) {
         KHJSetWifiViewController *codeCtrl = [[KHJSetWifiViewController alloc] init];
         codeCtrl.vIndex = self.vIndex;
         [self.navigationController pushViewController:codeCtrl animated:YES];
-    }else{
+    }
+    else {
         KHJHotConnectTypeVController *selAPVC = [[KHJHotConnectTypeVController alloc] init];
         [self.navigationController pushViewController:selAPVC animated:YES];
     }
-    
-    
 }
 @end
 

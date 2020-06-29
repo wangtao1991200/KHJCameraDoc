@@ -4,7 +4,6 @@
 #import <Foundation/Foundation.h>
 #import "KHJAllBaseManager.h"
 #import "KHJBaseDevice.h"
-//NS_ASSUME_NONNULL_BEGIN
 
 @interface KHJAllBaseManager : NSObject
 
@@ -16,5 +15,3 @@
 - (void)removeAllDevice;
 
 @end
-
-//NS_ASSUME_NONNULL_END

@@ -1,10 +1,5 @@
 //
 //  KHJUdpHelper.m
-//  KHJCamera
-//  参考 https://www.cnblogs.com/jjxxjnzy/p/4240000.html
-//  Created by hezewen on 2018/12/24.
-//  Copyright © 2018年 khj. All rights reserved.
-//
 
 #import "KHJUdpHelper.h"
 #import <CocoaAsyncSocket/AsyncUdpSocket.h>
@@ -49,11 +44,13 @@
     BOOL ret = [m_udpSocket bindToPort:6008 error:&error];
     if (ret) {
         NSLog(@"绑定成功");
+        NSLog(@"Binding successful");
         [m_udpSocket joinMulticastGroup:@"224.0.1.2" error:&error];
         [m_udpSocket receiveWithTimeout:-1 tag:0];
     }
     else {
         NSLog(@"绑定失败");
+        NSLog(@"Binding failed");
     }
 }
 
@@ -62,6 +59,12 @@
 
  @param data 设备返回的 json 数据
  */
+
+/**
+Receive UDP message
+
+@param data json data returned by the device
+*/
 - (BOOL)onUdpSocket:(AsyncUdpSocket*)sock didReceiveData:(NSData*)data withTag:(long)tag fromHost:(NSString*)host port:(UInt16)port
 {
     NSDictionary *body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -72,9 +75,19 @@
     [bdevice.mDeviceManager connect:@"888888" withUid:body[@"uid"] flag:0 successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (isSuccess == 0) {
+                
                 CLog(@"连接成功");
+                
+                CLog(@"connection succeeded");
+                
                 // 1.用888888连接成功
+
+                // 1. Connect successfully with 888888
+            
                 // 2.设置设备密码，设置成功后
+                
+                // 2. Set device password, after successful setting
+                
                 [bdevice.mDeviceManager setPassword:@"888888" Newpassword:@"U4I6384375Wr9L01" withUid:body[@"uid"] returnCallBack:^(BOOL result) {
                     if (result) {
                         // 3.向服务器添加设备
@@ -104,6 +117,7 @@
 - (void)popMainViewCtrl
 {
     NSLog(@"返回设备列表");
+    NSLog(@"Return Device List");
 }
 
 - (void)onUdpSocket:(AsyncUdpSocket*)sock didNotSendDataWithTag:(long)tag dueToError:(NSError*)error

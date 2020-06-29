@@ -2,7 +2,7 @@
 //  NetSettingVController.m
 //
 //  网络设置
-//
+//  Network settings
 //
 //
 
@@ -18,11 +18,11 @@
     UILabel *showLabel2;
     UILabel *showLabel3;
     /// 网络状态
+    /// network status
     UILabel *networkTypeLab;
     UITableView     *mmTable;
     NSMutableArray  *mNetArray;
     UIView *backgroundView;
-    //
     UIView * popView;
     NSString *sWifiName;
     BOOL wifiMode;
@@ -51,7 +51,8 @@
     [self setRightButton];
     [self setHeader];
     [self setMyTable];
-    //获取当前连接模式
+    // 获取当前连接模式
+    // Get the current connection mode
     [self GetLickMode];
 }
 
@@ -126,7 +127,11 @@
 {
     if (success) {
         CLog(@"切换成功 = %d",success);
-        if (self->wifiMode) {//是wifi模式
+        CLog(@"Switchover succeeded = %d",success);
+        
+        if (self->wifiMode) {
+            // wifi模式
+            // wifi mode
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[KHJToast share] showToastActionWithToastType:_SuccessType
                                                   toastPostion:_CenterPostion
@@ -137,7 +142,6 @@
                 
                 NSInteger index = [self.navigationController.viewControllers indexOfObject:self];
                 [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:index-3] animated:YES];
-//                [self getwifiList];//这个地方改成，
             });
         }
         else {
@@ -150,6 +154,7 @@
     }
     else {
         CLog(@"切换失败 = %d",success);
+        CLog(@"Switchover failed = %d",success);
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_ErrorType
                                               toastPostion:_CenterPostion
@@ -165,13 +170,15 @@
     if (dDevice) {
         [dDevice.mDeviceManager getNetworkLinkStatus:^(int mode) {
             // mode = 0 : wifi 1: 网线 2:ap 3:失败
+            // mode = 0: wifi 1: network cable 2: ap 3: failed
             [weakSelf backGetLinkMode:mode];
         }];
     }
     [self addShadow];
 }
 
-//添加遮罩
+// 添加遮罩
+// Add mask
 - (void)addShadow
 {
     backgroundView = [[UIView alloc] init];
@@ -181,7 +188,11 @@
     [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
     
     [[KHJHub shareHub] showText:KHJLocalizedString(@"loading", nil) addToView:backgroundView type:_lightGray];
-    //   设置超时，以防设备断开，一直请求
+
+    // 设置超时，以防设备断开，一直请求
+
+    // Set a timeout to prevent the device from disconnecting and keep requesting
+    
     __weak typeof(backgroundView) weakVackgroundView = backgroundView;
     __weak typeof(networkTypeLab) weakNetworkTypeLab = networkTypeLab;
     [self startTimerWithSeconds:10 endBlock:^{
@@ -189,6 +200,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([weakNetworkTypeLab.text isEqualToString:@""]) {
                 // 如无法获取网络模式，请检查设备是否掉线
+                // If the network mode cannot be obtained, please check whether the device is offline
                 [[KHJToast share] showOKBtnToastWith:KHJLocalizedString(@"tips", nil) content:KHJLocalizedString(@"checkNetworkStatus", nil)];
             }
             [KHJHub shareHub].hud.hidden = YES;
@@ -210,6 +222,7 @@
 
 /**
  获取wifi列表
+ Get wifi list
  */
 - (void)getwifiList
 {
@@ -229,7 +242,6 @@
 }
 - (void)backListWifi:(NSArray *)wifiArray
 {
-    CLog(@"wifiArray = %@", wifiArray);
     [mNetArray addObjectsFromArray:wifiArray];
     __weak typeof(mmTable) weakmmTable = mmTable;
     __weak typeof(backgroundView) weakVackgroundView = backgroundView;
@@ -250,12 +262,12 @@
 
 - (void)startTimerWithSeconds:(long)seconds endBlock:(void(^)())endBlock
 {
-    __block long timeout = seconds;//倒计时时间
+    __block long timeout = seconds;
     dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
     dispatch_source_t _timer =dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,0,0,queue);
-    dispatch_source_set_timer(_timer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);//每秒执行
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);
     dispatch_source_set_event_handler(_timer, ^{
-        if(timeout < 0){ //倒计时结束，回调block
+        if (timeout < 0) {
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(endBlock) {
@@ -331,7 +343,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -371,7 +383,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [mNetArray count];
+    return mNetArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -406,7 +418,6 @@
     cell.selected = NO;
     NSString *wSSID =  [mNetArray objectAtIndex:indexPath.row];
     sWifiName = wSSID;
-    //切换wifi
     [self showAlert:wSSID];
     
     
@@ -439,8 +450,6 @@
     alertView.Maxlength = 20;//最大字符
     alertView.ensureBgColor = DeCcolor;
     [alertView ensureClickBlock:^(NSString *inputString) {
-        
-        CLog(@"输入内容为%@",inputString);
         [weakSelf changeConnectWifi:inputString];
         
     }];
@@ -461,7 +470,7 @@
     }
 }
 
-- (void)callbacksuccessSetWifiAp:(bool)success//设备端返回值错误
+- (void)callbacksuccessSetWifiAp:(bool)success
 {
     if(success){
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -475,6 +484,7 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         });
         CLog(@"切换wifi成功");
+        CLog(@"Switch wifi successfully");
     }else{
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_WarningType
@@ -483,11 +493,14 @@
                                                    content:KHJLocalizedString(@"changeFail", nil)];
         });
         CLog(@"切换wifi失败");
+        CLog(@"Wifi switch failed");
     }
 }
 - (void)handleState:(int) state
 {
-    switch (state) {//0 :wifi 1: 网线 2:ap(热点) 3:失败
+    // 0 :wifi 1: 网线 2:ap(热点) 3:失败
+    // 0: wifi 1: network cable 2: ap (hotspot) 3: failure
+    switch (state) {
         case 0:
         {
             networkTypeLab.text = KHJLocalizedString(@"typeWifi", nil);

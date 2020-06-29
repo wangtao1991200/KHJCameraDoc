@@ -56,7 +56,10 @@
 {
     playImageV = [self getPlayImgV];
     [self.view addSubview:playImageV];
-    //定时播放
+    // 定时播放
+    
+    // Play regularly
+    
     pTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(playView) userInfo:nil repeats:YES];
     
     Surebtn = [[UIButton alloc] initWithFrame:CGRectMake(10, SCREENHEIGHT-64-64, SCREENWIDTH-20, 44)];
@@ -75,7 +78,6 @@
 
 - (id)fetchSSIDInfo
 {
-    //mima:12356790
     NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
     id info = nil;
     for (NSString *ifnam in ifs) {
@@ -94,7 +96,10 @@
 
 - (void)saveSSID:(NSString *)str
 {
-    //获取设备UUID
+    // 获取设备UUID
+    
+    // Get device UUID
+    
     if ([str hasPrefix:@"camera_"]) {
         NSArray *tArr = [str componentsSeparatedByString:@"_"];
         NSString *devUid = [tArr lastObject];
@@ -133,14 +138,24 @@
     Surebtn.enabled = YES;
 }
 
-//连接成功的回调
+// 连接成功的回调
+
+// Callback for successful connection
+
 - (void)connectDevice:(int)success withUid:(NSString *)uidStr
 {
-    NSLog(@"连接成功?== %d",success);
-    if (success == 0) {//连接成功
+    CLog(@"连接成功?== %d",success);
+    
+    CLog(@"connection succeeded?== %d",success);
+    
+    if (success == 0) {
+        
         CLog(@"连接设备成功");
+        
+        CLog(@"Device connected successfully");
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[KHJHub shareHub] showText:@"连接成功" addToView:self.view];
+            [[KHJHub shareHub] showText:KHJLocalizedString(@"configSuccess", nil) addToView:self.view];
         });
         [[NSNotificationCenter defaultCenter] postNotificationName:@"hasDevice" object:uidStr];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -151,6 +166,9 @@
     }
     else {
         CLog(@"连接设备失败");
+
+        CLog(@"Failed to connect device");
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success == -20009) {
                 [[KHJToast share] showToastActionWithToastType:_WarningType
@@ -169,7 +187,10 @@
     }
 }
 
-//提示图片国际化
+// 提示图片国际化
+
+// Prompt picture internationalization
+
 - (void)playView
 {
     NSString *language = [NSLocale preferredLanguages].firstObject;
@@ -217,7 +238,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -227,17 +248,6 @@
 - (void)backViewController
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)callbacksuccessSetWifiAp:(bool)success withUid:(NSString *)uidStr
-{
-    if(success) {
-        CLog(@"设置热点模式成功");
-        //搜索设备
-    }
-    else {
-        CLog(@"设置热点模式成功");
-    }
 }
 
 - (void)didReceiveMemoryWarning {

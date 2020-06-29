@@ -512,3 +512,7 @@
 "DevShareMax"="Equipment sharing reaches the maximum";
 "recordFinish" = "Video recording completed";
 "devPwdError" = "Password error";
+
+"ScreenRecord"="Screen recording";
+"speakig"="speaking";
+"keySpeakig"="Push to talk";

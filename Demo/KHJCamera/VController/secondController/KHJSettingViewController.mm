@@ -27,8 +27,7 @@
 @interface KHJSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *mTable;
-//    NSArray *mPArr;//图片数组
-    NSArray *mTArr;//文字数组
+    NSArray *mTArr;
     UIButton *deleteBtn;
 
     UIImageView *headImgView;
@@ -117,7 +116,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
@@ -157,7 +156,7 @@
                 CLog(@"myInfo Address0 =%@",self.myInfo);
                 if (self.myInfo.cloudStatus == 0) {
                     lab.text = KHJLocalizedString(@"notAvailable", nil);
-                }else if(self.myInfo.cloudStatus == 1 ){//云存储类型报警类型()
+                }else if(self.myInfo.cloudStatus == 1 ){
                     
                     NSInteger cTime = self.myInfo.storageTime ;
                     NSInteger cType = self.myInfo.recType;
@@ -169,7 +168,7 @@
                     }
                     lab.text = [NSString stringWithFormat:@"%ld%@(%@)",(long)cTime,KHJLocalizedString(@"storageTime", nil),cTypeStr];
                 }
-            }else if (indexPath.row == 3) {//翻转
+            }else if (indexPath.row == 3) {
                 
                 fSwitchView = [self getFSwitch];
                 [cell addSubview:fSwitchView];
@@ -193,7 +192,7 @@
                 CLog(@"myInfo Address0 =%@",self.myInfo);
                 if (self.myInfo.cloudStatus == 0) {
                     lab.text = KHJLocalizedString(@"notAvailable", nil);
-                }else if(self.myInfo.cloudStatus == 1 ){//云存储类型报警类型()
+                }else if(self.myInfo.cloudStatus == 1 ){
                     
                     NSInteger cTime = self.myInfo.storageTime ;
                     NSInteger cType = self.myInfo.recType;
@@ -205,7 +204,7 @@
                     }
                     lab.text = [NSString stringWithFormat:@"%ld%@(%@)",(long)cTime,KHJLocalizedString(@"storageTime", nil),cTypeStr];
                 }
-            }else if (indexPath.row == 3) {//翻转
+            }else if (indexPath.row == 3) {
                 
                 fSwitchView = [self getFSwitch];
                 [cell addSubview:fSwitchView];
@@ -222,7 +221,7 @@
         
         
     }else{
-    if (indexPath.row == 1) {//翻转
+    if (indexPath.row == 1) {
             
             fSwitchView = [self getFSwitch];
             [cell addSubview:fSwitchView];
@@ -291,11 +290,11 @@
     if (fSwitchView == nil) {
         
         fSwitchView = [[UISwitch alloc] initWithFrame:CGRectMake(SCREENWIDTH-82, 8, 72, 44)];
-        fSwitchView.on = NO;//设置初始为ON的一边
+        fSwitchView.on = NO;
         fSwitchView.onTintColor = DeCcolor;
-        fSwitchView.transform = CGAffineTransformMakeScale( 0.75, 0.75);//缩放
+        fSwitchView.transform = CGAffineTransformMakeScale( 0.75, 0.75);
         fSwitchView.layer.anchorPoint=CGPointMake(0,0.5);
-        [fSwitchView addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];   // 开关事件切换通知
+        [fSwitchView addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     }
     return fSwitchView;
     
@@ -374,8 +373,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
             
-        case 0://设备信息
+        case 0:
         {
+            // 设备信息
+            // Device Information
             DeviceInfoVController *dInfoVC =  [[DeviceInfoVController alloc] init];
             dInfoVC.uuidStr = self.uuidStr;
             dInfoVC.deviceName =  self.deviceName;
@@ -383,35 +384,44 @@
             [self.navigationController pushViewController:dInfoVC animated:YES];
         }
             break;
-        case 1://画面翻转
-            
+        case 1:
+            // 画面翻转
+            // Screen flip
             break;
             
-        case 2://设备相册
+        case 2:
         {
+            // 设备相册
+            // Device album
             KHJSDVedioPhotoVController *sdVPVC = [[KHJSDVedioPhotoVController alloc] init];
             sdVPVC.uuidStr = self.uuidStr;
             sdVPVC.pwd = self.myInfo.devicePwd;
             [self.navigationController pushViewController:sdVPVC animated:YES];
         }
             break;
-        case 3://网络设置
+        case 3:
         {
+            // 网络设置
+            // Network settings
             KHJNetSettingVController *netVC= [[KHJNetSettingVController alloc] init];
             netVC.uuidStr = self.uuidStr;
             netVC.myInfo = self.myInfo;
             [self.navigationController pushViewController:netVC animated:YES];
         }
             break;
-        case 4://设备音量
+        case 4:
         {
+            // 设备音量
+            // Device volume
             ViewAndSoundVController *vsVc = [[ViewAndSoundVController alloc] init];
             vsVc.uuidStr = self.uuidStr;
             [self.navigationController pushViewController:vsVc animated:YES];
         }
             break;
-        case 5://报警设置
+        case 5:
         {
+            // 报警设置
+            // Alarm Settings
             AlarmSetVController  *alarmVC = [[AlarmSetVController alloc] init];
             alarmVC.uuidStr = self.uuidStr;
             alarmVC.myInfo = self.myInfo;
@@ -419,22 +429,28 @@
             [self.navigationController pushViewController:alarmVC animated:YES];
         }
             break;
-        case 6://录像设置
+        case 6:
         {
+            // 录像设置
+            // Record settings
             RecodeVedioSettingVController *rVVC = [[RecodeVedioSettingVController alloc] init];
             rVVC.uuidStr = self.uuidStr;
             [self.navigationController pushViewController:rVVC animated:YES];
         }
             break;
-        case 7://定时开关机
+        case 7:
         {
+            // 定时开关机
+            // Timer switch
             KHJDeviceSwitchVController *deSwitchVC = [[KHJDeviceSwitchVController alloc] init];
             deSwitchVC.uuidStr = self.uuidStr;
             [self.navigationController pushViewController:deSwitchVC animated:YES];
         }
             break;
-        case 8://传感器
+        case 8:
         {
+            // 传感器
+            // Sensor
             AddSensorVController *addSensorVc = [[AddSensorVController alloc] init];
             addSensorVc.uuidStr = self.uuidStr;
             [self.navigationController pushViewController:addSensorVc animated:YES];

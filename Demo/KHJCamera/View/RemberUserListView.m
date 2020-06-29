@@ -96,7 +96,7 @@
     
     return [self.dataArray count];
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath//增加删除功能
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *Identifier = @"sCell";
@@ -136,10 +136,9 @@
     if ([cell respondsToSelector:@selector(setSeparatorInset:)])
     {
         [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-    }
-    
+    }    
 }
-//添加遮罩
+
 - (void)addShadow
 {
     backgroundView = [[UIView alloc] init];

@@ -2,7 +2,7 @@
 //  SDVedioPhotoVController.m
 //
 //  设备相册
-//
+//  Device Album
 //
 //
 
@@ -17,12 +17,14 @@
     UIButton *leftBtn;
     UIButton *rightBtn;
     UIButton *showButton;
-    //视频或者图片保存
+    // 视频或者图片保存
+    // Video or picture saving
     NSMutableArray *fArray;
     UIView * dateBgView;
     NSInteger selectSeg;
     UITableView *mTable;
-    //当前下载的文件名
+    // 当前下载的文件名
+    // File name currently downloaded
     NSString *currentFileName;
 
     DownLoadView *downLoadPopView;
@@ -31,6 +33,7 @@
     BOOL isDownLoading;
     UILabel *tipLabel;
 }
+
 @end
 
 @implementation KHJSDVedioPhotoVController
@@ -52,7 +55,6 @@
     if ([[KHJAllBaseManager sharedBaseManager] KHJSingleCheckDeviceOnline:self.uuidStr] != 1) {
         [[KHJToast share] showOKBtnToastWith:KHJLocalizedString(@"tips", nil) content:KHJLocalizedString(@"deviceDropLine", nil)];    
     }
-    
     
     self.view.backgroundColor = bgVCcolor;
     [self initSetNav];
@@ -113,21 +115,22 @@
 
 - (void)getData
 {
-    //第一次查询当天视频
+    // 第一次查询当天视频
+    // The first query for the video of the day
     NSString *currentDate = [Calculate getCurrentTimes];
     WeakSelf
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [weakSelf checkSDFile:currentDate];//当前从第一页开始
+        [weakSelf checkSDFile:currentDate];
     });
 }
 
 - (UITableView *)getMtable;
 {
     if (!mTable) {
-        mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 40+1, SCREENWIDTH, SCREENHEIGHT-64-40-1) style:UITableViewStylePlain];
+        mTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 40 + 1, SCREENWIDTH, SCREENHEIGHT - 64 - 40 - 1)
+                                              style:UITableViewStylePlain];
         mTable.delegate = self;
         mTable.dataSource = self;
-//        [mTable setBackgroundColor:UIColor.redColor];
     }
     return mTable;
 }
@@ -147,7 +150,8 @@
     self.navigationItem.titleView = view;
     
     UISegmentedControl* segment = [[UISegmentedControl alloc]initWithFrame:CGRectMake(0, 4, SCREENWIDTH*0.52, 34)];
-    //在索引值为0的位置上插入一个标题为red的按钮，第三个参数为是否开启动画
+    // 在索引值为0的位置上插入一个标题为red的按钮，第三个参数为是否开启动画
+    // Insert a button titled red at the index value 0, the third parameter is whether to enable animation
     [segment insertSegmentWithTitle:KHJLocalizedString(@"video", nil) atIndex:0 animated:YES];
     [segment insertSegmentWithTitle:KHJLocalizedString(@"picture", nil) atIndex:1 animated:YES];
     segment.clipsToBounds = YES;
@@ -163,7 +167,6 @@
     [segment setTitleTextAttributes:selctedTextAttributes forState:UIControlStateSelected];
     segment.selectedSegmentIndex = 0;
     selectSeg =  0;
-    //绑定事件
     [segment addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     [view addSubview:segment];
 }
@@ -180,7 +183,7 @@
     [fArray removeAllObjects];
     __block NSString *stTile = showButton.currentTitle;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [weakSelf checkSDFile:stTile];//当前从第一页开始
+        [weakSelf checkSDFile:stTile];
     });
 }
 
@@ -188,7 +191,7 @@
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
 
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -214,7 +217,6 @@
     [dateBgView addSubview:showButton];
 }
 
-//懒加载
 - (UIButton *)getShowButton
 {
     if(!showButton){
@@ -253,7 +255,8 @@
 {
     [self setPiker];
 }
-- (void)clickLeft:(UIButton *)button//点击左翻按钮
+
+- (void)clickLeft:(UIButton *)button
 {
     NSString *setDatestring = [Calculate prevDay:showButton.currentTitle];
     CLog(@"setDatestring = %@",setDatestring);
@@ -262,11 +265,11 @@
     [fArray removeAllObjects];
     WeakSelf
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [weakSelf checkSDFile:setDatestring];//当前从第一页开始
+        [weakSelf checkSDFile:setDatestring];
     });
     
 }
-- (void)clickRight:(UIButton*)button//点击右翻按钮
+- (void)clickRight:(UIButton*)button
 {
     
     NSString *setDatestring = [Calculate nextDay:showButton.currentTitle];
@@ -280,7 +283,7 @@
     [fArray removeAllObjects];
     WeakSelf
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [weakSelf checkSDFile:setDatestring];//当前从第一页开始
+        [weakSelf checkSDFile:setDatestring];
     });
 }
 - (void)setPiker
@@ -291,23 +294,21 @@
     __weak typeof(fArray) weakFarray = fArray;
     [pickdate passvalue:^(NSString *str) {
         [weakFarray removeAllObjects];
-
-        NSLog(@"str==%@",str);//时间字符串需要转换 nsdate
-        dispatch_async(dispatch_get_main_queue(), ^{//点击选择日期，确定按钮
-            
+        dispatch_async(dispatch_get_main_queue(), ^{
             [weekShowButton setTitle:str forState:UIControlStateNormal];
             [weakSelf checkSDFile:str];
             
         });
     }];
 }
-- (void)checkSDFile:(NSString *)dateString//查询视频
+
+// 查询视频
+// Query video
+- (void)checkSDFile:(NSString *)dateString
 {
     [fArray removeAllObjects];
-    dispatch_async(dispatch_get_main_queue(), ^{//点击选择日期，确定按钮
-
+    dispatch_async(dispatch_get_main_queue(), ^{
         [[KHJHub shareHub] showText:KHJLocalizedString(@"loading", nil) addToView:self.view type:_lightGray];
-
     });
 
     NSString *currentDate = [Calculate getCurrentTimes];
@@ -316,29 +317,27 @@
         [self getRightButton];
     }
     long inputDate = [Calculate getTimeStrWithString:dateString];
-    CLog(@"inputDate = %ld",inputDate);
     KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:self.uuidStr];
     WeakSelf
     if (dDevice) {
-       
          if (selectSeg == 0) {
              [dDevice.mDeviceManager listVideoFileStart:inputDate withStart:true returnBlock:^(BOOL isContinue, NSMutableArray *mArray) {
                  [weakSelf backVedio:mArray andContinue:isContinue];
              }];
-         }else{
+         }
+         else {
              [dDevice.mDeviceManager listJpegFileStart:inputDate withStart:true returnBlock:^(BOOL isContinue, NSMutableArray *mArray) {
                  [weakSelf backPhoto:mArray andContinue:isContinue];
              }];
          }
     }
-
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [fArray count];
-    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -372,7 +371,7 @@
             }
         }
     }
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15.f];//解决数字宽度不一样
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:15.f];
     return cell;
 }
 
@@ -398,26 +397,26 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [KHJHub shareHub].hud.hidden = YES;
     });
-    if (b) {//后面还有
+    if (b) {
         CLog(@"后面还有文件");
-    }else{
+        CLog (@"There are files behind");
+    }
+    else {
         CLog(@"后面没有文件");
+        CLog (@"No file behind");
     }
     [fArray addObjectsFromArray:mArray];
     CLog(@"farray = %@",fArray);
     
-    if ([fArray count] == 0) {
+    if (fArray.count == 0) {
         
-        CLog(@"farrayD1 = %ld",[fArray count]);
         dispatch_async(dispatch_get_main_queue(), ^{
             self->tipLabel.hidden = NO;
             weeKMtable.hidden = YES;
             [weeKMtable reloadData];
         });
-
-
-    }else{
-        CLog(@"farrayD2 = %ld",[fArray count]);
+    }
+    else {
         dispatch_async(dispatch_get_main_queue(), ^{
             [KHJHub shareHub].hud.hidden = YES;
             self->tipLabel.hidden = YES;
@@ -436,14 +435,17 @@
 }
 - (void)backPhoto:(NSMutableArray *)mArray  andContinue:(bool)b
 {
-    __weak typeof(mTable)  weeKMtable = mTable;
+    __weak typeof(mTable) weeKMtable = mTable;
     dispatch_async(dispatch_get_main_queue(), ^{
         [KHJHub shareHub].hud.hidden = YES;
     });
-    if (b) {//后面还有
+    if (b) {
         CLog(@"后面还有文件");
-    }else{
+        CLog (@"There are files behind");
+    }
+    else {
         CLog(@"后面没有文件");
+        CLog (@"No file behind");
     }
     [fArray addObjectsFromArray:mArray];
     if ([fArray count] == 0) {
@@ -470,9 +472,12 @@
         });
     }
 }
-- (void)loadMoreData{//加载更多数据
-    
-    __weak typeof(showButton) weakShowButton=  showButton;
+
+// 加载更多数据
+// Load more data
+- (void)loadMoreData
+{
+    __weak typeof(showButton) weakShowButton = showButton;
     NSString *setDatestring = weakShowButton.titleLabel.text;
     dispatch_async(dispatch_get_main_queue(), ^{
 

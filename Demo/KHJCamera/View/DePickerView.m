@@ -33,7 +33,7 @@
     [self addSubview:leftBtn];
     [self addSubview:showButton];
 }
-//懒加载
+
 - (UIButton *)getShowButton
 {
     if(!showButton){
@@ -71,20 +71,26 @@
     }
     return rightBtn;
 }
+
 - (void)clickCalendar
 {
     [self setPiker];
 }
-- (void)clickLeft:(UIButton *)button//点击左翻按钮
+
+// 点击左翻按钮
+// Click the left button
+- (void)clickLeft:(UIButton *)button
 {
     NSString *setDatestring = [Calculate prevDay:showButton.currentTitle];
     [showButton setTitle:setDatestring forState:UIControlStateNormal];
     [self getRightButton];
     rightBtn.hidden = NO;
     [self handleDate:setDatestring];
-
 }
-- (void)clickRight:(UIButton*)button//点击右翻按钮
+
+// 点击右翻按钮
+// Click the right button
+- (void)clickRight:(UIButton*)button
 {
     NSString *setDatestring = [Calculate nextDay:showButton.currentTitle];
     NSString *currentDate = [Calculate getCurrentTimes];
@@ -111,15 +117,16 @@
 
     }
 }
-- (void)setPiker//日期选择
+
+// 日期选择
+// date selection
+- (void)setPiker
 {
     DeUIPickDate *pickdate = [DeUIPickDate setDate];
     __weak typeof(showButton) weekShowButton = showButton;
     WeakSelf
     [pickdate passvalue:^(NSString *str) {
-        
-        NSLog(@"str==%@",str);//时间字符串需要转换 nsdate
-        dispatch_async(dispatch_get_main_queue(), ^{//点击选择日期，确定按钮
+        dispatch_async(dispatch_get_main_queue(), ^{
             [weekShowButton setTitle:str forState:UIControlStateNormal];
             [weakSelf handleDate:str];
         });

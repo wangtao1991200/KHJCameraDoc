@@ -29,8 +29,12 @@
     UIImageView *boximagev;
     UIButton *addDevBtn;
     
-    NSMutableArray *deviceInfoArr;//当前内存实体数组，已经加载到界面上的
-    NSMutableArray *netDevInfoArr;//当前服务器请求的设备数组
+    // 当前内存实体数组，已经加载到界面上的
+    // The current memory entity array has been loaded on the interface
+    NSMutableArray *deviceInfoArr;
+    // 当前服务器请求的设备数组
+    // Device array requested by the current server
+    NSMutableArray *netDevInfoArr;
     
     UIView *backgroundView;
     
@@ -45,9 +49,11 @@
 @end
 
 @implementation DevieceViewController
-//网络请求下来的字典数组
+// 网络请求下来的字典数组
+// Dictionary array from the network request
 @synthesize     dataArray;
-//是否需要刷新列表
+// 是否需要刷新列表
+// Do you need to refresh the list
 @synthesize     isNeedRefreshList;
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,7 +75,7 @@
     self = [super init];
     if (self) {
         isNeedRefreshList   = YES;
-        dataArray           = [[NSMutableArray alloc] initWithCapacity:0];//字典数组
+        dataArray           = [[NSMutableArray alloc] initWithCapacity:0];
         deviceInfoArr       = [[NSMutableArray alloc] initWithCapacity:0];
         netDevInfoArr       = [[NSMutableArray alloc] initWithCapacity:0];
     }
@@ -168,6 +174,7 @@
         bDevice.mDeviceInfo = dInfo;
         [bDevice.mDeviceManager creatCameraBase:@"" keyword:@""];
         /* 创建摄像头对象，并加入到 全局变量 addKHJManager */
+        /* Create a camera object and add it to the global variable addKHJManager */
         [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@""];
     }
     
@@ -214,7 +221,8 @@
     self.navigationItem.rightBarButtonItem  = settingBtnItem;
 }
 
-//添加设备
+// 添加设备
+// Add device
 - (void)addDeviceAction
 {
     KHJAddDeviveTypeListVController *adVc = [[KHJAddDeviveTypeListVController alloc] init];
@@ -228,6 +236,7 @@
 }
 
 #pragma mark - handleNODevice
+
 - (void)handleNODevice
 {
     [deviceInfoArr removeAllObjects];
@@ -290,6 +299,7 @@
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -333,13 +343,16 @@
         cell.nikNameLab.text    = dName;
         if (dInfo.isAPMode) {
             CLog(@"AP模式");
+            CLog (@"AP mode");
             cell.apLab.hidden   = NO;
         }
         else {
             CLog(@"非AP模式");
+            CLog(@"non-AP mode");
             cell.apLab.hidden   = YES;
         }
-        //是否可以分享,变成开关按钮
+        // 是否可以分享,变成开关按钮
+        // Whether it can be shared and turned into a switch button
         if (dInfo.isShare ) {
             cell.swithV.hidden      = NO;
             cell.shareBtn.hidden    = YES;
@@ -370,10 +383,8 @@
             cell.ConnStatelab.text  = KHJLocalizedString(@"deviceClosed", nil);
             cell.contentImageView.image = [UIImage imageNamed:@"content_bgView"];
             cell.playImageView.hidden   = YES;
-            CLog(@"content_bgView111");
         }
         else {
-            CLog(@"content_bgView222");
             UIImage *tImg = [self getMImage:dInfo.deviceUid];
             if (tImg) {
                 cell.contentImageView.image = tImg;
@@ -408,7 +419,9 @@
     return getimage2;
 }
 
-//连接设备
+// 连接设备
+// Connect the device
+
 - (void)connectDev:(NSString *)uid andPwd:(NSString *)dPwd
 {
     if (!dPwd   || [dPwd isEqualToString:@""] || !uid    || [uid isEqualToString:@""]) {
@@ -438,7 +451,6 @@
     vCtrl.isShare = dInfo.isShare;
 
     if (![cell.apLab isHidden]) {
-        //ap模式
         dInfo.isAPMode  = YES;
     }
     else {
@@ -452,9 +464,11 @@
 - (void)connectDevice:(int)success withUid:(NSString *)uidStr
 {
     WeakSelf
-    //连接成功
+    // 连接成功
+    // connection succeeded
     if (success == 0) {
         CLog(@"连接设备成功:%@",uidStr);
+        CLog(@"Connected to device successfully:%@",uidStr);
         KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:uidStr];
         [bDevice.mDeviceManager getDeviceCameraStatus:^(NSString *uidString, int success) {
             [weakSelf backGetForceOpenCameraState:success withUid:uidString];
@@ -466,14 +480,17 @@
     }
     else if(success == -90) {
         CLog(@"设备离线");
+        CLog (@"device offline");
     }
     else {
         CLog(@"连接设备失败:%@",uidStr);
+        CLog(@"Failed to connect to device: %@", uidStr);
         if (success != -20009) {
             success = 2;
         }
     }
     CLog(@"设备数组 = %@", deviceInfoArr);
+    CLog(@"device array = %@", deviceInfoArr);
     for (DeviceInfo *dInfo in deviceInfoArr) {
         if ([dInfo.deviceUid isEqualToString:uidStr]) {
             if(success == 2) {
@@ -502,6 +519,7 @@
 }
 
 #pragma mark - 设备设置别名
+#pragma mark-Device setting alias
 
 - (void)handleDeviceAname:(NSString *)nameStr with:(NSString *)uidStr
 {
@@ -533,11 +551,9 @@
     });
 }
 
-#pragma mark - clickProtoc
-
-- (void)openClick:(UISwitch *)sw//开关
+- (void)openClick:(UISwitch *)sw
 {
-    TCell *ce = (TCell *)sw.superview;//获取cell
+    TCell *ce = (TCell *)sw.superview;
     currentSW = sw;
     NSIndexPath *indexP = [mTable indexPathForCell:ce];
     DeviceInfo *dInfo = [deviceInfoArr objectAtIndex:indexP.row];
@@ -568,11 +584,13 @@
         if ([dInfo.deviceUid isEqualToString:uidStr]) {
             KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:dInfo.deviceUid];
             if(success == 1){
-                CLog(@"设备状态111：开 %d",success);
+                CLog(@"设备状态 backGetPushListenerState：开 %d",success);
+                CLog(@"device status backGetPushListenerState: open %d", success);
                 dInfo.isOpen = YES;
             }
             else if(success == 0) {
                 CLog(@"设备状态：关 %d",success);
+                CLog(@"Device Status: Off %d", success);
                 dInfo.isOpen = NO;
             }
             bDevice.mDeviceInfo = dInfo;
@@ -588,6 +606,7 @@
 {
     if (success) {
         CLog(@"设备开关设置成功：%d",success);
+        CLog(@"Device switch set successfully: %d", success);
         for (DeviceInfo *dInfo in deviceInfoArr) {
             if ([dInfo.deviceUid isEqualToString:uidStr]) {
                 
@@ -618,8 +637,8 @@
             self->currentSW.enabled = YES;
         });
         CLog(@"设备开关设置失败：%d",success);
+        CLog(@"Device switch setting failed: %d", success);
     }
-    
 }
 
 - (void)backGetForceOpenCameraState:(int)success withUid:(NSString *)uidStr
@@ -631,10 +650,12 @@
             
             if(success){
                 CLog(@"设备状态1：开 %d",success);
+                CLog(@"device status 1: open %d", success);
                 dInfo.isOpen = YES;
             }
             else {
                 CLog(@"设备状态1：关 %d",success);
+                CLog(@"Device Status 1: Off %d", success);
                 dInfo.isOpen = NO;
             }
             bDevice.mDeviceInfo = dInfo;

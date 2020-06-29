@@ -1,6 +1,5 @@
 //
 //  KHJBaseDevice.m
-//  包裹 服务端数据类和设备端camera类
 
 #import "KHJBaseDevice.h"
 

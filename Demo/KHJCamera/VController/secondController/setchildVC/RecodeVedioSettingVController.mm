@@ -2,6 +2,7 @@
 //  RecodeVedioSettingVController.m
 //
 //  录像设置
+//  Recording settings
 //
 //
 //
@@ -12,8 +13,6 @@
 #import "RecordPlanCell.h"
 #import "DeNormalSelectView.h"
 #import <KHJCameraLib/KHJCameraLib.h>
-//#import "KHJDeviceManager.h"
-//#import "TimeInfo.h"
 
 #define MELLHEIGHT 40
 #define CellHeigth 44
@@ -29,22 +28,22 @@
     UILabel             *recordQualitylab;
     UILabel             *recordModelab;
     
-    // 主 tableview 内容
     NSArray     *contentQualityArr;
     NSArray     *contentModelArr;
     NSArray     *contentTitleArr;
     UITableView *contentTableView;
     
-    //容量存储信息
+    // 容量存储信息
+    // Capacity storage information
     NSMutableDictionary *capacityDict;
     NSString            *recordQualityStr;
     NSString            *recordModeStr;
-    
     
     int qInt;
     int mInt;
     
     // 设备不在线
+    // Device is not online
     bool deviceOffLine;
 }
 @end
@@ -57,7 +56,6 @@
     WeakSelf
     dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
-        // 任务1
         [weakSelf getDevicePlanList];
     });
 }
@@ -74,18 +72,18 @@
     ttMarray        = [NSMutableArray array];
     capacityDict    = [NSMutableDictionary dictionary];
     self.title      = KHJLocalizedString(@"recordSet", nil);
-    contentTitleArr    = @[KHJLocalizedString(@"sdcardCapacity" , nil),    //SD卡容量
-                           KHJLocalizedString(@"sdcardFree"     , nil),    //SD卡剩余容量
-                           KHJLocalizedString(@"formatSdcard"   , nil),    //格式化SD卡
-                           KHJLocalizedString(@"videoQuality"   , nil),    //录像质量
-                           KHJLocalizedString(@"RecordingMode"  , nil)];   //录像模式
-    contentQualityArr  = @[KHJLocalizedString(@"LD", nil), //流畅
-                           KHJLocalizedString(@"SD", nil), //标清
-                           KHJLocalizedString(@"HD", nil)];//高清
-    contentModelArr    = @[KHJLocalizedString(@"CloseRecord"        , nil),    //关闭录像
-                    KHJLocalizedString(@"_24hourRecording"   , nil),    //连续录像
-                    KHJLocalizedString(@"TimingPlan"         , nil),    //定时计划
-                    KHJLocalizedString(@"AlarmRecording"     , nil)];   //报警录像
+    contentTitleArr    = @[KHJLocalizedString(@"sdcardCapacity" , nil),    //SD卡容量       / SD card capacity
+                           KHJLocalizedString(@"sdcardFree"     , nil),    //SD卡剩余容量    / SD card remaining capacity
+                           KHJLocalizedString(@"formatSdcard"   , nil),    //格式化SD卡      / Format SD card
+                           KHJLocalizedString(@"videoQuality"   , nil),    //录像质量        / Video quality
+                           KHJLocalizedString(@"RecordingMode"  , nil)];   //录像模式        / Video mode
+    contentQualityArr  = @[KHJLocalizedString(@"LD", nil), //流畅 / LD
+                           KHJLocalizedString(@"SD", nil), //标清 / SD
+                           KHJLocalizedString(@"HD", nil)];//高清 / HD
+    contentModelArr    = @[KHJLocalizedString(@"CloseRecord"        , nil), //关闭录像    / Close recording
+                    KHJLocalizedString(@"_24hourRecording"   , nil),        //连续录像    / Continuous recording
+                    KHJLocalizedString(@"TimingPlan"         , nil),        //定时计划    / Timed plan
+                    KHJLocalizedString(@"AlarmRecording"     , nil)];       //报警录像    / Alarm recording
 }
 - (void)customizeAppearance
 {
@@ -98,7 +96,7 @@
     but.frame       = CGRectMake(0,0, 66, 44);
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
-    but.imageEdgeInsets     = UIEdgeInsetsMake(0, -40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets     = UIEdgeInsetsMake(0, -40, 0, 0);
     UIBarButtonItem *barBut = [[UIBarButtonItem alloc] initWithCustomView:but];
     self.navigationItem.leftBarButtonItem = barBut;
 }
@@ -114,7 +112,7 @@
     [self getCurrenRecordType];
 }
 
-#pragma mark - UITableView 设置
+#pragma mark - UITableView
 
 - (UITableView *)getContentTableView
 {
@@ -187,10 +185,14 @@
         switch (indexPath.row) {
             case 0:
             {
-#pragma mark - change fix
+
                 NSNumber * allCapNum = capacityDict[@"allCapacity"];
                 if (allCapNum != nil) {
+                    
                     CLog(@"总容量为0");
+                    
+                    CLog(@"Total capacity is 0");
+                    
                     NSString *allCapacity = String(@"%d",[allCapNum intValue]);
                     if (![allCapacity isEqualToString:@""] && allCapacity != nil) {
                         lab.text = String(@"%@MB",allCapacity);
@@ -203,9 +205,8 @@
                 }
             }
                 break;
-            case 1://设备ID
+            case 1:
             {
-#pragma mark - change fix
                 NSNumber * leaveCapNum = capacityDict[@"leftCapacity"];
                 if (leaveCapNum != nil) {
                     NSString *leftCapacity = String(@"%d",[leaveCapNum intValue]);
@@ -215,7 +216,7 @@
                 }
                 else {
                     if (deviceOffLine) {
-                        lab.text = String(@"未知");
+                        lab.text = String(@"unknown");
                     }
                 }
             }
@@ -335,7 +336,6 @@
     UIAlertController *alertview = [UIAlertController alertControllerWithTitle:KHJLocalizedString(@"formatSdcard", nil) message:KHJLocalizedString(@"sureFormateSDCard", nil) preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:KHJLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *defult = [UIAlertAction actionWithTitle:KHJLocalizedString(@"commit", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //格式化sd
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJHub shareHub] showText:KHJLocalizedString(@"processing", nil) addToView:self.view type:_lightGray];
         });
@@ -354,7 +354,10 @@
 
 
 /**
+ 
  格式化回调
+ 
+ Format callback
  */
 - (void)callBackSuccessFormateSD:(int)success
 {
@@ -363,6 +366,7 @@
     });
     if (success == 0) {
         CLog(@"格式化成功");
+        CLog(@"formatted successfully");
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_SuccessType
                                               toastPostion:_CenterPostion
@@ -390,6 +394,8 @@
 
 #pragma mark - 得到设备信息
 
+#pragma mark - get device information
+
 - (void)getDeviceInfo
 {
     if ([[KHJAllBaseManager sharedBaseManager] KHJSingleCheckDeviceOnline:self.uuidStr] != 1) {
@@ -414,8 +420,10 @@
                 Vendor:(NSString *)vendor
 {
     // 总容量
+    // total capacity
     [capacityDict setValue:[NSNumber numberWithInt:allCapacity] forKey:@"allCapacity"];
     // 剩余容量
+    // The remaining capacity
     [capacityDict setValue:[NSNumber numberWithInt:leftCapacity] forKey:@"leftCapacity"];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self->contentTableView reloadData];
@@ -452,7 +460,9 @@
         tipLabel.hidden = YES;
         ttTable.hidden = YES;
     }
-    else if(type == 2) {    //0:没有录像 1：z正在录像
+    else if(type == 2) {
+        // 0:没有录像 1：正在录像
+        // 0: No recording 1: Recording
         recordModeStr = KHJLocalizedString(@"TimingPlan", nil);
         tipLabel.hidden = NO;
         ttTable.hidden = NO;
@@ -497,8 +507,9 @@
 }
 
 #pragma mark - 设置录像模式
+#pragma mark - Set recording mode
+
 - (void)changeMode
-//设置录像模式
 {
     WeakSelf
     slView = [self getSelectView];
@@ -512,8 +523,6 @@
         [weakSelf changeRecordeMode:intS];
     }];
 }
-
-#pragma mark - 设置录像模式
 
 - (void)changeRecordeMode:(int)mode
 {
@@ -563,26 +572,33 @@
 - (void)showInfo:(int)success
 {
     switch (success) {
-        case 0://成功
-            {
-                [[KHJToast share] showToastActionWithToastType:_SuccessType
-                                                  toastPostion:_CenterPostion
-                                                           tip:@""
-                                                       content:KHJLocalizedString(@"modifySuccess", nil)];
-                recordModelab.text = [contentModelArr objectAtIndex:mInt];
-                [self checkMode];
-            }
-            break;
-        case 1://无SD卡
+        case 0:
         {
+            // 成功
+            // success
+            [[KHJToast share] showToastActionWithToastType:_SuccessType
+                                              toastPostion:_CenterPostion
+                                                       tip:@""
+                                                   content:KHJLocalizedString(@"modifySuccess", nil)];
+            recordModelab.text = [contentModelArr objectAtIndex:mInt];
+            [self checkMode];
+        
+        }
+            break;
+        case 1:
+        {
+            // 无SD卡
+            // No SD card
             [[KHJToast share] showToastActionWithToastType:_WarningType
                                               toastPostion:_CenterPostion
                                                        tip:@""
                                                    content:KHJLocalizedString(@"noSDCard", nil)];
         }
             break;
-        case 2://失败
+        case 2:
         {
+            // 失败
+            // failed
             [[KHJToast share] showToastActionWithToastType:_ErrorType
                                               toastPostion:_CenterPostion
                                                        tip:KHJLocalizedString(@"tips", nil)
@@ -609,8 +625,9 @@
 }
 
 #pragma mark - 设置录像质量
+#pragma mark - Set recording quality
 
-- (void)changeRecordQuality//切换录制质量
+- (void)changeRecordQuality
 {
     WeakSelf
     slView = [self getSelectView];

@@ -2,7 +2,7 @@
 //  DeviceSwitchVController.h
 //
 //  定时开关机
-//
+//  Timer switch
 //
 //
 

@@ -1,7 +1,7 @@
 //
 //  VideoPlayViewController.m
 //
-//  视频播放 + 控制 + 功能
+//  Video playback + control + function
 //
 //
 //
@@ -37,49 +37,112 @@
     OpenGLView20 *glView;   //
     UIScrollView *vScroll;  //
 
-    UIView *bgView;         //视频播放背景view
-    UILabel *recodeLabel;   //录制时间显示
-    UIImageView *hImgView;  //上层image
+    // 视频播放背景view
+    // Video playback background view
+    UIView *bgView;
     
-    dispatch_source_t _conntimer;       //重新连接定时器
-    dispatch_source_t _recordMP4timer;  //录制视频定时器
+    // 录制时间显示
+    // Recording time display
+    UILabel *recodeLabel;
+    
+    // 上层image
+    // upper image
+    UIImageView *hImgView;
+    
+    // 重新连接定时器
+    // Reconnect timer
+    dispatch_source_t _conntimer;
+    
+    // 录制视频定时器
+    // Record video timer
+    dispatch_source_t _recordMP4timer;
     
     __block NSTimeInterval totalTimerSecond;
     
-    bool isRecordVideo;     //是否在录制视频
-    bool isRecAudio;        //接受音频
-    bool isSendAudio;       //发送音频
+    // 是否在录制视频
+    // Whether recording video
+    bool isRecordVideo;
+    
+    // 接受音频
+    // accept audio
+    bool isRecAudio;
+    
+    // 发送音频
+    // send audio
+    bool isSendAudio;
     
     UISwitch *switchView;
     UILabel *tipLabel;
     UIView * popView;
     
-    BOOL isHengPin;             //临时切换横屏
-    UIButton *hBackButton;      //横屏返回按钮
-    UIImageView *hBackView;     //横屏导航栏
+    // 临时切换横屏
+    // Temporarily switch the horizontal screen
+    BOOL isHengPin;
     
-    UIView *bottomView;         //容器：拍照、按住说话、监听
-    UIView *bottomLine;         //
+    // 横屏返回按钮
+    // horizontal screen back button
+    UIButton *hBackButton;
     
-    UILabel *titleLabel;        // 设备名称
+    // 横屏导航栏
+    // Horizontal navigation bar
+    UIImageView *hBackView;
     
-    BOOL isIntoTalk;            // 保存发送语音前，设备回传语音的状态
-    UIButton *reConnectBtn;     // 重连按钮
-    UIImageView *micImageV;     // 音频播放提示
-    BOOL isFirstInto;           // 第一次进入
-    BOOL hasReceiveData;        // 是否已接收数据
-    UIImageView *stateBgView;   // 视频界面下方按钮
+    // 容器：拍照、按住说话、监听
+    // Container: take pictures, hold and talk, monitor
+    UIView *bottomView;
+    UIView *bottomLine;
     
-    BOOL isCheckInitOpenAudio;  // 初始化声音开启或者关闭
+    // 设备名称
+    // Device name
+    UILabel *titleLabel;
+    
+    // 保存发送语音前，设备回传语音的状态
+    // Save the status of the device before sending voice
+    BOOL isIntoTalk;
+    
+    // 重连按钮
+    // Reconnect button
+    UIButton *reConnectBtn;
+    
+    // 音频播放提示
+    // Audio playback prompt
+    UIImageView *micImageV;
+    
+    // 第一次进入
+    // enter for the first time
+    BOOL isFirstInto;
+    
+    // 是否已接收数据
+    // Whether the data has been received
+    BOOL hasReceiveData;
+    
+    // 视频界面下方按钮
+    // Button at the bottom of the video interface
+    UIImageView *stateBgView;
+    
+    // 初始化声音开启或者关闭
+    // Initialize sound on or off
+    BOOL isCheckInitOpenAudio;
     
     NSInteger currentSec;
-    int languageValue;          // 语言
-    BOOL isNeedConnect;         // 是否需要重连
+    
+    // 语言
+    // language
+    int languageValue;
+    
+    // 是否需要重连
+    // Do you need to reconnect
+    BOOL isNeedConnect;
     SPActivityIndicatorView *KHJACTivityIndicatorView;
-    NSTimer *stopRecordTimer;//延时停止
+    
+    // 延时停止
+    // Delayed stop
+    NSTimer *stopRecordTimer;
     KHJBaseDevice*bDevice;
     
-    int rQuality;//视频质量
+    // 视频质量
+    // Video quality
+    int rQuality;
 }
 @property (atomic, retain) id<IJKMediaPlayback> player;
 @property (atomic, retain)id<IJKMediaPlayback> prePlayer;
@@ -96,7 +159,7 @@
     
     self.navigationController.interactivePopGestureRecognizer.enabled = YES ;
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
+    appDelegate.allowRotation = NO;
     [UIDevice switchNewOrientation:UIInterfaceOrientationPortrait];
 }
 
@@ -105,7 +168,6 @@
     [super viewDidDisappear:animated];
     [self cancelOperater];
     [self handleLiveWhenDisAppear];
-    CLog(@"viewDidDisappear");
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -114,7 +176,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [UIApplication sharedApplication].statusBarHidden = NO;
     [self changeBottom1];
-    CLog(@"viewWillAppear");
     [self handleLiveWhenAppear];
 }
 
@@ -165,7 +226,8 @@
     else {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self startTimerWithSeconds:6 endBlock:^{
-                CLog(@"进入重连设备456");
+                CLog(@"进入重连设备");
+                CLog(@"Enter Reconnect Device");
                 [self reconnectDev];
             }];
         });
@@ -203,7 +265,14 @@
 }
 - (void)refreshData:(DeviceInfo *)alarmDevInfo
 {
-    //1.先判断是否是当前设备，2.判断是否是回放
+    // 1.先判断是否是当前设备
+    
+    // 1. First determine whether it is the current device
+    
+    // 2.判断是否是回放
+    
+    // 2. Determine whether it is playback
+    
     if (isHengPin) {
         [self KHJClickQuanPin];
         [self tapBgView];
@@ -242,7 +311,7 @@
     if (KHJACTivityIndicatorView == nil) {
         
         KHJACTivityIndicatorView = [[SPActivityIndicatorView alloc] initWithType:SPActivityIndicatorAnimationTypeBallLoopScale tintColor:UIColor.whiteColor size:35];
-        CGFloat width = SCREENWIDTH/5.0; // 每行排5个(5列)
+        CGFloat width = SCREENWIDTH/5.0;
         CGFloat height = width;
         KHJACTivityIndicatorView.frame = CGRectMake(0, 0, width, height);
        
@@ -288,7 +357,7 @@
 {
     NSTimeInterval cTime = [[NSDate date] timeIntervalSince1970];
     NSTimeInterval dTime =[endTime doubleValue]/1000;
-    if((dTime-cTime)<= 7*24*60*60 && (dTime-cTime) >= 0){//时间段判断
+    if((dTime-cTime)<= 7*24*60*60 && (dTime-cTime) >= 0){
         [self showDeadLine];
     }
 }
@@ -296,7 +365,6 @@
 - (void)showDeadLine
 {
     UIAlertController *alertview=[UIAlertController alertControllerWithTitle:KHJLocalizedString(@"tips", nil) message:KHJLocalizedString(@"cloudTips", nil) preferredStyle:UIAlertControllerStyleAlert];
-    // 设置按钮
     UIAlertAction *cancel=[UIAlertAction actionWithTitle:KHJLocalizedString(@"cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
@@ -309,11 +377,12 @@
 }
 
 /**
- 检测语言
+ 检测系统语言
+ 
+ Detection system language
  */
 - (void)checkLanguage
 {
-    //获取手机系统语言
     NSString *language = [NSLocale preferredLanguages].firstObject;
     if ([language hasPrefix:@"en"]) {
         languageValue = 1;
@@ -344,9 +413,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lockSreen)
                                                  name: UIApplicationProtectedDataWillBecomeUnavailable
                                                object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkDidReceiveMessage:)
-//                                                 name:kJPFNetworkDidReceiveMessageNotification
-//                                               object:nil];
     [self installMovieNotificationObservers];
 }
 
@@ -357,14 +423,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:VideoDecoderBadDataErrNotification_Noti object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kJPFNetworkDidReceiveMessageNotification object:nil];
     [self removeMovieNotificationObservers];
 }
 
 - (void)lockSreen
 {
     isNeedConnect = YES;
-    CLog(@"lockSreen1");
 }
 
 - (void)networkDidReceiveMessage:(NSNotification *)note
@@ -397,7 +461,6 @@
     [[NSUserDefaults standardUserDefaults] setDouble:interVal  forKey:@"testSleep1"];
     
     isNeedConnect = NO;
-    CLog(@"applicationDidEnterBackground2222");
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hideTime];
         if (self->_conntimer) {
@@ -431,8 +494,11 @@
 }
 - (void)otherStopRecodeVedio
 {
-    if (isRecordVideo) {//停止录制视频
-        CLog(@"isRecordVideo222");
+    // 停止录制视频
+    
+    // Stop recording video
+    
+    if (isRecordVideo) {
         recodeLabel.hidden = YES;
         [self hideTime];
         NSString *filePath = [[[KHJHelpCameraData sharedModel] getTakeVideoDocPath] stringByAppendingPathComponent:[[KHJHelpCameraData sharedModel] getVideoNameWithType:@"mp4"]];
@@ -455,18 +521,19 @@
 }
 
 #pragma mark - startTimerWithSeconds
+
 - (void)startTimerWithSeconds:(long)seconds endBlock:(void(^)())endBlock
 {
-    __block long timeout = seconds;//倒计时时间
+    __block long timeout = seconds;
     timeout = 5;
     if (_conntimer) {
         dispatch_source_cancel(_conntimer);
     }
     dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
     _conntimer =dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,0,0,queue);
-    dispatch_source_set_timer(_conntimer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);//每秒执行
+    dispatch_source_set_timer(_conntimer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0);
     dispatch_source_set_event_handler(_conntimer, ^{
-        if(timeout < 0){ //倒计时结束，回调block
+        if (timeout < 0) {
             dispatch_source_cancel(self->_conntimer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(endBlock) {
@@ -482,22 +549,23 @@
 }
 
 #pragma mark - 返回按钮
+#pragma mark - Back button
 
 - (void)setbackBtn
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame =CGRectMake(0,0, 66, 44);
-    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);//解决按钮不能靠左问题
+    but.imageEdgeInsets = UIEdgeInsetsMake(0,-40, 0, 0);
     
     [but setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(backViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem  *barBut = [[UIBarButtonItem alloc]initWithCustomView:but];
-    //解决按钮不靠左 靠右的问题.
     self.navigationItem.leftBarButtonItem = barBut;
 }
+
 - (void)backViewController
 {
-      if (_conntimer) {
+    if (_conntimer) {
         dispatch_source_cancel(_conntimer);
     }
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -506,7 +574,6 @@
         [self releasePlayer];
     });
 
-    CLog(@"backViewController");
     if (hasReceiveData) {
         [self saveImage];
     }
@@ -518,7 +585,6 @@
     [UIApplication sharedApplication].idleTimerDisabled = NO;
 
     if (self.isFromAlarm) {
-        //报警界面push过来的
         NSInteger mIndex = [self.navigationController.viewControllers indexOfObject:self];
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(mIndex-2)] animated:YES];
     }
@@ -531,16 +597,19 @@
 
 - (void)saveImage
 {
-    //拿到图片
+    // 拿到图片
+    // get the picture
     UIImage *screenImage = [self  snapsHotView:glView] ;
     NSString *path_document = NSHomeDirectory();
     NSString *pString = [NSString stringWithFormat:@"/Documents/%@.png",self.myInfo.deviceUid];
     NSString *imagePath = [path_document stringByAppendingString:pString];
-    //把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
+    // 把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
+    // Save the picture directly to the specified path (at the same time, you should save the image path imagePath, which can be used directly to take it next time)
     [UIImagePNGRepresentation(screenImage) writeToFile:imagePath atomically:YES];
 }
 
 #pragma mark - 全屏的导航栏
+#pragma mark - full-screen navigation bar
 
 - (UIButton *)getHbackButton
 {
@@ -589,13 +658,13 @@
 }
 
 #pragma mark - 视频全屏点击
-
+#pragma mark - Video full screen click
 /**
  横屏
+ Horizontal screen
  */
 - (void)KHJClickQuanPin
 {
-    CLog(@"clickQuanPin");
     if(!isHengPin){
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate ;
         appDelegate.allowRotation = YES ;
@@ -611,12 +680,12 @@
 
 /**
  竖屏
+ Portrait
  */
 - (void) backShuPin
 {
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    appDelegate.allowRotation = NO;//关闭横屏仅允许竖屏
-    //切换到竖屏
+    appDelegate.allowRotation = NO;
     [UIDevice switchNewOrientation:UIInterfaceOrientationPortrait];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
@@ -624,7 +693,7 @@
 - (void)RedrawView
 {
     popView.hidden = YES;
-    if (isHengPin) {//
+    if (isHengPin) {
         if (isSendAudio) {
             UIButton *btn = (UIButton *)[bottomView viewWithTag:101];
             [self clickBtn:btn];
@@ -673,7 +742,7 @@
     tipLabel.center = CGPointMake(bgView.frame.size.width/2, bgView.frame.size.height/2);
     
     switchView = [[UISwitch alloc] initWithFrame:CGRectMake(bgView.frame.size.width/2-30, tipLabel.frame.size.height+tipLabel.frame.origin.y, 60, 44)];
-    switchView.on = NO;//设置初始为ON的一边
+    switchView.on = NO;
     switchView.onTintColor = ssRGB(55, 118, 234);
     switchView.tintColor = UIColor.lightGrayColor;
     switchView.backgroundColor = UIColor.lightGrayColor;
@@ -698,6 +767,7 @@
 }
 
 #pragma mark - 设备重连
+#pragma mark - device reconnect
 
 - (void)reconnectDev
 {
@@ -736,7 +806,9 @@
     });
 }
 
-//设备断开
+#pragma mark - 设备断开
+#pragma mark - Device disconnected
+
 - (void)connectofflineDevice
 {
     __weak typeof(reConnectBtn) weakReConnectBtn= reConnectBtn;
@@ -761,6 +833,8 @@
             
             isFirstInto = YES;
             CLog(@"连接设备成功");
+            CLog(@"Device connected successfully");
+            
             self.myInfo.connectTimes = 1;
             if (_conntimer) {
                 dispatch_source_cancel(_conntimer);
@@ -775,7 +849,7 @@
             if (self.myInfo.isAPMode) {
                 
                 NSInteger y = 100000 +  (arc4random() % 100001);
-                NSString * newPwdString = [NSString stringWithFormat:@"%ld",y];
+                NSString * newPwdString = [NSString stringWithFormat:@"%ld",(long)y];
                 __weak typeof(newPwdString) weakNewPwd = newPwdString;
                 [bDevice.mDeviceManager setPassword:bDevice.mDeviceInfo.devicePwd Newpassword:newPwdString withUid:uidStr returnCallBack:^(BOOL b) {
                     if (b) {
@@ -787,6 +861,7 @@
         else if(success == -90) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 CLog(@"设备离线");
+                CLog(@"Device offline");
                 self->KHJACTivityIndicatorView = [self getSPAActivity];
                 [self->KHJACTivityIndicatorView stopAnimating];
                 [self->reConnectBtn setTitle:KHJLocalizedString(@"reConnected", nil) forState:UIControlStateNormal];
@@ -795,6 +870,8 @@
         }
         else {
             CLog(@"连接设备失败");
+            CLog(@"Failed to connect device");
+            
             __weak typeof(reConnectBtn)  weakReConnectBtn= reConnectBtn;
 
             if (success == -20009) {
@@ -825,7 +902,10 @@
         }
     }
 }
+
 #pragma mark - 开关摄像头
+#pragma mark - switch camera
+
 - (void)openClick:(UISwitch *)sw
 {
     WeakSelf
@@ -880,7 +960,10 @@
         }
     });
 }
+
 #pragma mark - 设置界面
+#pragma mark - Set the interface
+
 - (void)setRightBtn
 {
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -955,6 +1038,7 @@
 }
 
 #pragma mark - 云台定时器
+#pragma mark - PTZ timer
 
 - (void)cancelOperater
 {
@@ -974,69 +1058,79 @@
     return glView;
 }
 #pragma mark UIScrollViewDelegate
-//返回需要缩放的视图控件 缩放过程中
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    
+
+// 返回需要缩放的视图控件 缩放过程中
+
+// Return to the view control that needs to be zoomed
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
     if (self.player && self.player.view.hidden == NO) {
         return self.player.view;
-    }else
+    }
         return glView;
 }
-//开始缩放
-- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view{
+
+// 开始缩放
+// Start zooming
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view
+{
     NSLog(@"开始缩放");
+    NSLog(@"Start zooming");
 }
-//结束缩放
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
+
+// 结束缩放
+// End zoom
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
     NSLog(@"结束缩放");
+    NSLog(@"End zoom");
 }
-//缩放中
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    //     延中心点缩放
+
+// 缩放中
+// Zooming
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
     if (scrollView.zoomScale < 1) {
         scrollView.zoomScale = 1;
-        
     }
     CGFloat mScale = scrollView.zoomScale;
     CGFloat imageScaleWidth = mScale * SCREENWIDTH;
     CGFloat imageScaleHeight = mScale * (SCREENWIDTH*9/16);
     CGFloat imageX = 0;
     CGFloat imageY = 0;
-    CLog(@"scrollView.zoomScale = %f",mScale);
     
     if (self.player && self.player.view.hidden == NO) {
         imageY = floorf((self.player.view.frame.size.height- imageScaleHeight) / 2.0);
         imageX = floorf((self.player.view.frame.size.width - imageScaleWidth) / 2.0);
         self.player.view.frame = CGRectMake(imageX, imageY, imageScaleWidth, imageScaleHeight);
-    }else{
-        
+    }
+    else {
         imageY = floorf((glView.frame.size.height- imageScaleHeight) / 2.0);
         imageX = floorf((glView.frame.size.width - imageScaleWidth) / 2.0);
         glView.frame = CGRectMake(imageX, imageY, imageScaleWidth, imageScaleHeight);
     }
 }
+
 - (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
-    //UIGestureRecognizerStateBegan意味着手势已经被识别
-    if (gestureRecognizer.state ==UIGestureRecognizerStateBegan)
-    {
-        //手势发生在哪个view上
+    if (gestureRecognizer.state ==UIGestureRecognizerStateBegan) {
         UIView *piece = gestureRecognizer.view;
-        //获得当前手势在view上的位置。
         CGPoint locationInView = [gestureRecognizer locationInView:piece];
         piece.layer.anchorPoint =CGPointMake(locationInView.x / piece.bounds.size.width, locationInView.y / piece.bounds.size.height);
-        //根据在view上的位置设置锚点。
-        //防止设置完锚点过后，view的位置发生变化，相当于把view的位置重新定位到原来的位置上。
         CGPoint locationInSuperview = [gestureRecognizer locationInView:piece.superview];
         piece.center = locationInSuperview;
     }
 }
+
 #pragma mark - 中间状态栏按钮
+#pragma mark - Middle status bar button
+
 - (void)setStateView
 {
     stateBgView = [self getStateBgView];
     [stateBgView setImage:[UIImage imageNamed:@"stateBgView3"]];
-
     [self setStateViewBtn];
 }
 
@@ -1055,6 +1149,8 @@
 }
 
 #pragma mark - 中间状态按钮
+#pragma mark - Intermediate status button
+
 - (void)clickStateBtn:(UIButton *)btn
 {
     btn.userInteractionEnabled = NO;
@@ -1065,13 +1161,15 @@
     switch (btn.tag) {
         case 110:
         {
-            //视频质量切换
+            // 视频质量切换
+            // Video quality switching
             [self changeQualityClick];
         }
             break;
         case 111:
         {
-            //录屏
+            // 录屏
+            // record screen
             [self startRecodePhone:btn];
         }
             break;
@@ -1081,6 +1179,7 @@
 }
 
 #pragma mark - 改变中间状态栏状态
+#pragma mark - Change the status of the middle status bar
 
 - (void)changeStateBgViewBtn
 {
@@ -1117,16 +1216,16 @@
 {
     switch (rQuality) {
         case 5:
-            return  @"流畅";
+            return  KHJLocalizedString(@"LD", nil);
             break;
         case 3:
-            return  @"标清";
+            return  KHJLocalizedString(@"SD", nil);
             break;
         case 1:
-            return  @"高清";
+            return  KHJLocalizedString(@"HD", nil);
             break;
         default:
-            return  @"标清";
+            return  KHJLocalizedString(@"SD", nil);
             break;
     }
 }
@@ -1139,7 +1238,7 @@
             string = [self setAbleForQuality];
             break;
         case 1:
-            string = @"录屏";
+            string = KHJLocalizedString(@"ScreenRecord", nil);
             break;
         default:
             break;
@@ -1155,7 +1254,7 @@
             string = [self setAbleForQuality];
             break;
         case 1:
-            string = @"录屏";
+            string = KHJLocalizedString(@"ScreenRecord", nil);
             break;
         default:
             break;
@@ -1172,6 +1271,7 @@
 }
 
 #pragma mark - 释放掉ijk播放器
+#pragma mark - release ijk player
 
 - (void)releasePlayer
 {
@@ -1235,7 +1335,9 @@
     [self reciveAudio];
 }
 
-- (void)stopPlayVideo:(NSString *)tFilename//停止播放视频，在按回放按钮的时候，需要重新接受直播视频
+// 停止播放视频，在按回放按钮的时候，需要重新接受直播视频
+// Stop playing the video, you need to accept the live video again when you press the playback button
+- (void)stopPlayVideo:(NSString *)tFilename
 {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         if (tFilename) {
@@ -1245,14 +1347,15 @@
     });
 }
 
-#pragma mark - TimeLineDelegate代理方法
+#pragma mark - TimeLineDelegate
 
 - (void)LineBeginMove
 {
     [self stopPlayVideo:nil];
 }
 
-//监控播放进度方法
+// 监控播放进度方法
+// Method for monitoring playback progress
 - (void)avkTimer
 {
     
@@ -1260,7 +1363,8 @@
 
 #pragma mark - IJKMoviePlayer stateCallBack
 
-//播放完成
+// 播放完成
+// Play completed
 - (void)playerItemDidPlayToEnd
 {
     
@@ -1269,7 +1373,7 @@
 - (void)loadStateDidChange:(NSNotification*)notification
 {
     IJKMPMovieLoadState loadState = _player.loadState;
-    if ((loadState & IJKMPMovieLoadStatePlaythroughOK) != 0) {//删除掉之前的ijk播放器界面
+    if ((loadState & IJKMPMovieLoadStatePlaythroughOK) != 0) {
         NSLog(@"loadStateDidChange: IJKMPMovieLoadStatePlaythroughOK: %d\n", (int)loadState);
     } else if ((loadState & IJKMPMovieLoadStateStalled) != 0) {
         NSLog(@"loadStateDidChange: IJKMPMovieLoadStateStalled: %d\n", (int)loadState);
@@ -1282,7 +1386,7 @@
     int reason = [[[notification userInfo] valueForKey:IJKMPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue];
     switch (reason)
     {
-        case IJKMPMovieFinishReasonPlaybackEnded://播放完成
+        case IJKMPMovieFinishReasonPlaybackEnded:
         {
             [self playerItemDidPlayToEnd];
             NSLog(@"playbackStateDidChange: IJKMPMovieFinishReasonPlaybackEnded: %d\n", reason);
@@ -1374,6 +1478,7 @@
 }
 
 #pragma mark - 加载所有界面
+#pragma mark - load all interfaces
 
 - (UIScrollView *)getVScrollView
 {
@@ -1408,7 +1513,6 @@
     [bgView addSubview:vScroll];
     [self.view addSubview:bgView];
     [self addGestureForBgView];
-    //给bgView增加水波效果
     if (self.myInfo.isOpen) {
         KHJACTivityIndicatorView = [self getSPAActivity];
         [KHJACTivityIndicatorView startAnimating];
@@ -1466,6 +1570,7 @@
     }
     if(recognizer.direction==UISwipeGestureRecognizerDirectionLeft){
         CLog(@"向左边滑动了!!!!!!");
+        CLog(@"Swiped to the left");
         if(!isHorGestRev){
             [bDevice.mDeviceManager setRun:6 withStep:MSTEP];
         }else{
@@ -1480,6 +1585,7 @@
             [bDevice.mDeviceManager setRun:6 withStep:MSTEP];
         }
         CLog(@"向右边滑动了!!!!!!");
+        CLog(@"Swiped to the right");
     }else if(recognizer.direction == UISwipeGestureRecognizerDirectionUp) {
 
         if(!isVerGestRev){
@@ -1489,6 +1595,7 @@
             [bDevice.mDeviceManager setRun:2 withStep:MSTEP];
         }
         CLog(@"向上边滑动了!!!!!!");
+        CLog(@"Swipe up");
     }else if (recognizer.direction == UISwipeGestureRecognizerDirectionDown) {
         if(!isVerGestRev){
             [bDevice.mDeviceManager setRun:2 withStep:MSTEP];
@@ -1496,6 +1603,7 @@
             [bDevice.mDeviceManager setRun:1 withStep:MSTEP];
         }
         CLog(@"向下边滑动了!!!!!!");
+        CLog(@"Swipe down");
     }
 }
 
@@ -1515,13 +1623,12 @@
 - (UILabel *)getRecodeLabel
 {
     if (recodeLabel == nil) {
-        //录制时间显示
         recodeLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREENWIDTH-60-10, 0, 60, 22)];
         recodeLabel.backgroundColor = [UIColor clearColor];
         recodeLabel.textColor = [UIColor whiteColor];
         recodeLabel.hidden = YES;
         recodeLabel.textAlignment = NSTextAlignmentRight;
-        recodeLabel.font  = [UIFont fontWithName:@"Helvetica Neue" size:12.f];//解决数字宽度不一样
+        recodeLabel.font  = [UIFont fontWithName:@"Helvetica Neue" size:12.f];
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 8, 8)];
         imgV.image = [UIImage imageNamed:@"recodeRound"];
         [recodeLabel addSubview:imgV];
@@ -1531,7 +1638,6 @@
 
 - (void)changeQualityClick
 {
-    CLog(@"changeQualityClick");
     popView = [self getPopView];
     if ([self.view.subviews containsObject:popView]) {
         popView.hidden = !popView.hidden;
@@ -1552,6 +1658,7 @@
 }
 
 #pragma mark - 设置底部按钮
+#pragma mark - Set bottom button
 
 - (UIView *)getBottomLine
 {
@@ -1564,7 +1671,9 @@
 
 - (void)seBottomButton
 {
-    //定义底部4个按钮,有三种状态，不可选，可选，点击。
+    // 定义底部4个按钮,有三种状态，不可选，可选，点击。
+    // Define the bottom 4 buttons, there are three states, not selectable, selectable, click.
+    
     CGFloat cHeight = 48;
     CGFloat bbHeight = 60;
     
@@ -1636,7 +1745,7 @@
 - (void)clickBtn1:(UIButton *)btn//对讲按钮
 {
     if(btn.tag == 101){
-        [btn setTitle:@"正在说话" forState:UIControlStateNormal];
+        [btn setTitle:KHJLocalizedString(@"speakig", nil) forState:UIControlStateNormal];
         isIntoTalk = isRecAudio;
         if (isRecAudio == YES) {
             isRecAudio = NO;
@@ -1659,15 +1768,19 @@
         {
             btn.enabled = NO;
             // 截图保存到手机端
+            // The screenshot is saved to the mobile phone
             [self screenShort:btn];
             CLog(@"点击了拍照按钮");
+            CLog(@"Clicked the photo button");
             btn.enabled = YES;
         }
             break;
-        case 101://设备播放手机音频
+        case 101:
         {
+            // 设备播放手机音频
+            // The device plays mobile audio
             btn.enabled = NO;
-            [btn setTitle:@"按键说话" forState:UIControlStateNormal];
+            [btn setTitle:KHJLocalizedString(@"keySpeakig", nil) forState:UIControlStateNormal];
             [self sendAudio];
             
             if (isIntoTalk) {
@@ -1678,8 +1791,10 @@
             btn.enabled = YES;
         }
             break;
-        case 102://获取设备音频
+        case 102:
         {
+            // 获取设备音频
+            // Get device audio
             btn.enabled = NO;
             isRecAudio = !isRecAudio;
             btn.selected = isRecAudio;
@@ -1693,9 +1808,10 @@
     }
 }
 
-- (void)downLoadCloudVedio:(UIButton *)btn//下载云存储
+- (void)downLoadCloudVedio:(UIButton *)btn
 {
-    CLog(@"downLoadCloudVedio");
+    // 下载云存储
+    // Download cloud storage
 }
 - (void)realStopRecord
 {
@@ -1707,7 +1823,8 @@
 - (void)sendAudio
 {
     if (isSendAudio) {// 
-        //定时器不断更新
+        // 定时器不断更新
+        // Timer keeps updating
         if (stopRecordTimer) {
             [stopRecordTimer invalidate];
             stopRecordTimer = nil;
@@ -1733,9 +1850,10 @@
 }
 
 // 是否播放音频
+// Whether to play audio
 - (void)reciveAudio
 {
-    if (!isRecAudio) {//
+    if (!isRecAudio) {
         [bDevice.mDeviceManager isPlayRecvAudio:NO];
         isCheckInitOpenAudio = NO;
     }
@@ -1745,12 +1863,17 @@
     }
 }
 
-- (void)startRecodePhone:(UIButton *)btn//手机录制
+// 手机录制
+// Mobile recording
+- (void)startRecodePhone:(UIButton *)btn
 {
-    if (isRecordVideo) {//停止录制视频
+    if (isRecordVideo) {
+        // 停止录制视频
+        // stop recording video
         recodeLabel.hidden = YES;
         [self hideTime];
         // path 视频路径
+        // path Video path
         NSString *filePath = [[[KHJHelpCameraData sharedModel] getTakeVideoDocPath] stringByAppendingPathComponent:[[KHJHelpCameraData sharedModel] getVideoNameWithType:@"mp4"]];
         [bDevice.mDeviceManager startRecordMp4:NO path:filePath];
         [self deleteLittleVedio];
@@ -1759,13 +1882,17 @@
     else {
         [self showTime];
         // path 视频路径
+        // path Video path
         NSString *filePath = [[[KHJHelpCameraData sharedModel] getTakeVideoDocPath] stringByAppendingPathComponent:[[KHJHelpCameraData sharedModel] getVideoNameWithType:@"mp4"]];
         [bDevice.mDeviceManager startRecordMp4:YES path:filePath];
         [self clickTime:btn];
     }
     isRecordVideo = !isRecordVideo;
 }
-- (void)deleteLittleVedio//需要排序，返回的不是倒序的
+
+// 需要排序，返回的不是倒序的
+// need to sort, the returned is not in reverse order
+- (void)deleteLittleVedio
 {
     
 }
@@ -1775,30 +1902,28 @@
     recodeLabel.hidden = YES;
     recodeLabel.text = @"";
     if (_recordMP4timer) {
-        dispatch_source_cancel(_recordMP4timer);//关闭倒计时
+        dispatch_source_cancel(_recordMP4timer);
     }
 }
+
 - (void)clickTime:(UIButton *)btn
 {
     __block NSInteger tTimerSecond = 0;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t clickTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(clickTimer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0); // 每--秒执行一次
-    CLog(@"clickTimer1");
+    dispatch_source_set_timer(clickTimer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(clickTimer, ^{
         if (tTimerSecond > 1) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                
                 btn.userInteractionEnabled = YES;
-                CLog(@"clickTimer3");
-                dispatch_source_cancel(clickTimer);//关闭倒计时
+                dispatch_source_cancel(clickTimer);
             });
-            CLog(@"clickTimer2");
         }
         tTimerSecond++;
     });
     dispatch_resume(clickTimer);
 }
+
 - (void)showTime
 {
     recodeLabel = [self getRecodeLabel];
@@ -1807,7 +1932,7 @@
     totalTimerSecond = 0;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     _recordMP4timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(_recordMP4timer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0); // 每秒执行一次
+    dispatch_source_set_timer(_recordMP4timer, dispatch_walltime(NULL, 0), 1.0 * NSEC_PER_SEC, 0);
     
     __weak typeof(recodeLabel) weakRecodeLabel = recodeLabel;
     dispatch_source_set_event_handler(_recordMP4timer, ^{
@@ -1822,6 +1947,7 @@
     });
     dispatch_resume(_recordMP4timer);
 }
+
 - (UIImage *)snapsHotView:(UIView *)view
 {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size,YES,[UIScreen mainScreen].scale);
@@ -1831,10 +1957,12 @@
     return image;
 }
 
+// videoPath为视频下载到本地之后的本地路径
 
-//videoPath为视频下载到本地之后的本地路径
-- (void)saveVideo:(NSString *)videoPath{
-    
+// videoPath is the local path after the video is downloaded to the local
+
+- (void)saveVideo:(NSString *)videoPath
+{
     PHAssetCollection *desCollection;
     PHFetchResult <PHAssetCollection*>*result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     for (PHAssetCollection *collect in result) {
@@ -1842,13 +1970,11 @@
         NSLog(@"%@",collect.localizedTitle);
     }
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        
         [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:@"KHJCloudVedio"];
-        
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (success) {
-            
             NSLog(@"创建相册成功!");
+            NSLog(@"Created an album successfully!");
         }
     }];
     __block PHObjectPlaceholder *placeholderAsset=nil;
@@ -1870,7 +1996,11 @@
                 btn.enabled = YES;
             });
             if (success) {
+                
                 NSLog(@"存入相册成功");
+                
+                NSLog(@"Successfully saved into album");
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[KHJToast share] showToastActionWithToastType:_SuccessType
                                                       toastPostion:_CenterPostion
@@ -1882,24 +2012,30 @@
         }];
     }];
 }
-//保存视频完成之后的回调
-- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+
+// 保存视频完成之后的回调
+// Callback after saving video
+
+- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
     if (error) {
         NSLog(@"保存视频失败%@", error.localizedDescription);
+        NSLog(@"Failed to save video %@", error.localizedDescription);
     }
     else {
         NSLog(@"保存视频成功");
+        NSLog(@"Save video successfully");
     }
 }
 
 - (void)screenShort:(UIButton *)btn
 {
-    // 获取截图 screenImage
     UIImage *screenImage = [self snapsHotView:bgView];
     CLog(@"screenImage size = %@",NSStringFromCGSize(screenImage.size));
 }
 
 #pragma mark - 获取设备开关状态
+#pragma mark - Get device switch status
 
 - (void)getForceOpenCamera
 {
@@ -1910,13 +2046,15 @@
         });
     }];
 }
--(void)backGetForceOpenCameraState:(int)success
+
+- (void)backGetForceOpenCameraState:(int)success
 {
     if (_conntimer) {
         dispatch_source_cancel(_conntimer);
     }
     [self handleDevOpenState:success];
 }
+
 - (void)handleDevOpenState:(int)success
 {
     __weak typeof(switchView) weakSwitchView= switchView;
@@ -1924,8 +2062,9 @@
     glView = [self getGLView];
     __weak typeof(glView) weakGlview= glView;
     WeakSelf
-    if(success == 1){
+    if (success == 1) {
         CLog(@"设备状态222：开 %d",success);
+        CLog(@"device status 222: open %d", success);
         dispatch_async(dispatch_get_main_queue(), ^{
             
             weakTipLabel.hidden = YES;
@@ -1934,9 +2073,12 @@
             weakSelf.myInfo.isOpen = YES;
         });
         
-    }else if(success == 0){
+    }
+    else if(success == 0) {
         
         CLog(@"设备状态：关 %d",success);
+        CLog(@"Device Status: Off %d", success);
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             weakTipLabel.text = KHJLocalizedString(@"deviceClosed", nil);
             weakTipLabel.textColor = UIColor.whiteColor;
@@ -1949,7 +2091,10 @@
         });
     }
 }
+
 #pragma mark - 所有开启接受视频数据,开启视频同时开启音频
+#pragma mark - All open accept video data, open video and open audio at the same time
+
 - (void)startReciveVide
 {
     isFirstInto = YES;
@@ -1964,19 +2109,23 @@
     dispatch_async(dispatch_get_main_queue(), ^{
 
         [self startTimerWithSeconds:6 endBlock:^{
-            CLog(@"进入重连设备");
             [self reconnectDev];
         }];
     });
     if(ret) {
         CLog(@"放入队列成功");
+        CLog(@"Successfully put into the queue");
     }else{
         CLog(@"设备不在线");
+        CLog (@"The device is not online");
     }
 }
+
 #pragma mark - 得到视频质量
-- (void)getVedioQuality{
-    
+#pragma mark - Get video quality
+
+- (void)getVedioQuality
+{
     rQuality = 0;
     rQuality = [bDevice.mDeviceManager getVideoQuality];
     UIButton *bbtn = [stateBgView viewWithTag:110];
@@ -1984,20 +2133,21 @@
     bbtn.titleLabel.font = [UIFont systemFontOfSize: 14.0];
     
     CLog(@"视频质量 == %d",rQuality);
+    CLog(@"Video Quality == %d",rQuality);
     switch (rQuality) {
         case 5:
         {
-            [bbtn setTitle:@"流畅" forState:UIControlStateNormal];
+            [bbtn setTitle:KHJLocalizedString(@"LD", nil) forState:UIControlStateNormal];
         }
             break;
         case 3:
         {
-            [bbtn setTitle:@"标清" forState:UIControlStateNormal];
+            [bbtn setTitle:KHJLocalizedString(@"SD", nil) forState:UIControlStateNormal];
         }
             break;
         case 1:
         {
-            [bbtn setTitle:@"高清" forState:UIControlStateNormal];
+            [bbtn setTitle:KHJLocalizedString(@"HD", nil) forState:UIControlStateNormal];
         }
             break;
         default:
@@ -2033,7 +2183,7 @@
     }
     return popView;
 }
-- (void)clickMode:(UIButton *)btn//切换清晰度
+- (void)clickMode:(UIButton *)btn
 {
     WeakSelf
     switch (btn.tag) {
@@ -2043,7 +2193,7 @@
                 
                 [weakSelf successCallbackForSetVideoQuality:success];
             }];
-            [btn setTitle:@"高清" forState:UIControlStateNormal];
+            [btn setTitle:KHJLocalizedString(@"HD", nil) forState:UIControlStateNormal];
             rQuality = 1;
         }
             break;
@@ -2053,7 +2203,7 @@
                 [weakSelf successCallbackForSetVideoQuality:success];
 
             }];
-            [btn setTitle:@"标清" forState:UIControlStateNormal];
+            [btn setTitle:KHJLocalizedString(@"SD", nil) forState:UIControlStateNormal];
             rQuality = 3;
         }
             break;
@@ -2063,7 +2213,7 @@
                 [weakSelf successCallbackForSetVideoQuality:success];
 
             }];
-            [btn setTitle:@"流畅" forState:UIControlStateNormal];
+            [btn setTitle:KHJLocalizedString(@"LD", nil) forState:UIControlStateNormal];
             rQuality = 5;
         }
             break;
@@ -2075,10 +2225,17 @@
 - (void)successCallbackForSetVideoQuality:(BOOL)success
 {
     if (success) {
-        CLog(@"设置视频质量成功");
         
-    }else{
+        CLog(@"设置视频质量成功");
+
+        CLog(@"Set video quality success");
+
+    }
+    else {
         CLog(@"设置视频质量失败");
+        
+        CLog(@"Failed to set video quality");
+        
         [self getVedioQuality];
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJToast share] showToastActionWithToastType:_ErrorType
@@ -2088,9 +2245,15 @@
         });
     }
 }
-#pragma mark - 视频数据回调-KHJDeviceManagerDelegate
 
-//解码数据回调,网络延时收不到数据，6s后重连
+#pragma mark - 视频数据回调
+
+#pragma mark - Video data callback
+
+// 解码数据回调,网络延时收不到数据，6s后重连
+
+// Decoded data callback, no data received after network delay, reconnect after 6s
+
 - (void)videoDataBackKey:(BOOL)key
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -2111,6 +2274,9 @@
             
             [self startTimerWithSeconds:6 endBlock:^{
                 CLog(@"进入重连设备");
+                
+                CLog(@"Enter reconnect device");
+                
                 [self reconnectDev];
             }];
         });
@@ -2140,18 +2306,17 @@
 
 #pragma mark - 改变底部按钮状态
 
+#pragma mark - Change the bottom button state
+
 - (void)changeBottom
 {
     for (int i = 0; i < 3; i++) {
         UIButton *btn = [bottomView viewWithTag:100+i];
         bottomView.userInteractionEnabled = YES;
-        
         btn.userInteractionEnabled = YES;
         btn.hidden = NO;
-
         if (i == 2 && isCheckInitOpenAudio) {
-            
-            BOOL isOpen =  [[NSUserDefaults standardUserDefaults] boolForKey:@"initSoundOpen"];//初始化声音开启
+            BOOL isOpen =  [[NSUserDefaults standardUserDefaults] boolForKey:@"initSoundOpen"];
             if (isOpen && hasReceiveData) {
                 [self clickBtn:btn];
             }
@@ -2181,33 +2346,42 @@
 
 #pragma mark - 设备监听返回
 
+#pragma mark - device monitor returns
+
 /**
  切换清晰度
+ Switch clarity
  */
 - (void)backGetPushListenerStateChangeQuality:(int)quality
 {
     switch (quality) {
-        case 5://流畅
+        case 5:
         {
+            // 流畅
+            // fluent
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIButton *bbtn = [self->stateBgView viewWithTag:110];
-                [bbtn setTitle:@"流畅" forState:UIControlStateNormal];
+                [bbtn setTitle:KHJLocalizedString(@"LD", nil) forState:UIControlStateNormal];
             });
         }
             break;
-        case 3://标清
+        case 3:
         {
+            // 标清
+            // SD
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIButton *bbtn = [self->stateBgView viewWithTag:110];
-                [bbtn setTitle:@"标清" forState:UIControlStateNormal];
+                [bbtn setTitle:KHJLocalizedString(@"SD", nil) forState:UIControlStateNormal];
             });
         }
             break;
-        case 1://高清
+        case 1:
         {
+            // 高清
+            // HD
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIButton *bbtn = [self->stateBgView viewWithTag:110];
-                [bbtn setTitle:@"高清" forState:UIControlStateNormal];
+                [bbtn setTitle:KHJLocalizedString(@"HD", nil) forState:UIControlStateNormal];
             });
         }
             break;
@@ -2219,13 +2393,20 @@
 {
     switch (success) {
         case 0:
+        {
             [self handleDevOpenState:success];
+        }
             break;
         case 1:
+        {
             [self handleDevOpenState:success];
+        }
             break;
-        case 5://设备SD卡插拔 5
-        CLog(@"设备SD卡插拔!");
+        case 5:
+        {
+            CLog(@"设备SD卡插拔!");
+            CLog(@"Device SD card plug-in!");
+        }
             break;
         case 6:
         {
@@ -2242,7 +2423,6 @@
     
     for (int i = 0; i <3; i++) {
         UIButton *btn = [bottomView viewWithTag:100+i];
-        //        bottomView.userInteractionEnabled = YES;
         CGFloat cHeight = 48;
         CGFloat bbHeight = 60;
         CGFloat cY = (bbHeight-cHeight)/2;
@@ -2291,20 +2471,19 @@
 }
 
 #pragma mark - 进入前台
+#pragma mark - Enter the front desk
 
 - (void)EnterForeground:(NSNotification *)note
 {
-    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    NSDate *datenow = [NSDate date];
     NSTimeInterval interVal = [datenow timeIntervalSince1970];
     NSTimeInterval iTimer = [[NSUserDefaults standardUserDefaults] doubleForKey:@"testSleep1"];
     if ((interVal - iTimer)>40) {
-        CLog(@"可以重连！");
         isNeedConnect = YES;
     }
     
     if (self.navigationController.topViewController == self) {
         
-        CLog(@"EnterForeground");
         isFirstInto = YES;
         if (isNeedConnect) {
             
