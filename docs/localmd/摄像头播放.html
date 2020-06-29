@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头播放（Webcam playback） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <title>摄像头播放 | 看护家智能摄像机iOS SDK  接入指南</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="4"
-        data-chapter-title="摄像头播放（Webcam playback）"
+        data-chapter-title="摄像头播放"
         data-filepath="localmd/摄像头播放.md"
         data-basepath=".."
-        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
+        data-revision="Mon Sep 23 2019 14:19:04 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -76,7 +76,7 @@
                 
                         <i class="fa fa-check"></i>
                         
-                        前言（Foreword）
+                        前言
                     </a>
             
             
@@ -91,7 +91,7 @@
                         
                             <b>1.</b>
                         
-                        集成SDK（Integrated SDK）
+                        集成SDK
                     </a>
             
             
@@ -106,7 +106,7 @@
                         
                             <b>2.</b>
                         
-                        摄像头配网（Camera distribution network）
+                        摄像头配网
                     </a>
             
             
@@ -122,7 +122,7 @@
                         
                             <b>2.1.</b>
                         
-                        二维码模式（QR code mode）
+                        二维码模式
                     </a>
             
             
@@ -137,7 +137,7 @@
                         
                             <b>2.2.</b>
                         
-                        热点模式（Hotspot mode）
+                        热点模式
                     </a>
             
             
@@ -152,7 +152,7 @@
                         
                             <b>2.3.</b>
                         
-                        AP模式（AP mode）
+                        AP模式
                     </a>
             
             
@@ -172,7 +172,7 @@
                         
                             <b>3.</b>
                         
-                        摄像头连接（Camera connection）
+                        摄像头连接
                     </a>
             
             
@@ -187,7 +187,7 @@
                         
                             <b>4.</b>
                         
-                        摄像头播放（Webcam playback）
+                        摄像头播放
                     </a>
             
             
@@ -202,7 +202,7 @@
                         
                             <b>5.</b>
                         
-                        摄像头报警（Camera alarm）
+                        摄像头报警
                     </a>
             
             
@@ -217,7 +217,7 @@
                         
                             <b>6.</b>
                         
-                        摄像头设置（Camera settings）
+                        摄像头设置
                     </a>
             
             
@@ -233,7 +233,7 @@
                         
                             <b>6.1.</b>
                         
-                        校准（calibration）
+                        校准
                     </a>
             
             
@@ -248,7 +248,7 @@
                         
                             <b>6.2.</b>
                         
-                        时区（Time zone）
+                        时区
                     </a>
             
             
@@ -263,7 +263,7 @@
                         
                             <b>6.3.</b>
                         
-                        相册（Photo album）
+                        相册
                     </a>
             
             
@@ -278,7 +278,7 @@
                         
                             <b>6.4.</b>
                         
-                        音量（volume）
+                        音量
                     </a>
             
             
@@ -293,7 +293,7 @@
                         
                             <b>6.5.</b>
                         
-                        录像（Video）
+                        录像
                     </a>
             
             
@@ -313,7 +313,7 @@
                         
                             <b>7.</b>
                         
-                        错误码（error code）
+                        错误码
                     </a>
             
             
@@ -342,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
+        <a href="../" >看护家智能摄像机iOS SDK  接入指南</a>
     </h1>
 </div>
 
@@ -352,61 +352,61 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x97F3;&#x89C6;&#x9891;&#xFF08;play-audio-and-video&#xFF09;">&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x97F3;&#x89C6;&#x9891;&#xFF08;Play audio and video&#xFF09;</h1>
-<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Manager&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x7528; - create&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x5BF9;&#x6444;&#x50CF;&#x5934;&#x8FDB;&#x884C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x3002;&#xFF08;Create a Manager object and initialize it with the-create method, which can perform other operations on the camera.&#xFF09;</p>
+                        <h1 id="&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x97F3;&#x89C6;&#x9891;">&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x97F3;&#x89C6;&#x9891;</h1>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Manager&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x7528; - create&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x5BF9;&#x6444;&#x50CF;&#x5934;&#x8FDB;&#x884C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x3002;</p>
 <pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
 [manager createKHJCameraBase:Uid];
 </code></pre>
-<h4 id="&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#xFF08;whether-to-accept-live-video&#xFF09;">&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x89C6;&#x9891;&#xFF08;Whether to accept live video&#xFF09;</h4>
+<h4 id="&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x89C6;&#x9891;">&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x89C6;&#x9891;</h4>
 <pre><code class="lang-objective-c">BOOL ret = [manager startRecvVideo:YES withUid:self.myInfo.deviceUid reternBlock:^(BOOL k) {            
-  // &#x89E3;&#x7801;&#x6570;&#x636E;&#x56DE;&#x8C03;,&#x7F51;&#x7EDC;&#x5EF6;&#x65F6;&#x6536;&#x4E0D;&#x5230;&#x6570;&#x636E;&#xFF0C;6s&#x540E;&#x91CD;&#x8FDE;&#xFF08;Decoded data callback, no data received after network delay, reconnect after 6s&#xFF09;
+  // &#x89E3;&#x7801;&#x6570;&#x636E;&#x56DE;&#x8C03;,&#x7F51;&#x7EDC;&#x5EF6;&#x65F6;&#x6536;&#x4E0D;&#x5230;&#x6570;&#x636E;&#xFF0C;6s&#x540E;&#x91CD;&#x8FDE;
 }];
 
 if(ret) {
-  // &#x89C6;&#x9891;&#x653E;&#x5165;&#x961F;&#x5217;&#x6210;&#x529F;&#xFF08;Successfully put the video in the queue&#xFF09;
-  // &#x76D1;&#x542C;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#xFF08;Monitor device status&#xFF09;
+  // &#x89C6;&#x9891;&#x653E;&#x5165;&#x961F;&#x5217;&#x6210;&#x529F;
+  // &#x76D1;&#x542C;&#x8BBE;&#x5907;&#x72B6;&#x6001;
   [manager registerActivePushListener:^(int type, NSString *dString, NSString *uidStr) {
-    // type - 0 &#x8BBE;&#x5907;&#x5F00;&#x542F; 1 &#x8BBE;&#x5907;&#x5173;&#x95ED; 2 &#x5F00;&#x59CB;&#x5F55;&#x5C4F; 3 &#x505C;&#x6B62;&#x5F55;&#x5C4F; 5 &#x8BBE;&#x5907;SD&#x5361;&#x63D2;&#x62D4; 6 &#x89C6;&#x9891;&#x8D28;&#x91CF;&#x5207;&#x6362; 8 &#x5E03;&#x9632;/&#x64A4;&#x9632;&#xFF08;0 Device on 1 Device off 2 Start screen recording 3 Stop screen recording 5 Device SD card insertion and removal 6 Video quality switching 8 Arming/disarming&#xFF09;
-    // dString &#x7528;&#x4E8E; type = 6&#xFF0C;&#x8868;&#x793A;&#x6E05;&#x6670;&#x5EA6;&#xFF08;Used for type = 6, for clarity&#xFF09;
-    // dString &#x7528;&#x4E8E; type = 8&#xFF0C;&#x8868;&#x793A;&#x5E03;&#x9632;/&#x64A4;&#x9632;&#xFF08;Used for type = 8, indicating arming/disarming&#xFF09;
+    // type - 0 &#x8BBE;&#x5907;&#x5F00;&#x542F; 1 &#x8BBE;&#x5907;&#x5173;&#x95ED; 2 &#x5F00;&#x59CB;&#x5F55;&#x5C4F; 3 &#x505C;&#x6B62;&#x5F55;&#x5C4F; 5 &#x8BBE;&#x5907;SD&#x5361;&#x63D2;&#x62D4; 6 &#x89C6;&#x9891;&#x8D28;&#x91CF;&#x5207;&#x6362; 8 &#x5E03;&#x9632;/&#x64A4;&#x9632;
+    // dString &#x7528;&#x4E8E; type = 6&#xFF0C;&#x8868;&#x793A;&#x6E05;&#x6670;&#x5EA6;
+    // dString &#x7528;&#x4E8E; type = 8&#xFF0C;&#x8868;&#x793A;&#x5E03;&#x9632;/&#x64A4;&#x9632;
   }];
 }
 </code></pre>
-<h4 id="&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x97F3;&#x9891;&#xFF08;whether-to-accept-realtime-audio&#xFF09;">&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x97F3;&#x9891;&#xFF08;Whether to accept real-time audio&#xFF09;</h4>
-<p>&#x6CE8;&#xFF1A;&#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x5173;&#x95ED;&#x5B9E;&#x65F6;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;&#xFF08;Note: During playback, close the real-time audio thread&#xFF09;</p>
-<pre><code class="lang-objective-c">// &#x6253;&#x5F00;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;&#xFF08;Open audio thread&#xFF09;
+<h4 id="&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x97F3;&#x9891;">&#x662F;&#x5426;&#x63A5;&#x53D7;&#x5B9E;&#x65F6;&#x97F3;&#x9891;</h4>
+<p>&#x6CE8;&#xFF1A;&#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x5173;&#x95ED;&#x5B9E;&#x65F6;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;</p>
+<pre><code class="lang-objective-c">// &#x6253;&#x5F00;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;
 [manager startRecvAudio:YES];
-// &#x5173;&#x95ED;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;&#xFF08;Close audio thread&#xFF09;
+// &#x5173;&#x95ED;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;
 [manager startRecvAudio:NO];
 </code></pre>
-<h4 id="&#x5173;&#x95ED;&#x97F3;&#x9891;&#xFF08;turn-off-audio&#xFF09;">&#x5173;&#x95ED;&#x97F3;&#x9891;&#xFF08;Turn off audio&#xFF09;</h4>
-<p>&#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x8C03;&#x7528;  <code>closeAudio</code>  &#x65B9;&#x6CD5;&#xFF0C;&#x5173;&#x95ED;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;&#xFF08;During playback, call the <code>closeAudio</code> method to close the audio thread&#xFF09;</p>
-<pre><code class="lang-objective-c">// &#x5173;&#x95ED;&#x97F3;&#x9891;&#xFF08;Turn off audio&#xFF09;
+<h4 id="&#x5173;&#x95ED;&#x97F3;&#x9891;">&#x5173;&#x95ED;&#x97F3;&#x9891;</h4>
+<p>&#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x8C03;&#x7528;  <code>closeAudio</code>  &#x65B9;&#x6CD5;&#xFF0C;&#x5173;&#x95ED;&#x97F3;&#x9891;&#x7EBF;&#x7A0B;</p>
+<pre><code class="lang-objective-c">// &#x5173;&#x95ED;&#x97F3;&#x9891;
 [manager closeAudio];
 </code></pre>
-<h4 id="&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x64AD;&#x653E;&#x97F3;&#x9891;&#xFF08;whether-to-play-audio-during-realtime-playback&#xFF09;">&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x64AD;&#x653E;&#x97F3;&#x9891;&#xFF08;Whether to play audio during real-time playback&#xFF09;</h4>
-<pre><code class="lang-objective-c">// &#x6253;&#x5F00;&#x76D1;&#x542C;&#x529F;&#x80FD;&#xFF08;Open monitoring function&#xFF09;
+<h4 id="&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x64AD;&#x653E;&#x97F3;&#x9891;">&#x5B9E;&#x65F6;&#x64AD;&#x653E;&#x65F6;&#xFF0C;&#x662F;&#x5426;&#x64AD;&#x653E;&#x97F3;&#x9891;</h4>
+<pre><code class="lang-objective-c">// &#x6253;&#x5F00;&#x76D1;&#x542C;&#x529F;&#x80FD;
 [manager isPlayRecvAudio:YES];
-// &#x5173;&#x95ED;&#x76D1;&#x542C;&#x529F;&#x80FD;&#xFF08;Close monitoring function&#xFF09;
+// &#x5173;&#x95ED;&#x76D1;&#x542C;&#x529F;&#x80FD;
 [manager isPlayRecvAudio:NO];
 </code></pre>
-<h4 id="&#x662F;&#x5426;&#x5F55;&#x5236;&#x89C6;&#x9891;&#xFF08;whether-to-record-video&#xFF09;">&#x662F;&#x5426;&#x5F55;&#x5236;&#x89C6;&#x9891;&#xFF08;Whether to record video&#xFF09;</h4>
-<p>&#x5B9E;&#x65F6;&#x89C6;&#x9891; &#x548C; &#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5F55;&#x5C4F;&#xFF08;During real-time video and playback, you can use this method to record screen&#xFF09;</p>
-<pre><code class="lang-objective-c">// &#x5F00;&#x59CB;&#x5F55;&#x5C4F;&#xFF08;Start recording&#xFF09;
+<h4 id="&#x662F;&#x5426;&#x5F55;&#x5236;&#x89C6;&#x9891;">&#x662F;&#x5426;&#x5F55;&#x5236;&#x89C6;&#x9891;</h4>
+<p>&#x5B9E;&#x65F6;&#x89C6;&#x9891; &#x548C; &#x56DE;&#x653E;&#x65F6;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5F55;&#x5C4F;</p>
+<pre><code class="lang-objective-c">// &#x5F00;&#x59CB;&#x5F55;&#x5C4F;
 [manager startRecordMp4:YES];
-// &#x7ED3;&#x675F;&#x5F55;&#x5C4F;&#xFF08;End screen recording&#xFF09;
+// &#x7ED3;&#x675F;&#x5F55;&#x5C4F;
 [manager startRecordMp4:NO];
 </code></pre>
-<h4 id="&#x53D1;&#x9001;&#x97F3;&#x9891;&#xFF08;send-audio&#xFF09;">&#x53D1;&#x9001;&#x97F3;&#x9891;&#xFF08;Send audio&#xFF09;</h4>
-<pre><code class="lang-objective-c">// &#x5F00;&#x59CB;&#x53D1;&#x9001;&#x97F3;&#x9891;&#xFF08;Start sending audio&#xFF09;
+<h4 id="&#x53D1;&#x9001;&#x97F3;&#x9891;">&#x53D1;&#x9001;&#x97F3;&#x9891;</h4>
+<pre><code class="lang-objective-c">// &#x5F00;&#x59CB;&#x53D1;&#x9001;&#x97F3;&#x9891;
 [manager startSendAudio:YES];
-// &#x505C;&#x6B62;&#x53D1;&#x9001;&#x97F3;&#x9891;&#xFF08;Stop sending audio&#xFF09;
+// &#x505C;&#x6B62;&#x53D1;&#x9001;&#x97F3;&#x9891;
 [manager startSendAudio:NO];
 </code></pre>
-<h4 id="&#x5EF6;&#x65F6;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#x7EBF;&#x7A0B;&#xFF08;delay-to-stop-the-recording-thread&#xFF09;">&#x5EF6;&#x65F6;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#x7EBF;&#x7A0B;&#xFF08;Delay to stop the recording thread&#xFF09;</h4>
-<pre><code class="lang-objective-c">// &#x5EF6;&#x65F6;&#xFF0C;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#xFF0C;&#x907F;&#x514D;&#x5BF9;&#x8BB2;&#x65F6;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x6BB5;&#x8BED;&#x97F3;&#x65E0;&#x6CD5;&#x53D1;&#x9001;&#xFF08;Delay, stop recording, to avoid the last voice cannot be sent during intercom&#xFF09;
+<h4 id="&#x5EF6;&#x65F6;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#x7EBF;&#x7A0B;">&#x5EF6;&#x65F6;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#x7EBF;&#x7A0B;</h4>
+<pre><code class="lang-objective-c">// &#x5EF6;&#x65F6;&#xFF0C;&#x505C;&#x6B62;&#x5F55;&#x97F3;&#xFF0C;&#x907F;&#x514D;&#x5BF9;&#x8BB2;&#x65F6;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x6BB5;&#x8BED;&#x97F3;&#x65E0;&#x6CD5;&#x53D1;&#x9001;
 [manager delayStopRerord:YES];
-// &#x8BED;&#x97F3;&#x5BF9;&#x8BB2;&#x5B8C;&#x6BD5;&#xFF0C;&#x6062;&#x590D;&#xFF08;Voice intercom is complete, resume&#xFF09;
+// &#x8BED;&#x97F3;&#x5BF9;&#x8BB2;&#x5B8C;&#x6BD5;&#xFF0C;&#x6062;&#x590D;
 [manager delayStopRerord:NO];
 </code></pre>
 
@@ -419,10 +419,10 @@ if(ret) {
         </div>
 
         
-        <a href="../localmd/摄像头连接.html" class="navigation navigation-prev " aria-label="Previous page: 摄像头连接（Camera connection）"><i class="fa fa-angle-left"></i></a>
+        <a href="../localmd/摄像头连接.html" class="navigation navigation-prev " aria-label="Previous page: 摄像头连接"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../localmd/摄像头报警.html" class="navigation navigation-next " aria-label="Next page: 摄像头报警（Camera alarm）"><i class="fa fa-angle-right"></i></a>
+        <a href="../localmd/摄像头报警.html" class="navigation navigation-next " aria-label="Next page: 摄像头报警"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -446,13 +446,9 @@ if(ret) {
     <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
-    
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
-    
-
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

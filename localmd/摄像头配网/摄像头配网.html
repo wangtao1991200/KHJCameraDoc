@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头配网 | 看护家智能摄像机iOS SDK  接入指南</title>
+        <title>摄像头配网（Camera distribution network） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="2"
-        data-chapter-title="摄像头配网"
+        data-chapter-title="摄像头配网（Camera distribution network）"
         data-filepath="localmd/摄像头配网/摄像头配网.md"
         data-basepath="../.."
-        data-revision="Mon Sep 23 2019 14:19:04 GMT+0800 (CST)"
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -76,7 +76,7 @@
                 
                         <i class="fa fa-check"></i>
                         
-                        前言
+                        前言（Foreword）
                     </a>
             
             
@@ -91,7 +91,7 @@
                         
                             <b>1.</b>
                         
-                        集成SDK
+                        集成SDK（Integrated SDK）
                     </a>
             
             
@@ -106,7 +106,7 @@
                         
                             <b>2.</b>
                         
-                        摄像头配网
+                        摄像头配网（Camera distribution network）
                     </a>
             
             
@@ -122,7 +122,7 @@
                         
                             <b>2.1.</b>
                         
-                        二维码模式
+                        二维码模式（QR code mode）
                     </a>
             
             
@@ -137,7 +137,7 @@
                         
                             <b>2.2.</b>
                         
-                        热点模式
+                        热点模式（Hotspot mode）
                     </a>
             
             
@@ -152,7 +152,7 @@
                         
                             <b>2.3.</b>
                         
-                        AP模式
+                        AP模式（AP mode）
                     </a>
             
             
@@ -172,7 +172,7 @@
                         
                             <b>3.</b>
                         
-                        摄像头连接
+                        摄像头连接（Camera connection）
                     </a>
             
             
@@ -187,7 +187,7 @@
                         
                             <b>4.</b>
                         
-                        摄像头播放
+                        摄像头播放（Webcam playback）
                     </a>
             
             
@@ -202,7 +202,7 @@
                         
                             <b>5.</b>
                         
-                        摄像头报警
+                        摄像头报警（Camera alarm）
                     </a>
             
             
@@ -217,7 +217,7 @@
                         
                             <b>6.</b>
                         
-                        摄像头设置
+                        摄像头设置（Camera settings）
                     </a>
             
             
@@ -233,7 +233,7 @@
                         
                             <b>6.1.</b>
                         
-                        校准
+                        校准（calibration）
                     </a>
             
             
@@ -248,7 +248,7 @@
                         
                             <b>6.2.</b>
                         
-                        时区
+                        时区（Time zone）
                     </a>
             
             
@@ -263,7 +263,7 @@
                         
                             <b>6.3.</b>
                         
-                        相册
+                        相册（Photo album）
                     </a>
             
             
@@ -278,7 +278,7 @@
                         
                             <b>6.4.</b>
                         
-                        音量
+                        音量（volume）
                     </a>
             
             
@@ -293,7 +293,7 @@
                         
                             <b>6.5.</b>
                         
-                        录像
+                        录像（Video）
                     </a>
             
             
@@ -313,7 +313,7 @@
                         
                             <b>7.</b>
                         
-                        错误码
+                        错误码（error code）
                     </a>
             
             
@@ -342,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >看护家智能摄像机iOS SDK  接入指南</a>
+        <a href="../../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
     </h1>
 </div>
 
@@ -352,22 +352,22 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;">&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;</h1>
-<p>&#x770B;&#x62A4;&#x5BB6;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A; <strong>IOS </strong> <strong>SDK</strong> &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>&#x4E24;&#x79CD;&#x8054;&#x7F51;&#x914D;&#x7F51;&#xFF1A;</p>
+                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;camera-distribution-network&#xFF09;">&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;Camera distribution network&#xFF09;</h1>
+<p>&#x770B;&#x62A4;&#x5BB6;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A; <strong>IOS </strong> <strong>SDK</strong> &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#x3002;&#xFF08;Nursing home smart camera <strong>IOS </strong> <strong>SDK</strong> provides three kinds of network distribution methods, you can choose the corresponding network distribution method according to the actual situation.&#xFF09;</p>
+<p>&#x4E24;&#x79CD;&#x8054;&#x7F51;&#x914D;&#x7F51;&#xFF1A;&#xFF08;Two kinds of network distribution network:&#xFF09;</p>
 <ul>
-<li>&#x4E8C;&#x7EF4;&#x7801;&#x914D;&#x7F51;</li>
+<li>&#x4E8C;&#x7EF4;&#x7801;&#x914D;&#x7F51;&#xFF08;QR code distribution network&#xFF09;</li>
 </ul>
 <ul>
-<li>&#x70ED;&#x70B9;&#x914D;&#x7F51;</li>
+<li>&#x70ED;&#x70B9;&#x914D;&#x7F51;&#xFF08;Hotspot Distribution Network&#xFF09;</li>
 </ul>
-<pre><code class="lang-go">&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x8BBE;&#x5907;&#x5339;&#x914D;&#x81F3;&#x53EF;&#x7528;&#x7684;&#x975E;<span class="hljs-number">5</span>G&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x5728;<span class="hljs-number">4</span>G&#x6216;Wi-Fi&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;
+<pre><code class="lang-go">&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x8BBE;&#x5907;&#x5339;&#x914D;&#x81F3;&#x53EF;&#x7528;&#x7684;&#x975E;<span class="hljs-number">5</span>G&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x5728;<span class="hljs-number">4</span>G&#x6216;Wi-Fi&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;&#xFF08;The above two network distribution methods match the device to an available non-<span class="hljs-number">5</span>G network, and the user can view the camera under the <span class="hljs-number">4</span>G or Wi-Fi network through the mobile phone APP.&#xFF09;
 </code></pre>
-<p>&#x4E00;&#x79CD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF1A;</p>
+<p>&#x4E00;&#x79CD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF1A;&#xFF08;A local connection:&#xFF09;</p>
 <ul>
-<li>AP &#x8FDE;&#x63A5;</li>
+<li>AP &#x8FDE;&#x63A5;&#xFF08;AP connection&#xFF09;</li>
 </ul>
-<pre><code class="lang-go">AP&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x65E0;<span class="hljs-number">4</span>G&#x548C;Wi-Fi&#x7F51;&#x7EDC;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x8FDE;&#x63A5;&#x8BBE;&#x5907;&#x70ED;&#x70B9;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;
+<pre><code class="lang-go">AP&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x65E0;<span class="hljs-number">4</span>G&#x548C;Wi-Fi&#x7F51;&#x7EDC;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x8FDE;&#x63A5;&#x8BBE;&#x5907;&#x70ED;&#x70B9;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;&#xFF08;The AP is connected locally. In the absence of <span class="hljs-number">4</span>G and Wi-Fi networks, users can connect to the device hotspot and view the camera through the mobile phone APP.&#xFF09;
 </code></pre>
 
                     
@@ -379,10 +379,10 @@
         </div>
 
         
-        <a href="../../localmd/集成SDK.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/集成SDK.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK（Integrated SDK）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/摄像头配网/二维码模式.html" class="navigation navigation-next " aria-label="Next page: 二维码模式"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/摄像头配网/二维码模式.html" class="navigation navigation-next " aria-label="Next page: 二维码模式（QR code mode）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -406,9 +406,13 @@
     <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>

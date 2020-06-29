@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头配网 | 看护家智能摄像机iOS SDK  接入指南</title>
+        <title>相册（Photo album） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../../localmd/摄像头配网/二维码模式.html" />
+    <link rel="next" href="../../localmd/摄像头设置/音量.html" />
     
     
-    <link rel="prev" href="../../localmd/集成SDK.html" />
+    <link rel="prev" href="../../localmd/摄像头设置/时区.html" />
     
 
         
@@ -49,11 +49,11 @@
         
         
     <div class="book"
-        data-level="2"
-        data-chapter-title="摄像头配网"
-        data-filepath="localmd/摄像头配网/摄像头配网.md"
+        data-level="6.3"
+        data-chapter-title="相册（Photo album）"
+        data-filepath="localmd/摄像头设置/相册.md"
         data-basepath="../.."
-        data-revision="Mon Sep 23 2019 14:19:04 GMT+0800 (CST)"
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -76,7 +76,7 @@
                 
                         <i class="fa fa-check"></i>
                         
-                        前言
+                        前言（Foreword）
                     </a>
             
             
@@ -91,13 +91,13 @@
                         
                             <b>1.</b>
                         
-                        集成SDK
+                        集成SDK（Integrated SDK）
                     </a>
             
             
         </li>
     
-        <li class="chapter active" data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
+        <li class="chapter " data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
             
                 
                     <a href="../../localmd/摄像头配网/摄像头配网.html">
@@ -106,7 +106,7 @@
                         
                             <b>2.</b>
                         
-                        摄像头配网
+                        摄像头配网（Camera distribution network）
                     </a>
             
             
@@ -122,7 +122,7 @@
                         
                             <b>2.1.</b>
                         
-                        二维码模式
+                        二维码模式（QR code mode）
                     </a>
             
             
@@ -137,7 +137,7 @@
                         
                             <b>2.2.</b>
                         
-                        热点模式
+                        热点模式（Hotspot mode）
                     </a>
             
             
@@ -152,7 +152,7 @@
                         
                             <b>2.3.</b>
                         
-                        AP模式
+                        AP模式（AP mode）
                     </a>
             
             
@@ -172,7 +172,7 @@
                         
                             <b>3.</b>
                         
-                        摄像头连接
+                        摄像头连接（Camera connection）
                     </a>
             
             
@@ -187,7 +187,7 @@
                         
                             <b>4.</b>
                         
-                        摄像头播放
+                        摄像头播放（Webcam playback）
                     </a>
             
             
@@ -202,7 +202,7 @@
                         
                             <b>5.</b>
                         
-                        摄像头报警
+                        摄像头报警（Camera alarm）
                     </a>
             
             
@@ -217,7 +217,7 @@
                         
                             <b>6.</b>
                         
-                        摄像头设置
+                        摄像头设置（Camera settings）
                     </a>
             
             
@@ -233,7 +233,7 @@
                         
                             <b>6.1.</b>
                         
-                        校准
+                        校准（calibration）
                     </a>
             
             
@@ -248,13 +248,13 @@
                         
                             <b>6.2.</b>
                         
-                        时区
+                        时区（Time zone）
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="localmd/摄像头设置/相册.html">
+        <li class="chapter active" data-level="6.3" data-path="localmd/摄像头设置/相册.html">
             
                 
                     <a href="../../localmd/摄像头设置/相册.html">
@@ -263,7 +263,7 @@
                         
                             <b>6.3.</b>
                         
-                        相册
+                        相册（Photo album）
                     </a>
             
             
@@ -278,7 +278,7 @@
                         
                             <b>6.4.</b>
                         
-                        音量
+                        音量（volume）
                     </a>
             
             
@@ -293,7 +293,7 @@
                         
                             <b>6.5.</b>
                         
-                        录像
+                        录像（Video）
                     </a>
             
             
@@ -313,7 +313,7 @@
                         
                             <b>7.</b>
                         
-                        错误码
+                        错误码（error code）
                     </a>
             
             
@@ -342,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >看护家智能摄像机iOS SDK  接入指南</a>
+        <a href="../../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
     </h1>
 </div>
 
@@ -352,23 +352,40 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;">&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;</h1>
-<p>&#x770B;&#x62A4;&#x5BB6;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A; <strong>IOS </strong> <strong>SDK</strong> &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>&#x4E24;&#x79CD;&#x8054;&#x7F51;&#x914D;&#x7F51;&#xFF1A;</p>
+                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x76F8;&#x518C;&#xFF08;camera-album&#xFF09;">&#x6444;&#x50CF;&#x5934;&#x76F8;&#x518C;&#xFF08;Camera album&#xFF09;</h1>
+<h5 id="&#x8BBE;&#x5907;sd&#x5361;&#x4E2D;&#xFF0C;&#x4FDD;&#x5B58;&#x6444;&#x50CF;&#x5934;&#x4E2D;&#x7684;-&#x89C6;&#x9891;&#x6587;&#x4EF6;-&#x548C;-&#x62A5;&#x8B66;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x3002;&#xFF08;in-the-sd-card-of-the-device-save-the-video-files-and-alarm-picture-files-in-the-camera&#xFF09;">&#x8BBE;&#x5907;SD&#x5361;&#x4E2D;&#xFF0C;&#x4FDD;&#x5B58;&#x6444;&#x50CF;&#x5934;&#x4E2D;&#x7684; <code>&#x89C6;&#x9891;&#x6587;&#x4EF6;</code> &#x548C; <code>&#x62A5;&#x8B66;&#x56FE;&#x7247;&#x6587;&#x4EF6;</code>&#x3002;&#xFF08;In the SD card of the device, save the video files and alarm picture files in the camera.&#xFF09;</h5>
 <ul>
-<li>&#x4E8C;&#x7EF4;&#x7801;&#x914D;&#x7F51;</li>
+<li><h4 id="&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF08;video-file&#xFF09;">&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF08;Video file&#xFF09;</h4>
+</li>
 </ul>
-<ul>
-<li>&#x70ED;&#x70B9;&#x914D;&#x7F51;</li>
+<h6 id="&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x6444;&#x50CF;&#x5934;&#x5F55;&#x5236;&#x7684;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;&#x8FDE;&#x7EED;&#x5F55;&#x50CF;&#x3001;&#x62A5;&#x8B66;&#x5F55;&#x50CF;&#x3001;&#x5B9A;&#x65F6;&#x5F55;&#x50CF;&#x3002;&#xFF08;video-files-that-is-a-list-of-video-files-recorded-by-the-camera-including-continuous-recording-alarm-recording-timed-recording&#xFF09;">&#x89C6;&#x9891;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x6444;&#x50CF;&#x5934;&#x5F55;&#x5236;&#x7684;&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;<code>&#x8FDE;&#x7EED;&#x5F55;&#x50CF;</code>&#x3001;<code>&#x62A5;&#x8B66;&#x5F55;&#x50CF;</code>&#x3001;<code>&#x5B9A;&#x65F6;&#x5F55;&#x50CF;</code>&#x3002;&#xFF08;Video files, that is, a list of video files recorded by the camera, including: <code>continuous recording</code>, <code>alarm recording</code>, <code>timed recording</code>.&#xFF09;</h6>
+<p>&#x4ECE;app&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x5230; <font color="red">KHJDeviceManager </font>&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;&#xFF08;Get objects of class <font color="red">KHJDeviceManager </font> from the app cache:&#xFF09;</p>
+<p><code>TS</code> &#x5373;&#x5C06; <code>YYYY_MM_dd</code> &#x683C;&#x5F0F;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6210;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x3002;&#xFF08;<code>TS</code> is a timestamp that converts a string in the format <code>YYYY_MM_dd</code>.&#xFF09;</p>
+<p><code>withStart</code> &#x5373; &#x662F;&#x5426;&#x4ECE;&#x7B2C;&#x4E00;&#x9875;&#x5F00;&#x59CB;&#x67E5;&#x8BE2;&#x3002;&#xFF08;<code>withStart</code> means whether to start query from the first page.&#xFF09;</p>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [dDevice.mDeviceManager listVideoFileStart:TS withStart:true returnBlock:^(BOOL isContinue, NSMutableArray *mArray) {
+
+    }];
+}
+</code></pre><p><code>isContinue</code> &#x5373;&#x6709;&#x66F4;&#x591A;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x505A;&#x4E0A;&#x62C9;&#x5237;&#x65B0;&#x7684;&#x5224;&#x65AD;&#x53C2;&#x6570;&#x3002;&#xFF08;<code>isContinue</code> means that there is more data, which can be used as a judgment parameter for pull-up refresh.&#xFF09;</p>
+<p><code>mArray</code> &#x5373; &#x89C6;&#x9891;&#x5217;&#x8868;&#x6570;&#x636E;&#x3002;&#xFF08;<code>mArray</code> is the video list data.&#xFF09;</p>
+<h5 id="&#x6216;&#x8005;&#xFF08;or&#xFF09;">&#x6216;&#x8005;&#xFF08;or&#xFF09;</h5>
+<pre><code>KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
+[manager createKHJCameraBase:Uid];
+if (manager) {
+    [manager listVideoFileStart:TS withStart:true returnBlock:^(BOOL isContinue, NSMutableArray *mArray) {
+
+    }];
+}
+</code></pre><ul>
+<li><h4 id="&#x56FE;&#x7247;&#x6587;&#x4EF6;&#xFF08;picture-file&#xFF09;">&#x56FE;&#x7247;&#x6587;&#x4EF6;&#xFF08;Picture file&#xFF09;</h4>
+</li>
 </ul>
-<pre><code class="lang-go">&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x8BBE;&#x5907;&#x5339;&#x914D;&#x81F3;&#x53EF;&#x7528;&#x7684;&#x975E;<span class="hljs-number">5</span>G&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x5728;<span class="hljs-number">4</span>G&#x6216;Wi-Fi&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;
-</code></pre>
-<p>&#x4E00;&#x79CD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF1A;</p>
-<ul>
-<li>AP &#x8FDE;&#x63A5;</li>
-</ul>
-<pre><code class="lang-go">AP&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x65E0;<span class="hljs-number">4</span>G&#x548C;Wi-Fi&#x7F51;&#x7EDC;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x8FDE;&#x63A5;&#x8BBE;&#x5907;&#x70ED;&#x70B9;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;
-</code></pre>
+<h6 id="&#x56FE;&#x7247;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x6444;&#x50CF;&#x5934;&#x7684;-&#x62A5;&#x8B66;&#x56FE;&#x7247;&#x3002;&#xFF08;picture-file-that-is-the-alarm-picture-of-the-camera&#xFF09;">&#x56FE;&#x7247;&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x6444;&#x50CF;&#x5934;&#x7684; <code>&#x62A5;&#x8B66;&#x56FE;&#x7247;</code>&#x3002;&#xFF08;Picture file, that is, the &quot;alarm picture&quot; of the camera.&#xFF09;</h6>
+<blockquote>
+<p>&#x89C6;&#x9891;&#x6587;&#x4EF6;&#x4E0E;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x83B7;&#x53D6;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F7F;&#x7528; <font color="red"><code>listJpegFileStart</code></font> &#x66FF;&#x6362; <font color="red"><code>listVideoFileStart</code> </font> &#x5373;&#x53EF;&#xFF0C;&#x53C2;&#x6570;&#x76F8;&#x540C;&#x4E14;&#x6362;&#x56DE;&#x6570;&#x636E;&#x76F8;&#x540C;&#x3002;&#xFF08;The method of obtaining video files is similar to that of image files. Use <font color="red"><code>listJpegFileStart</code></font> to replace <font color="red"><code>listVideoFileStart</code> </font>. The parameters are the same and the data returned are the same.&#xFF09;</p>
+</blockquote>
 
                     
                     </section>
@@ -379,10 +396,10 @@
         </div>
 
         
-        <a href="../../localmd/集成SDK.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/摄像头设置/时区.html" class="navigation navigation-prev " aria-label="Previous page: 时区（Time zone）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/摄像头配网/二维码模式.html" class="navigation navigation-next " aria-label="Next page: 二维码模式"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/摄像头设置/音量.html" class="navigation navigation-next " aria-label="Next page: 音量（volume）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -406,9 +423,13 @@
     <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
