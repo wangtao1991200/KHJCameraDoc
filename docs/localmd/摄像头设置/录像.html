@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>录像 | 看护家智能摄像机iOS SDK  接入指南</title>
+        <title>录像（Video） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="6.5"
-        data-chapter-title="录像"
+        data-chapter-title="录像（Video）"
         data-filepath="localmd/摄像头设置/录像.md"
         data-basepath="../.."
-        data-revision="Mon Sep 23 2019 14:19:04 GMT+0800 (CST)"
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -76,7 +76,7 @@
                 
                         <i class="fa fa-check"></i>
                         
-                        前言
+                        前言（Foreword）
                     </a>
             
             
@@ -91,7 +91,7 @@
                         
                             <b>1.</b>
                         
-                        集成SDK
+                        集成SDK（Integrated SDK）
                     </a>
             
             
@@ -106,7 +106,7 @@
                         
                             <b>2.</b>
                         
-                        摄像头配网
+                        摄像头配网（Camera distribution network）
                     </a>
             
             
@@ -122,7 +122,7 @@
                         
                             <b>2.1.</b>
                         
-                        二维码模式
+                        二维码模式（QR code mode）
                     </a>
             
             
@@ -137,7 +137,7 @@
                         
                             <b>2.2.</b>
                         
-                        热点模式
+                        热点模式（Hotspot mode）
                     </a>
             
             
@@ -152,7 +152,7 @@
                         
                             <b>2.3.</b>
                         
-                        AP模式
+                        AP模式（AP mode）
                     </a>
             
             
@@ -172,7 +172,7 @@
                         
                             <b>3.</b>
                         
-                        摄像头连接
+                        摄像头连接（Camera connection）
                     </a>
             
             
@@ -187,7 +187,7 @@
                         
                             <b>4.</b>
                         
-                        摄像头播放
+                        摄像头播放（Webcam playback）
                     </a>
             
             
@@ -202,7 +202,7 @@
                         
                             <b>5.</b>
                         
-                        摄像头报警
+                        摄像头报警（Camera alarm）
                     </a>
             
             
@@ -217,7 +217,7 @@
                         
                             <b>6.</b>
                         
-                        摄像头设置
+                        摄像头设置（Camera settings）
                     </a>
             
             
@@ -233,7 +233,7 @@
                         
                             <b>6.1.</b>
                         
-                        校准
+                        校准（calibration）
                     </a>
             
             
@@ -248,7 +248,7 @@
                         
                             <b>6.2.</b>
                         
-                        时区
+                        时区（Time zone）
                     </a>
             
             
@@ -263,7 +263,7 @@
                         
                             <b>6.3.</b>
                         
-                        相册
+                        相册（Photo album）
                     </a>
             
             
@@ -278,7 +278,7 @@
                         
                             <b>6.4.</b>
                         
-                        音量
+                        音量（volume）
                     </a>
             
             
@@ -293,7 +293,7 @@
                         
                             <b>6.5.</b>
                         
-                        录像
+                        录像（Video）
                     </a>
             
             
@@ -313,7 +313,7 @@
                         
                             <b>7.</b>
                         
-                        错误码
+                        错误码（error code）
                     </a>
             
             
@@ -342,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >看护家智能摄像机iOS SDK  接入指南</a>
+        <a href="../../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
     </h1>
 </div>
 
@@ -352,20 +352,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;">&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;</h1>
-<p>&#x89C6;&#x9891;&#x5F55;&#x50CF;&#x5B58;&#x653E;&#x5728;SD&#x5361;&#x4E2D;&#xFF0C;&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x5904;&#x7406;  <code>SD&#x5361;</code>  &#x548C;  <code>&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x53C2;&#x6570;</code> &#x3002;</p>
-<h4 id="&#x521B;&#x5EFA;-khjdevicemanager-&#x5BF9;&#x8C61;">&#x521B;&#x5EFA; KHJDeviceManager &#x5BF9;&#x8C61;</h4>
+                        <h1 id="&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#xFF08;recording-settings&#xFF09;">&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#xFF08;Recording settings&#xFF09;</h1>
+<p>&#x89C6;&#x9891;&#x5F55;&#x50CF;&#x5B58;&#x653E;&#x5728;SD&#x5361;&#x4E2D;&#xFF0C;&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x5904;&#x7406;  <code>SD&#x5361;</code>  &#x548C;  <code>&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x53C2;&#x6570;</code> &#x3002;&#xFF08;The video recording is stored in the SD card, and the recording settings can handle <code>SD card</code> and <code>Set recording parameters</code>.&#xFF09;</p>
+<h4 id="&#x521B;&#x5EFA;-khjdevicemanager-&#x5BF9;&#x8C61;&#xFF08;create-khjdevicemanager-object&#xFF09;">&#x521B;&#x5EFA; KHJDeviceManager &#x5BF9;&#x8C61;&#xFF08;Create KHJDeviceManager object&#xFF09;</h4>
 <pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
 [manager createKHJCameraBase:Uid];
 </code></pre>
-<h4 id="&#x683C;&#x5F0F;&#x5316;sd&#x5361;">&#x683C;&#x5F0F;&#x5316;SD&#x5361;</h4>
+<h4 id="&#x683C;&#x5F0F;&#x5316;sd&#x5361;&#xFF08;format-sd-card&#xFF09;">&#x683C;&#x5F0F;&#x5316;SD&#x5361;&#xFF08;Format SD card&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
   [manager formatSdcard:^(int success) {
-    // success = 0&#xFF0C; &#x683C;&#x5F0F;&#x5316;&#x6210;&#x529F;
+    // success = 0&#xFF0C; &#x683C;&#x5F0F;&#x5316;&#x6210;&#x529F;&#xFF08;Formatted successfully&#xFF09;
   }];
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;sd&#x5361;&#x4FE1;&#x606F;">&#x83B7;&#x53D6;SD&#x5361;&#x4FE1;&#x606F;</h4>
+<h4 id="&#x83B7;&#x53D6;sd&#x5361;&#x4FE1;&#x606F;&#xFF08;get-sd-card-information&#xFF09;">&#x83B7;&#x53D6;SD&#x5361;&#x4FE1;&#x606F;&#xFF08;Get SD card information&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
   [manager queryDeviceInfo:self.uuidStr reternBlock:^(int allCapacity,
                                                       int leftCapacity,
@@ -373,45 +373,45 @@
                                                       NSString *model,
                                                       NSString *vendor,
                                                       NSString *ffs) {
-    // allCapacity - &#x603B;&#x5BB9;&#x91CF;
-    // leftCapacity - &#x5269;&#x4F59;&#x5BB9;&#x91CF;
-    // ffs - ffs &#x4E0D;&#x7B49;&#x4E8E; @&quot;&quot; &amp;&amp; &#x4E0D;&#x7B49;&#x4E8E;@&quot;exfat&quot;&#xFF0C;&#x5219;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;SD&#x5361;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x4E0D;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;
+    // allCapacity - &#x603B;&#x5BB9;&#x91CF;&#xFF08;total capacity&#xFF09;
+    // leftCapacity - &#x5269;&#x4F59;&#x5BB9;&#x91CF;&#xFF08;The remaining capacity&#xFF09;
+    // ffs - ffs &#x4E0D;&#x7B49;&#x4E8E; @&quot;&quot; &amp;&amp; &#x4E0D;&#x7B49;&#x4E8E;@&quot;exfat&quot;&#xFF0C;&#x5219;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;SD&#x5361;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x4E0D;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;&#xFF08;ffs is not equal to @&quot;&quot; &amp;&amp; is not equal to @&quot;exfat&quot;, the SD card is forced to be formatted. Otherwise, do not force the format&#xFF09;
   }];
 }
 </code></pre>
-<h4 id="&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;">&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;</h4>
+<h4 id="&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;query-recording-mode&#xFF09;">&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;Query recording mode&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
   [manager getVideoRecordType:^(int type) {
-    // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;
-    // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;
-    // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;
-    // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;
+    // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;&#xFF08;Close recording&#xFF09;
+    // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;&#xFF08;Continuous recording&#xFF09;
+    // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;&#xFF08;Timed plan&#xFF09;
+    // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;&#xFF08;Alarm recording&#xFF09;
   }];
 }
 </code></pre>
-<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;</h4>
+<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;set-recording-mode&#xFF09;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;Set recording mode&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
-  // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;
-  // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;
-  // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;
-  // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;
+  // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;&#xFF08;Close recording&#xFF09;
+  // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;&#xFF08;Continuous recording&#xFF09;
+  // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;&#xFF08;Timed plan&#xFF09;
+  // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;&#xFF08;Alarm recording&#xFF09;
   [manager setVideoRecordType:type returnBlock:^(BOOL success) {
 
   }];
 }
 </code></pre>
-<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;</h4>
+<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;set-recording-quality&#xFF09;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;Set recording quality&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
-  // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;
+  // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;&#xFF08;1-LD, 2-SD, 3-HD&#xFF09;
   [manager setRecordVideoQuality:index returnBlock:^(BOOL success) {
 
   }];
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;">&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;</h4>
+<h4 id="&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;get-video-quality&#xFF09;">&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;Get video quality&#xFF09;</h4>
 <pre><code class="lang-objective-c">if (manager) {
     [manager getRecordVideoQuality:^(int level) {
-      // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;
+      // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;&#xFF08;1-LD, 2-SD, 3-HD&#xFF09;
     }];
 }
 </code></pre>
@@ -425,10 +425,10 @@
         </div>
 
         
-        <a href="../../localmd/摄像头设置/音量.html" class="navigation navigation-prev " aria-label="Previous page: 音量"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/摄像头设置/音量.html" class="navigation navigation-prev " aria-label="Previous page: 音量（volume）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/错误码.html" class="navigation navigation-next " aria-label="Next page: 错误码"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/错误码.html" class="navigation navigation-next " aria-label="Next page: 错误码（error code）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -452,9 +452,13 @@
     <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
