@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>音量 | 看护家智能摄像机iOS SDK  接入指南</title>
+        <title>音量（volume） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="6.4"
-        data-chapter-title="音量"
+        data-chapter-title="音量（volume）"
         data-filepath="localmd/摄像头设置/音量.md"
         data-basepath="../.."
-        data-revision="Mon Sep 23 2019 14:19:04 GMT+0800 (CST)"
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -76,7 +76,7 @@
                 
                         <i class="fa fa-check"></i>
                         
-                        前言
+                        前言（Foreword）
                     </a>
             
             
@@ -91,7 +91,7 @@
                         
                             <b>1.</b>
                         
-                        集成SDK
+                        集成SDK（Integrated SDK）
                     </a>
             
             
@@ -106,7 +106,7 @@
                         
                             <b>2.</b>
                         
-                        摄像头配网
+                        摄像头配网（Camera distribution network）
                     </a>
             
             
@@ -122,7 +122,7 @@
                         
                             <b>2.1.</b>
                         
-                        二维码模式
+                        二维码模式（QR code mode）
                     </a>
             
             
@@ -137,7 +137,7 @@
                         
                             <b>2.2.</b>
                         
-                        热点模式
+                        热点模式（Hotspot mode）
                     </a>
             
             
@@ -152,7 +152,7 @@
                         
                             <b>2.3.</b>
                         
-                        AP模式
+                        AP模式（AP mode）
                     </a>
             
             
@@ -172,7 +172,7 @@
                         
                             <b>3.</b>
                         
-                        摄像头连接
+                        摄像头连接（Camera connection）
                     </a>
             
             
@@ -187,7 +187,7 @@
                         
                             <b>4.</b>
                         
-                        摄像头播放
+                        摄像头播放（Webcam playback）
                     </a>
             
             
@@ -202,7 +202,7 @@
                         
                             <b>5.</b>
                         
-                        摄像头报警
+                        摄像头报警（Camera alarm）
                     </a>
             
             
@@ -217,7 +217,7 @@
                         
                             <b>6.</b>
                         
-                        摄像头设置
+                        摄像头设置（Camera settings）
                     </a>
             
             
@@ -233,7 +233,7 @@
                         
                             <b>6.1.</b>
                         
-                        校准
+                        校准（calibration）
                     </a>
             
             
@@ -248,7 +248,7 @@
                         
                             <b>6.2.</b>
                         
-                        时区
+                        时区（Time zone）
                     </a>
             
             
@@ -263,7 +263,7 @@
                         
                             <b>6.3.</b>
                         
-                        相册
+                        相册（Photo album）
                     </a>
             
             
@@ -278,7 +278,7 @@
                         
                             <b>6.4.</b>
                         
-                        音量
+                        音量（volume）
                     </a>
             
             
@@ -293,7 +293,7 @@
                         
                             <b>6.5.</b>
                         
-                        录像
+                        录像（Video）
                     </a>
             
             
@@ -313,7 +313,7 @@
                         
                             <b>7.</b>
                         
-                        错误码
+                        错误码（error code）
                     </a>
             
             
@@ -342,7 +342,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../" >看护家智能摄像机iOS SDK  接入指南</a>
+        <a href="../../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
     </h1>
 </div>
 
@@ -352,43 +352,43 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x8BBE;&#x5907;&#x97F3;&#x91CF;">&#x8BBE;&#x5907;&#x97F3;&#x91CF;</h1>
-<p>&#x8C03;&#x6574;&#x8BBE;&#x5907;&#x7684;&#x58F0;&#x97F3;&#x5927;&#x5C0F;</p>
-<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x97F3;&#x91CF;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x97F3;&#x91CF;</h4>
-<p>&#x4ECE;app&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x5230; <font color="red">KHJDeviceManager </font>&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;</p>
+                        <h1 id="&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;device-volume&#xFF09;">&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;Device volume&#xFF09;</h1>
+<p>&#x8C03;&#x6574;&#x8BBE;&#x5907;&#x7684;&#x58F0;&#x97F3;&#x5927;&#x5C0F;&#xFF08;Adjust the sound volume of the device&#xFF09;</p>
+<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;get-device-volume&#xFF09;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;Get device volume&#xFF09;</h4>
+<p>&#x4ECE;app&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x5230; <font color="red">KHJDeviceManager </font>&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;&#xFF08;Get objects of class <font color="red">KHJDeviceManager </font> from the app cache:&#xFF09;</p>
 <pre><code class="lang-objective-c">KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
 if (dDevice) {
-  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%
+  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%&#xFF08;volume: The value range is [0, 100], that is 0-100%&#xFF09;
     [dDevice.mDeviceManager getDeviceVolume:^(int volume) {
 
     }];
 }
 </code></pre>
-<h5 id="&#x6216;&#x8005;">&#x6216;&#x8005;</h5>
+<h5 id="&#x6216;&#x8005;&#xFF08;or&#xFF09;">&#x6216;&#x8005;&#xFF08;or&#xFF09;</h5>
 <pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
 [manager createKHJCameraBase:Uid];
 if (manager) {
-  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%
+  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%&#xFF08;volume: The value range is [0, 100], that is 0-100%&#xFF09;
   [manager getDeviceVolume:^(int volume) {
 
     }];
 }
 </code></pre>
-<h4 id="&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x97F3;&#x91CF;">&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x97F3;&#x91CF;</h4>
-<p>&#x4ECE;app&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x5230; <font color="red">KHJDeviceManager </font>&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<h4 id="&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;set-device-volume&#xFF09;">&#x8BBE;&#x7F6E;&#x8BBE;&#x5907;&#x97F3;&#x91CF;&#xFF08;Set device volume&#xFF09;</h4>
+<p>&#x4ECE;app&#x7F13;&#x5B58;&#x4E2D;&#x62FF;&#x5230; <font color="red">KHJDeviceManager </font>&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;&#xFF08;Get objects of class <font color="red">KHJDeviceManager </font> from the app cache:&#xFF09;</p>
 <pre><code class="lang-objective-c">KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
 if (dDevice) {
-    // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%
+    // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%&#xFF08;volume: The value range is [0, 100], that is 0-100%&#xFF09;
     [dDevice.mDeviceManager setDeviceVolume:volume returnBlock:^(BOOL success) {
 
     }];
 }
 </code></pre>
-<h5 id="&#x6216;&#x8005;">&#x6216;&#x8005;</h5>
+<h5 id="&#x6216;&#x8005;&#xFF08;or&#xFF09;">&#x6216;&#x8005;&#xFF08;or&#xFF09;</h5>
 <pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
 [manager createKHJCameraBase:Uid];
 if (manager) {
-  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%
+  // volume:&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0, 100]&#xFF0C;&#x5373; 0 - 100%&#xFF08;volume: The value range is [0, 100], that is 0-100%&#xFF09;
   [manager setDeviceVolume:volume returnBlock:^(BOOL success) {
 
     }];
@@ -404,10 +404,10 @@ if (manager) {
         </div>
 
         
-        <a href="../../localmd/摄像头设置/相册.html" class="navigation navigation-prev " aria-label="Previous page: 相册"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/摄像头设置/相册.html" class="navigation navigation-prev " aria-label="Previous page: 相册（Photo album）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/摄像头设置/录像.html" class="navigation navigation-next " aria-label="Next page: 录像"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/摄像头设置/录像.html" class="navigation navigation-next " aria-label="Next page: 录像（Video）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
@@ -431,9 +431,13 @@ if (manager) {
     <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
