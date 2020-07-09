@@ -1112,4 +1112,28 @@ offLineCallBack:(void(^)(void))offLineBlock;
  */
 - (void)setAlarmInterval:(int)interval returnBlock:(void(^)(BOOL success))resultBlock;
 
+/**
+Set device cloud storage URL
+
+@param interval URL
+@param resultBlock
+- success
+*/
+- (void)setDeviceCloudUrl:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
+
+/// Get device cloud storage URL
+/// @param resultBlock
+- (void)getDeviceCloudUrl:(void(^)(NSString *cloudUrl))resultBlock;
+
+
+/// Set device cloud storage upload URL
+/// @param url URL
+/// @param resultBlock
+- (void)setDeviceCloudUploadUrl:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
+
+
+/// Get device cloud storage upload URL
+/// @param resultBlock
+- (void)getDeviceCloudUploadUrl:(void(^)(NSString *cloudUrl))resultBlock;
+
 @end
