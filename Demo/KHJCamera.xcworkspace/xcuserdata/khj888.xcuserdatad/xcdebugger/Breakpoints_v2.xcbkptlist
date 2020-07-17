@@ -610,8 +610,8 @@
             timestampString = "589275099.037474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2404"
-            endingLineNumber = "2404"
+            startingLineNumber = "2405"
+            endingLineNumber = "2405"
             landmarkName = "-backGetPushListenerState:withDstring:"
             landmarkType = "7">
          </BreakpointContent>
@@ -797,22 +797,6 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "-handleHotConnect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "827864C4-138C-42AC-B70F-AD2FC347B3F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/secondController/KHJVideoPlayViewController.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

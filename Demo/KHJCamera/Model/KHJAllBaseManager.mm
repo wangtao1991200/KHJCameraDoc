@@ -62,8 +62,6 @@
 
 - (void)addKHJManager:(KHJBaseDevice *)khjManager andKey:(NSString *)uidStr
 {
-    CLog(@"khjManager");
-    CLog(@"khjManager = %@",khjManager);
     [_cameraDic setObject:khjManager forKey:uidStr];
 }
 

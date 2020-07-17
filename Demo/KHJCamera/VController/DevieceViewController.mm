@@ -162,20 +162,20 @@
     DeviceInfo *dInfo = [[DeviceInfo alloc] init];
     dInfo.devicePwd = @"888888";
     dInfo.deviceRealPwd = @"888888";
-    dInfo.deviceUid = @"";
+    dInfo.deviceUid = @"KHJ-233719-PVNDB";
     dInfo.isOpen = YES;
     dInfo.isShare = YES;
     
-    KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:@""];
+    KHJBaseDevice *bDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:@"KHJ-233719-PVNDB"];
     if (!bDevice) {
         bDevice             = [[KHJBaseDevice alloc] init];
         dInfo.isOpen        = YES;
         dInfo.deviceRealPwd = @"888888";
         bDevice.mDeviceInfo = dInfo;
-        [bDevice.mDeviceManager creatCameraBase:@"" keyword:@""];
+        [bDevice.mDeviceManager creatCameraBase:@"KHJ-233719-PVNDB" keyword:@""];
         /* 创建摄像头对象，并加入到 全局变量 addKHJManager */
         /* Create a camera object and add it to the global variable addKHJManager */
-        [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@""];
+        [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@"KHJ-233719-PVNDB"];
     }
     
     KHJVideoPlayViewController *vCtrl = [[KHJVideoPlayViewController alloc] init];
