@@ -1113,27 +1113,55 @@ offLineCallBack:(void(^)(void))offLineBlock;
 - (void)setAlarmInterval:(int)interval returnBlock:(void(^)(BOOL success))resultBlock;
 
 /**
-Set device cloud storage URL
+ Set device cloud storage URL
 
-@param interval URL
-@param resultBlock
-- success
+ @param url cloud Url
+ @param resultBlock
+ - success
 */
 - (void)setDeviceCloudUrl:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
 
-/// Get device cloud storage URL
-/// @param resultBlock
+/**
+ Get device cloud storage URL
+
+ @param resultBlock
+ - cloudUrl
+*/
 - (void)getDeviceCloudUrl:(void(^)(NSString *cloudUrl))resultBlock;
 
+/**
+ Set device cloud storage upload URL
 
-/// Set device cloud storage upload URL
-/// @param url URL
-/// @param resultBlock
+ @param url cloud upload url
+ @param resultBlock
+ - success
+*/
 - (void)setDeviceCloudUploadUrl:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
 
+/**
+ Get device cloud storage upload URL
 
-/// Get device cloud storage upload URL
-/// @param resultBlock
+ @param resultBlock
+ - cloudUrl
+*/
 - (void)getDeviceCloudUploadUrl:(void(^)(NSString *cloudUrl))resultBlock;
+
+/**
+ Set picture alarm address
+ 
+ @param pictureUrl Picture alarm address
+ @param resultBlock
+ - success
+*/
+- (void)setPictureUrl:(NSString *)pictureUrl
+          returnBlock:(void(^)(BOOL success))resultBlock;
+
+/**
+ Get picture alarm address
+ 
+ @param resultBlock
+ - pictureUrl Picture alarm address
+ */
+- (void)getPictureUrl:(void(^)(NSString *pictureUrl))resultBlock;
 
 @end
