@@ -1,0 +1,653 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>摄像头报警（Camera alarm） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../localmd/摄像头设置/摄像头设置.html" />
+    
+    
+    <link rel="prev" href="../localmd/摄像头播放.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="5"
+        data-chapter-title="摄像头报警（Camera alarm）"
+        data-filepath="localmd/摄像头报警.md"
+        data-basepath=".."
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        前言（Foreword）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="localmd/集成SDK.html">
+            
+                
+                    <a href="../localmd/集成SDK.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        集成SDK（Integrated SDK）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
+            
+                
+                    <a href="../localmd/摄像头配网/摄像头配网.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        摄像头配网（Camera distribution network）
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="localmd/摄像头配网/二维码模式.html">
+            
+                
+                    <a href="../localmd/摄像头配网/二维码模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        二维码模式（QR code mode）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="localmd/摄像头配网/热点模式.html">
+            
+                
+                    <a href="../localmd/摄像头配网/热点模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        热点模式（Hotspot mode）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="localmd/摄像头配网/AP模式.html">
+            
+                
+                    <a href="../localmd/摄像头配网/AP模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        AP模式（AP mode）
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="localmd/摄像头连接.html">
+            
+                
+                    <a href="../localmd/摄像头连接.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        摄像头连接（Camera connection）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="localmd/摄像头播放.html">
+            
+                
+                    <a href="../localmd/摄像头播放.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        摄像头播放（Webcam playback）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5" data-path="localmd/摄像头报警.html">
+            
+                
+                    <a href="../localmd/摄像头报警.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        摄像头报警（Camera alarm）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="localmd/摄像头设置/摄像头设置.html">
+            
+                
+                    <a href="../localmd/摄像头设置/摄像头设置.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        摄像头设置（Camera settings）
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="localmd/摄像头设置/校准.html">
+            
+                
+                    <a href="../localmd/摄像头设置/校准.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        校准（calibration）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="localmd/摄像头设置/时区.html">
+            
+                
+                    <a href="../localmd/摄像头设置/时区.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        时区（Time zone）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="localmd/摄像头设置/相册.html">
+            
+                
+                    <a href="../localmd/摄像头设置/相册.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        相册（Photo album）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="localmd/摄像头设置/音量.html">
+            
+                
+                    <a href="../localmd/摄像头设置/音量.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        音量（volume）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="localmd/摄像头设置/录像.html">
+            
+                
+                    <a href="../localmd/摄像头设置/录像.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        录像（Video）
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="localmd/错误码.html">
+            
+                
+                    <a href="../localmd/错误码.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        错误码（error code）
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x8BBE;&#x5907;&#x62A5;&#x8B66;&#xFF08;device-alarm&#xFF09;">&#x8BBE;&#x5907;&#x62A5;&#x8B66;&#xFF08;Device alarm&#xFF09;</h1>
+<p>&#x53EF;&#x6839;&#x636E;&#x8981;&#x6C42;&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#xFF0C;&#x5982; :</p>
+<p><code>&#x662F;&#x5426;&#x5F00;&#x542F;&#x62A5;&#x8B66;&#x58F0;&#x97F3;</code>&#x3001;<code>&#x81EA;&#x5B9A;&#x4E49;&#x62A5;&#x8B66;&#x94C3;&#x58F0;</code>&#x3001;<code>&#x62A5;&#x8B66;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x8BBE;&#x7F6E;</code></p>
+<p><code>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x63A5;&#x6536;&#x62A5;&#x8B66;&#x63A8;&#x9001;</code>&#x3001;<code>&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x90AE;&#x7BB1;</code></p>
+<p><code>&#x4EBA;&#x8138;&#x68C0;&#x6D4B;</code>&#x3001;<code>&#x4EBA;&#x5F62;&#x68C0;&#x6D4B;</code>&#x3001;<code>&#x58F0;&#x97F3;&#x68C0;&#x6D4B;</code>&#x3001;<code>&#x79FB;&#x52A8;&#x68C0;&#x6D4B;</code>&#x4EE5;&#x53CA; <code>&#x8BBE;&#x7F6E;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x7684;&#x7075;&#x654F;&#x5EA6;</code>&#x3002;</p>
+<p>The alarm can be set according to requirements, such as:</p>
+<p><code>Whether to turn on the alarm sound</code>, <code>Custom alarm ringtone</code>, <code>Alarm interval setting</code></p>
+<p><code>Set whether to receive alarm push</code>, <code>set alarm mailbox</code></p>
+<p><code>Face Detection</code>, <code>Human Shape Detection</code>, <code>Sound Detection</code>, <code>Motion Detection</code> and <code>Set Motion Detection Sensitivity</code>.</p>
+<h4 id="&#x521B;&#x5EFA;-khjdevicemanager-&#x5BF9;&#x8C61;&#xFF08;create-khjdevicemanager-object&#xFF09;">&#x521B;&#x5EFA; KHJDeviceManager &#x5BF9;&#x8C61;&#xFF08;Create KHJDeviceManager object&#xFF09;</h4>
+<pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
+[manager createKHJCameraBase:Uid];
+</code></pre>
+<h3 id="&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x5730;&#x5740;&#xFF08;set-alarm-address&#xFF09;">&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x5730;&#x5740;&#xFF08;Set alarm address&#xFF09;</h3>
+<pre><code class="lang-objective-c">// &#x5728;&#x8BBE;&#x5907;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x7ED9;&#x8BBE;&#x5907;&#x8BBE;&#x7F6E;&#x4E00;&#x6B21;&#x62A5;&#x8B66;&#x5730;&#x5740;&#xFF0C;&#x5F53;&#x8BBE;&#x5907;&#x89E6;&#x53D1;&#x62A5;&#x8B66;&#x65F6;&#xFF0C;&#x53EF;&#x63A8;&#x9001;&#x5230;&#x8BE5;&#x5730;&#x5740;
+// After the device is successfully connected, set an alarm address for the device. When the device triggers an alarm, it can be pushed to this address
+
+
+if (manager) {
+  [manager setphpserver:@&quot;Alarm address url&quot; returnBlock:^(BOOL success){
+
+  }];
+}
+</code></pre>
+<h4 id="&#x662F;&#x5426;&#x5F00;&#x542F;&#x62A5;&#x8B66;&#x58F0;&#x97F3;&#xFF08;whether-to-turn-on-the-alarm-sound&#xFF09;">&#x662F;&#x5426;&#x5F00;&#x542F;&#x62A5;&#x8B66;&#x58F0;&#x97F3;&#xFF08;Whether to turn on the alarm sound&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager getDeviceAlarmVolume:^(BOOL isOpen) {
+    // isOpen = YES 
+    // isOpen = NO  
+  }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x58F0;&#x97F3;&#x5F00;&#x5173;&#xFF08;set-alarm-sound-switch&#xFF09;">&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x58F0;&#x97F3;&#x5F00;&#x5173;&#xFF08;Set alarm sound switch&#xFF09;</h4>
+<pre><code class="lang-objective-c">// set &#x65B9;&#x6CD5;&#xFF0C;&#x6253;&#x5F00;/&#x5173;&#x95ED; &#x8BBE;&#x5907;&#x7684;&#x62A5;&#x8B66;&#x58F0;&#x97F3; 
+// set method to turn on/off the alarm sound of the device
+
+if (manager) {
+  [manager setDeviceAlarmVolume:isOpen returnBlock:^(BOOL isOpen){
+
+  }];
+}
+</code></pre>
+<h4 id="&#x81EA;&#x5B9A;&#x4E49;&#x62A5;&#x8B66;&#x94C3;&#x58F0;&#xFF08;custom-alarm-ringtone&#xFF09;">&#x81EA;&#x5B9A;&#x4E49;&#x62A5;&#x8B66;&#x94C3;&#x58F0;&#xFF08;Custom alarm ringtone&#xFF09;</h4>
+<ul>
+<li>&#x83B7;&#x53D6;&#x81EA;&#x5B9A;&#x4E49;&#x94C3;&#x58F0;&#x5217;&#x8868;&#xFF08;Get a list of custom ringtones&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager getRecordAudioListWithReturnBlock:^(NSMutableArray *soundNameArr, 
+                                               NSMutableArray *soundAliasArr,
+                                               int tag) {
+    // soundNameArr - &#x94C3;&#x58F0;&#x540D;&#x79F0;(Ringtone name)
+    // soundAliasArr - &#x94C3;&#x58F0;&#x522B;&#x540D;(Ringtone alias)
+    // tag - &#x4E0B;&#x6807;(Index)
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x4E0A;&#x4F20;&#x81EA;&#x5B9A;&#x4E49;&#x94C3;&#x58F0;&#xFF08;Upload custom ringtones&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  // path - &#x94C3;&#x58F0;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(Ringtone file path)
+  // name - &#x94C3;&#x58F0;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF0C;&#x53EF;&#x4E0D;&#x4F20;&#xFF0C;&#x4F7F;&#x7528;&#x522B;&#x540D;&#x533A;&#x5206;&#x5373;&#x53EF;&#x3002;(The name of the ringtone file can be omitted, and the alias can be used to distinguish it.)
+  // alias - &#x94C3;&#x58F0;&#x6587;&#x4EF6;&#x522B;&#x540D;(Ringtone file alias)
+  [manager uploadAudioFile:path name:@&quot;&quot; alias:resultString 
+                           returnBlock:^(uint8_t success, uint32_t totalSize, uint32_t hadSendSize) {
+                 // success    = 0 &#x6307;&#x4EE4;&#x6210;&#x529F;&#xFF0C;&#x5F00;&#x59CB;&#x4E0A;&#x4F20;&#x94C3;&#x58F0;&#x6587;&#x4EF6;(The command is successful, and the ringtone file upload begins)
+                 // totalSize - &#x94C3;&#x58F0;&#x6587;&#x4EF6;&#x603B;&#x5927;&#x5C0F;(Total ringtone file size)
+                 // hadSendSize - &#x5DF2;&#x4E0A;&#x4F20;&#x5927;&#x5C0F;(Uploaded size)
+               }];
+}
+</code></pre>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x94C3;&#x58F0;&#xFF08;Set default ringtone&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  // &#x8BBE;&#x7F6E; alias &#x4E3A;&#x9ED8;&#x8BA4;&#x94C3;&#x58F0;(Set alias as the default ringtone)
+  [manager setDefaultAudioFileWithFileName:@&quot;&quot; aliasName:alias returnBloc:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x64AD;&#x653E;&#x94C3;&#x58F0;&#xFF08;Play ringtone&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  // &#x64AD;&#x653E; alias &#x94C3;&#x58F0;(Play alias ringtones)
+  [manager playAudioFileWithFileName:@&quot;&quot; aliasName:alias returnBloc:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x5220;&#x9664;&#x94C3;&#x58F0;&#xFF08;Delete ringtone&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  // &#x5220;&#x9664; alias &#x94C3;&#x58F0;(Delete alias ringtone)
+  [manager deleteAudioFileWithFileName:@&quot;&quot; aliasName:alias returnBloc:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<h4 id="&#x62A5;&#x8B66;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF08;alarm-interval&#xFF09;">&#x62A5;&#x8B66;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#xFF08;Alarm interval&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // interval &#x53EF;&#x9009;&#x503C;&#x4E3A;: [1,3,10,30]&#xFF0C;&#x4EE5;&#x5206;&#x949F;&#x4E3A;&#x5355;&#x4F4D;&#x3002;(Optional values for interval are: [1,3,10,30], in minutes.)
+  [dDevice.mDeviceManager setAlarmInterval:interval returnBlock:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<h4 id="&#x662F;&#x5426;&#x63A5;&#x9001;&#x62A5;&#x8B66;&#x63A8;&#x9001;&#xFF08;whether-to-pick-up-the-alarm&#xFF09;">&#x662F;&#x5426;&#x63A5;&#x9001;&#x62A5;&#x8B66;&#x63A8;&#x9001;&#xFF08;Whether to pick up the alarm&#xFF09;</h4>
+<pre><code class="lang-objective-c">/**
+type = 13  &#x62A5;&#x8B66;&#x63A8;&#x9001;(Alarm push)
+dataJson = @&quot;{\&quot;data\&quot;:0}&quot;      Json&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5173;&#x95ED;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Json string, turn off alarm push)
+dataJson = @&quot;{\&quot;data\&quot;:1}&quot;       Json&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6253;&#x5F00;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Json string, open the alarm push)
+*/
+if (manager) {
+  [manager sendCommomCMDWithType:13 WithData:dataJson returnBlock:^(BOOL success, int sType, NSString *fString) {
+
+  }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x90AE;&#x7BB1;&#xFF08;set-alarm-mailbox&#xFF09;">&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x90AE;&#x7BB1;&#xFF08;Set alarm mailbox&#xFF09;</h4>
+<ul>
+<li>&#x83B7;&#x53D6;&#x62A5;&#x8B66;&#x90AE;&#x7BB1;&#x4FE1;&#x606F;&#xFF08;Get alarm mailbox information&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager getEmail:^(NSString *userStr, 
+                      NSString *userPwd,
+                      NSString *serverStr,
+                      NSString *sendTo,
+                      int mPort) {
+    // userStr   - &#x90AE;&#x7BB1;&#x7528;&#x6237;(Mailbox user)
+    // userPwd   - &#x90AE;&#x7BB1;&#x5BC6;&#x7801;(email Password)
+    // serverStr - &#x90AE;&#x7BB1;&#x670D;&#x52A1;&#x5668;(Mailbox server)
+    // sendTo       - &#x63A5;&#x6536;&#x90AE;&#x7BB1;(Receive mailbox)
+    // mPort     - &#x90AE;&#x7BB1;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x53E3;(Mailbox server port)
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x83B7;&#x53D6;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#x662F;&#x5426;&#x5F00;&#x542F;&#xFF08;Get the mailbox alarm is turned on&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager getEmailAlarm:^(BOOL isOpen) {
+    // isOpen YES &#x5F00;&#x542F;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Open the mailbox alarm push)
+    // isOpen NO  &#x672A;&#x5F00;&#x542F;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Alarm push for mailbox not enabled)
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x5F00;&#x542F;/&#x5173;&#x95ED;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#xFF08;Open/close mailbox alarm&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  // isOpen YES &#x5F00;&#x542F;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Open the mailbox alarm push)
+  // isOpen NO  &#x5173;&#x95ED;&#x90AE;&#x7BB1;&#x62A5;&#x8B66;&#x63A8;&#x9001;(Close mailbox alarm push)
+  [manager setEmailAlarm:isOpen returnBlock:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x62A5;&#x8B66;&#x90AE;&#x7BB1;&#xFF08;Set alarm mailbox&#xFF09;</li>
+</ul>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager setEmail:fourTF.text                /* &#x53D1;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;(Sender mailbox) */
+                  andPwd:fiveTF.text                /* smtp&#x6388;&#x6743;&#x7801; &#x6216; &#x53D1;&#x4EF6;&#x4EBA;&#x5BC6;&#x7801;(smtp authorization code or sender password) */
+             andServer:sixTF.text                 /* smtp&#x5730;&#x5740;(smtp address) */
+             andSendto:threeTF.text               /* &#x6536;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;(Recipient&apos;s mailbox) */
+                 andPort:[sevenTF.text intValue]    /* &#x7AEF;&#x53E3;(port) */
+        returnBlock:^(BOOL success) {
+
+        }];
+}
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#xFF08;get-face-detection&#xFF09;">&#x83B7;&#x53D6;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#xFF08;Get face detection&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+        [manager getPersonFaceAlarmWithBlock:^(BOOL status) {
+      // status = YES &#x5F00;&#x542F;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;(Turn on face detection)
+      // status = NO  &#x672A;&#x5F00;&#x542F;&#x4EBA;&#x8138;&#x68C0;&#x6D4B;(Face detection is not enabled)
+    }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x4EBA;&#x8138;&#x62A5;&#x8B66;&#xFF08;set-face-alarm&#xFF09;">&#x8BBE;&#x7F6E;&#x4EBA;&#x8138;&#x62A5;&#x8B66;&#xFF08;Set face alarm&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // isOn YES &#x5F00;&#x542F;&#x4EBA;&#x8138;&#x62A5;&#x8B66;(Turn on face alarm)
+  // isOn NO  &#x5173;&#x95ED;&#x4EBA;&#x8138;&#x62A5;&#x8B66;(Turn off face alarm)
+  [manager setPersonFaceAlarmWith:isOn returnBlock:^(BOOL success){
+
+  }];
+}
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x4EBA;&#x5F62;&#x68C0;&#x6D4B;&#xFF08;get-human-detection&#xFF09;">&#x83B7;&#x53D6;&#x4EBA;&#x5F62;&#x68C0;&#x6D4B;&#xFF08;Get human detection&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+    [manager getPersonShapeAlarmWithBlock:^(BOOL status) {
+      // status = YES &#x5F00;&#x542F;&#x4EBA;&#x5F62;&#x68C0;&#x6D4B;(Turn on humanoid detection)
+      // status = NO  &#x672A;&#x5F00;&#x542F;&#x4EBA;&#x5F62;&#x68C0;&#x6D4B;(Humanoid detection is not enabled)
+    }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x4EBA;&#x5F62;&#x62A5;&#x8B66;&#xFF08;set-up-humanoid-alarm&#xFF09;">&#x8BBE;&#x7F6E;&#x4EBA;&#x5F62;&#x62A5;&#x8B66;&#xFF08;Set up humanoid alarm&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // isOn YES &#x5F00;&#x542F;&#x4EBA;&#x5F62;&#x62A5;&#x8B66;(Turn on the humanoid alarm)
+  // isOn NO  &#x5173;&#x95ED;&#x4EBA;&#x5F62;&#x62A5;&#x8B66;(Turn off the humanoid alarm)
+  [manager setPersonShapeAlarmWithBlock:isOn returnBlock:^(BOOL success){
+
+  }];
+}
+</code></pre>
+<h4 id="&#x58F0;&#x97F3;&#x68C0;&#x6D4B;&#xFF08;sound-detection&#xFF09;">&#x58F0;&#x97F3;&#x68C0;&#x6D4B;&#xFF08;Sound detection&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+    [manager getSoundAlarm:^(BOOL isStart) {
+      // status = YES &#x5F00;&#x542F;&#x58F0;&#x97F3;&#x68C0;&#x6D4B;(Turn on sound detection)
+      // status = NO  &#x672A;&#x5F00;&#x542F;&#x58F0;&#x97F3;&#x68C0;&#x6D4B;(Sound detection is not enabled)
+    }];
+}
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#xFF08;&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#xFF09;">&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#xFF08;&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+    [manager getAlarmSwitch:^(BOOL success) {
+      // status = YES &#x5F00;&#x542F;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;(Turn on motion detection)
+      // status = NO  &#x672A;&#x5F00;&#x542F;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;(Motion detection is not turned on)
+    }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#xFF08;set-up-motion-detection&#xFF09;">&#x8BBE;&#x7F6E;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#xFF08;Set up motion detection&#xFF09;</h4>
+<pre><code class="lang-objective-c">// isOn YES &#x5F00;&#x542F;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x62A5;&#x8B66;(Turn on motion detection alarm)
+// isOn NO  &#x5173;&#x95ED;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x62A5;&#x8B66;(Turn off motion detection alarm)
+[manager setAlarmSwitch:isOn returnBlock:^(BOOL success){
+
+}];
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#x7075;&#x654F;&#x5EA6;&#xFF08;get-motion-detection-sensitivity&#xFF09;">&#x83B7;&#x53D6;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#x7075;&#x654F;&#x5EA6;&#xFF08;Get motion detection sensitivity&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+    [manager getMotionDetect:^(int level) {
+      // &#x5F00;&#x542F;&#x79FB;&#x52A8;&#x4FA6;&#x6D4B;&#x540E;&#xFF0C;&#x67E5;&#x8BE2;&#x7075;&#x654F;&#x5EA6;&#x7EA7;&#x522B;(After enabling motion detection, query the sensitivity level)
+      // &#x7075;&#x654F;&#x5EA6;&#x8303;&#x56F4;&#xFF1A;[1,2,3,4,5](Sensitivity range: [1,2,3,4,5])
+    }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#x7075;&#x654F;&#x5EA6;&#xFF08;set-the-motion-detection-sensitivity&#xFF09;">&#x8BBE;&#x7F6E;&#x79FB;&#x52A8;&#x68C0;&#x6D4B;&#x7075;&#x654F;&#x5EA6;&#xFF08;Set the motion detection sensitivity&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // level &#x7075;&#x654F;&#x5EA6;&#x8303;&#x56F4;&#xFF1A;[1,2,3,4,5](Sensitivity range: [1,2,3,4,5])
+  [manager setMotionDetect:level returnBlock:^(BOOL success){
+
+  }];
+}
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../localmd/摄像头播放.html" class="navigation navigation-prev " aria-label="Previous page: 摄像头播放（Webcam playback）"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../localmd/摄像头设置/摄像头设置.html" class="navigation navigation-next " aria-label="Next page: 摄像头设置（Camera settings）"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

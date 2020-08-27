@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>AP模式（AP mode） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../localmd/摄像头连接.html" />
+    
+    
+    <link rel="prev" href="../../localmd/摄像头配网/热点模式.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.3"
+        data-chapter-title="AP模式（AP mode）"
+        data-filepath="localmd/摄像头配网/AP模式.md"
+        data-basepath="../.."
+        data-revision="Mon Jun 29 2020 17:48:29 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        前言（Foreword）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="localmd/集成SDK.html">
+            
+                
+                    <a href="../../localmd/集成SDK.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        集成SDK（Integrated SDK）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
+            
+                
+                    <a href="../../localmd/摄像头配网/摄像头配网.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        摄像头配网（Camera distribution network）
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="localmd/摄像头配网/二维码模式.html">
+            
+                
+                    <a href="../../localmd/摄像头配网/二维码模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        二维码模式（QR code mode）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="localmd/摄像头配网/热点模式.html">
+            
+                
+                    <a href="../../localmd/摄像头配网/热点模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        热点模式（Hotspot mode）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="localmd/摄像头配网/AP模式.html">
+            
+                
+                    <a href="../../localmd/摄像头配网/AP模式.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        AP模式（AP mode）
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="localmd/摄像头连接.html">
+            
+                
+                    <a href="../../localmd/摄像头连接.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        摄像头连接（Camera connection）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="localmd/摄像头播放.html">
+            
+                
+                    <a href="../../localmd/摄像头播放.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        摄像头播放（Webcam playback）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="localmd/摄像头报警.html">
+            
+                
+                    <a href="../../localmd/摄像头报警.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        摄像头报警（Camera alarm）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="localmd/摄像头设置/摄像头设置.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/摄像头设置.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        摄像头设置（Camera settings）
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="localmd/摄像头设置/校准.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/校准.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        校准（calibration）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="localmd/摄像头设置/时区.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/时区.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        时区（Time zone）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="localmd/摄像头设置/相册.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/相册.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        相册（Photo album）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="localmd/摄像头设置/音量.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/音量.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        音量（volume）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="localmd/摄像头设置/录像.html">
+            
+                
+                    <a href="../../localmd/摄像头设置/录像.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        录像（Video）
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="localmd/错误码.html">
+            
+                
+                    <a href="../../localmd/错误码.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        错误码（error code）
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="ap&#x6A21;&#x5F0F;&#xFF08;ap-mode&#xFF09;">AP&#x6A21;&#x5F0F;&#xFF08;AP mode&#xFF09;</h1>
+<h4 id="ap&#x914D;&#x7F51;&#x6D41;&#x7A0B;&#xFF08;ap-distribution-network-process&#xFF09;">AP&#x914D;&#x7F51;&#x6D41;&#x7A0B;&#xFF08;AP distribution network process&#xFF09;</h4>
+<p><img src="../assets/Snip20190912_160.png" alt="Snip20190912_160"></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../localmd/摄像头配网/热点模式.html" class="navigation navigation-prev " aria-label="Previous page: 热点模式（Hotspot mode）"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../localmd/摄像头连接.html" class="navigation navigation-next " aria-label="Next page: 摄像头连接（Camera connection）"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
