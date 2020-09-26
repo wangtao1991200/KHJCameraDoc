@@ -1133,7 +1133,7 @@ offLineCallBack:(void(^)(void))offLineBlock;
  Set device cloud storage upload URL
 
  @param url cloud upload url
- @param resultBlock
+ @param resultBlock resultBlock
  - success
 */
 - (void)setDeviceCloudUploadUrl:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
