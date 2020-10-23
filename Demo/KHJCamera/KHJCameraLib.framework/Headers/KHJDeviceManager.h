@@ -1113,6 +1113,15 @@ offLineCallBack:(void(^)(void))offLineBlock;
 - (void)setAlarmInterval:(int)interval returnBlock:(void(^)(BOOL success))resultBlock;
 
 /**
+ Set device upgrade address
+
+ @param url upgrade address
+ @param resultBlock
+ - success
+*/
+- (void)setNotifyUpgrade:(NSString *)url returnCallBack:(void(^)(BOOL success))resultBlock;
+
+/**
  Set device cloud storage URL
 
  @param url cloud Url
