@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		347A90C679A3D8FE3D8A42EF /* libPods-KHJCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C14942BEA4A2A3A7CD0FF4 /* libPods-KHJCamera.a */; };
 		AB28EBDF231FBE5C00917329 /* KHJUdpHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB28EBDD231FBE5B00917329 /* KHJUdpHelper.mm */; };
-		AB4808AB230D4B010086C9D2 /* KHJCameraLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */; };
-		AB4808AC230D4BA00086C9D2 /* KHJCameraLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */; };
-		AB4808AD230D4BA00086C9D2 /* KHJCameraLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB37B215258C99A500E8A29C /* KHJCameraLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB37B1FA258C995700E8A29C /* KHJCameraLib.framework */; };
+		AB37B216258C99A500E8A29C /* KHJCameraLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB37B1FA258C995700E8A29C /* KHJCameraLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ABCBCEF021BE00D300E48F6A /* KHJCreateQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCBCEEF21BE00D300E48F6A /* KHJCreateQRCodeViewController.m */; };
 		ABE924DD21B4CE0C00D7952B /* KHJToast.m in Sources */ = {isa = PBXBuildFile; fileRef = ABE924DC21B4CE0C00D7952B /* KHJToast.m */; };
 		ABF6BDE52445478300414A89 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA09106210041B500C26D51 /* libiconv.tbd */; };
@@ -139,7 +138,6 @@
 		CAA091012100414E00C26D51 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA090FF2100414E00C26D51 /* VideoToolbox.framework */; };
 		CAA091032100416100C26D51 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA091022100416100C26D51 /* CoreMedia.framework */; };
 		CAA091052100417E00C26D51 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA091042100417E00C26D51 /* CoreImage.framework */; };
-		CAA09107210041B500C26D51 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA09106210041B500C26D51 /* libiconv.tbd */; };
 		CAA09109210041C900C26D51 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA09108210041C900C26D51 /* libbz2.tbd */; };
 		CAA0910B210041E900C26D51 /* libm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA0910A210041E900C26D51 /* libm.tbd */; };
 		CAA9C3122154C505009ABF0D /* DeNormalSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA9C3112154C505009ABF0D /* DeNormalSelectView.m */; };
@@ -182,13 +180,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ABF903AD21C0A99000761A4F /* Embed Frameworks */ = {
+		AB37B217258C99A500E8A29C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB4808AD230D4BA00086C9D2 /* KHJCameraLib.framework in Embed Frameworks */,
+				AB37B216258C99A500E8A29C /* KHJCameraLib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +198,7 @@
 		87C14942BEA4A2A3A7CD0FF4 /* libPods-KHJCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KHJCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB28EBDD231FBE5B00917329 /* KHJUdpHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KHJUdpHelper.mm; sourceTree = "<group>"; };
 		AB28EBDE231FBE5C00917329 /* KHJUdpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHJUdpHelper.h; sourceTree = "<group>"; };
-		AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KHJCameraLib.framework; sourceTree = "<group>"; };
+		AB37B1FA258C995700E8A29C /* KHJCameraLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KHJCameraLib.framework; sourceTree = "<group>"; };
 		ABCBCEEF21BE00D300E48F6A /* KHJCreateQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHJCreateQRCodeViewController.m; sourceTree = "<group>"; };
 		ABE924DB21B4CE0C00D7952B /* KHJToast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KHJToast.h; sourceTree = "<group>"; };
 		ABE924DC21B4CE0C00D7952B /* KHJToast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KHJToast.m; sourceTree = "<group>"; };
@@ -521,7 +519,7 @@
 				CABCD1E620F0EA4C00EEC79C /* libz.tbd in Frameworks */,
 				CAFA2842213938C6006E858D /* CoreTelephony.framework in Frameworks */,
 				CAFA2843213938C6006E858D /* CoreText.framework in Frameworks */,
-				AB4808AB230D4B010086C9D2 /* KHJCameraLib.framework in Frameworks */,
+				AB37B215258C99A500E8A29C /* KHJCameraLib.framework in Frameworks */,
 				CA80E3E2212C365A00F0158E /* CFNetwork.framework in Frameworks */,
 				CA80E2C8212A968C00F0158E /* UIKit.framework in Frameworks */,
 				CA80E2C6212A968000F0158E /* QuartzCore.framework in Frameworks */,
@@ -535,12 +533,10 @@
 				CAC09EFF20B5954100C8FC0A /* AVFoundation.framework in Frameworks */,
 				CA80E2B9212A95F700F0158E /* libobjc.tbd in Frameworks */,
 				CAE0B56C21C0BC1C00C2BF42 /* IJKMediaFramework.framework in Frameworks */,
-				CAA09107210041B500C26D51 /* libiconv.tbd in Frameworks */,
 				CAA0910B210041E900C26D51 /* libm.tbd in Frameworks */,
 				CAA09109210041C900C26D51 /* libbz2.tbd in Frameworks */,
 				CAA091052100417E00C26D51 /* CoreImage.framework in Frameworks */,
 				CAA091032100416100C26D51 /* CoreMedia.framework in Frameworks */,
-				AB4808AC230D4BA00086C9D2 /* KHJCameraLib.framework in Frameworks */,
 				CAA091002100414E00C26D51 /* CoreVideo.framework in Frameworks */,
 				CAA091012100414E00C26D51 /* VideoToolbox.framework in Frameworks */,
 				CAA090FD2100412C00C26D51 /* CoreFoundation.framework in Frameworks */,
@@ -833,8 +829,8 @@
 		CA719CBD20B26614005E51AC /* KHJCamera */ = {
 			isa = PBXGroup;
 			children = (
-				AB4808AA230D4B010086C9D2 /* KHJCameraLib.framework */,
 				CAA090D820FDE01E00C26D51 /* KHJCamera.entitlements */,
+				AB37B1FA258C995700E8A29C /* KHJCameraLib.framework */,
 				CA719CBE20B26614005E51AC /* AppDelegate.h */,
 				CA719CBF20B26614005E51AC /* AppDelegate.m */,
 				CAC848B620B2BE460013AB08 /* VController */,
@@ -1017,7 +1013,7 @@
 				CA719CB920B26614005E51AC /* Resources */,
 				F01EAF41517BF093167CE9D8 /* [CP] Copy Pods Resources */,
 				ABC0C45521B94A9A0066E404 /* ShellScript */,
-				ABF903AD21C0A99000761A4F /* Embed Frameworks */,
+				AB37B217258C99A500E8A29C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1034,7 +1030,7 @@
 		CA719CB320B26614005E51AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = khj;
 				TargetAttributes = {
 					CA719CBA20B26614005E51AC = {
@@ -1424,6 +1420,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1492,6 +1489,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1645,6 +1643,7 @@
 					"$(PROJECT_DIR)/cameraLib",
 					"$(PROJECT_DIR)/cameraLib/OpenGLView",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-isystem",
