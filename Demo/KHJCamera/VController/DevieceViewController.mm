@@ -172,7 +172,9 @@
         dInfo.isOpen        = YES;
         dInfo.deviceRealPwd = @"888888";
         bDevice.mDeviceInfo = dInfo;
-        [bDevice.mDeviceManager creatCameraBase:@"KHJ-233719-PVNDB" keyword:@""];
+        [bDevice.mDeviceManager creatCameraBase:@"KHJ-233719-PVNDB"
+                                        keyword:@"EEGNFJBDLFINHBINFMGEEJFGGEMMGIMDGDEKACDLBNIKKDKBCPBKDDPOHKKLIALLBDNFKEDHPLNHBACKIC:KHJ002"];
+        
         /* 创建摄像头对象，并加入到 全局变量 addKHJManager */
         /* Create a camera object and add it to the global variable addKHJManager */
         [[KHJAllBaseManager sharedBaseManager] addKHJManager:bDevice andKey:@"KHJ-233719-PVNDB"];
