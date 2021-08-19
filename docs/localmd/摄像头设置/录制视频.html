@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头配网（Camera distribution network） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <title>录制视频（Record） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../../localmd/摄像头配网/二维码模式.html" />
+    <link rel="next" href="../../localmd/摄像头设置/画面翻转.html" />
     
     
-    <link rel="prev" href="../../localmd/集成SDK.html" />
+    <link rel="prev" href="../../localmd/摄像头设置/音量调节.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2"
-        data-chapter-title="摄像头配网（Camera distribution network）"
-        data-filepath="localmd/摄像头配网/摄像头配网.md"
+        data-level="6.5"
+        data-chapter-title="录制视频（Record）"
+        data-filepath="localmd/摄像头设置/录制视频.md"
         data-basepath="../.."
         data-revision="Thu Aug 19 2021 18:05:48 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -97,7 +97,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
+        <li class="chapter " data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
             
                 
                     <a href="../../localmd/摄像头配网/摄像头配网.html">
@@ -284,7 +284,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.5" data-path="localmd/摄像头设置/录制视频.html">
+        <li class="chapter active" data-level="6.5" data-path="localmd/摄像头设置/录制视频.html">
             
                 
                     <a href="../../localmd/摄像头设置/录制视频.html">
@@ -457,22 +457,68 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;camera-distribution-network&#xFF09;">&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;Camera distribution network&#xFF09;</h1>
-<p>&#x770B;&#x62A4;&#x5BB6;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A; <strong>IOS </strong> <strong>SDK</strong> &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#x3002;&#xFF08;Nursing home smart camera <strong>IOS</strong>  <strong>SDK</strong>  provides three kinds of network distribution methods, you can choose the corresponding network distribution method according to the actual  situation.&#xFF09;</p>
-<p>&#x4E24;&#x79CD;&#x8054;&#x7F51;&#x914D;&#x7F51;&#xFF1A;&#xFF08;Two kinds of network distribution network:&#xFF09;</p>
-<ul>
-<li>&#x4E8C;&#x7EF4;&#x7801;&#x914D;&#x7F51;&#xFF08;QR code distribution network&#xFF09;</li>
-</ul>
-<ul>
-<li>&#x70ED;&#x70B9;&#x914D;&#x7F51;&#xFF08;Hotspot Distribution Network&#xFF09;</li>
-</ul>
-<pre><code class="lang-go">&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x8BBE;&#x5907;&#x5339;&#x914D;&#x81F3;&#x53EF;&#x7528;&#x7684;&#x975E;<span class="hljs-number">5</span>G&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x5728;<span class="hljs-number">4</span>G&#x6216;Wi-Fi&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;&#xFF08;The above two network distribution methods match the device to an available non-<span class="hljs-number">5</span>G network, and the user can view the camera under the <span class="hljs-number">4</span>G or Wi-Fi network through the mobile phone APP.&#xFF09;
+                        <h1 id="&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#xFF08;recording-settings&#xFF09;">&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#xFF08;Recording settings&#xFF09;</h1>
+<p>&#x89C6;&#x9891;&#x5F55;&#x50CF;&#x5B58;&#x653E;&#x5728;SD&#x5361;&#x4E2D;&#xFF0C;&#x5F55;&#x50CF;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x5904;&#x7406;  <code>SD&#x5361;</code>  &#x548C;  <code>&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x53C2;&#x6570;</code> &#x3002;&#xFF08;The video recording is stored in the SD card, and the recording settings can handle <code>SD card</code> and <code>Set recording parameters</code>.&#xFF09;</p>
+<h4 id="&#x521B;&#x5EFA;-khjdevicemanager-&#x5BF9;&#x8C61;&#xFF08;create-khjdevicemanager-object&#xFF09;">&#x521B;&#x5EFA; KHJDeviceManager &#x5BF9;&#x8C61;&#xFF08;Create KHJDeviceManager object&#xFF09;</h4>
+<pre><code class="lang-objective-c">KHJDeviceManager *manager = [[KHJDeviceManager alloc] init];
+[manager createKHJCameraBase:Uid];
 </code></pre>
-<p>&#x4E00;&#x79CD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF1A;&#xFF08;One local connection:&#xFF09;</p>
-<ul>
-<li>AP &#x8FDE;&#x63A5;&#xFF08;AP connection&#xFF09;</li>
-</ul>
-<pre><code class="lang-go">AP&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x65E0;<span class="hljs-number">4</span>G&#x548C;Wi-Fi&#x7F51;&#x7EDC;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x8FDE;&#x63A5;&#x8BBE;&#x5907;&#x70ED;&#x70B9;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;The AP is connected locally. In the absence of <span class="hljs-number">4</span>G and Wi-Fi networks, users can connect to the device hotspot and view the camera through the mobile phone APP.&#xFF09;
+<h4 id="&#x683C;&#x5F0F;&#x5316;sd&#x5361;&#xFF08;format-sd-card&#xFF09;">&#x683C;&#x5F0F;&#x5316;SD&#x5361;&#xFF08;Format SD card&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager formatSdcard:^(int success) {
+    // success = 0&#xFF0C; &#x683C;&#x5F0F;&#x5316;&#x6210;&#x529F;&#xFF08;Formatted successfully&#xFF09;
+  }];
+}
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;sd&#x5361;&#x4FE1;&#x606F;&#xFF08;get-sd-card-information&#xFF09;">&#x83B7;&#x53D6;SD&#x5361;&#x4FE1;&#x606F;&#xFF08;Get SD card information&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager queryDeviceInfo:self.uuidStr reternBlock:^(int allCapacity,
+                                                      int leftCapacity,
+                                                      int version,
+                                                      NSString *model,
+                                                      NSString *vendor,
+                                                      NSString *ffs) {
+    // allCapacity - &#x603B;&#x5BB9;&#x91CF;&#xFF08;total capacity&#xFF09;
+    // leftCapacity - &#x5269;&#x4F59;&#x5BB9;&#x91CF;&#xFF08;The remaining capacity&#xFF09;
+    // ffs - ffs &#x4E0D;&#x7B49;&#x4E8E; @&quot;&quot; &amp;&amp; &#x4E0D;&#x7B49;&#x4E8E;@&quot;exfat&quot;&#xFF0C;&#x5219;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;SD&#x5361;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x4E0D;&#x5F3A;&#x5236;&#x683C;&#x5F0F;&#x5316;&#xFF08;ffs is not equal to @&quot;&quot; &amp;&amp; is not equal to @&quot;exfat&quot;, the SD card is forced to be formatted. Otherwise, do not force the format&#xFF09;
+  }];
+}
+</code></pre>
+<h4 id="&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;query-recording-mode&#xFF09;">&#x67E5;&#x8BE2;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;Query recording mode&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  [manager getVideoRecordType:^(int type) {
+    // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;&#xFF08;Close recording&#xFF09;
+    // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;&#xFF08;Continuous recording&#xFF09;
+    // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;&#xFF08;Timed plan&#xFF09;
+    // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;&#xFF08;Alarm recording&#xFF09;
+  }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;set-recording-mode&#xFF09;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x6A21;&#x5F0F;&#xFF08;Set recording mode&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // type = 0 &#x5173;&#x95ED;&#x5F55;&#x50CF;&#xFF08;Close recording&#xFF09;
+  // type = 1 &#x8FDE;&#x7EED;&#x5F55;&#x50CF;&#xFF08;Continuous recording&#xFF09;
+  // type = 2 &#x5B9A;&#x65F6;&#x8BA1;&#x5212;&#xFF08;Timed plan&#xFF09;
+  // type = 3 &#x62A5;&#x8B66;&#x5F55;&#x50CF;&#xFF08;Alarm recording&#xFF09;
+  [manager setVideoRecordType:type returnBlock:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<h4 id="&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;set-recording-quality&#xFF09;">&#x8BBE;&#x7F6E;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;Set recording quality&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+  // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;&#xFF08;1-LD, 2-SD, 3-HD&#xFF09;
+  [manager setRecordVideoQuality:index returnBlock:^(BOOL success) {
+
+  }];
+}
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;get-video-quality&#xFF09;">&#x83B7;&#x53D6;&#x5F55;&#x50CF;&#x8D28;&#x91CF;&#xFF08;Get video quality&#xFF09;</h4>
+<pre><code class="lang-objective-c">if (manager) {
+    [manager getRecordVideoQuality:^(int level) {
+      // index 1-&#x6D41;&#x7545;&#xFF0C;2-&#x6807;&#x6E05;&#xFF0C;3-&#x9AD8;&#x6E05;&#xFF08;1-LD, 2-SD, 3-HD&#xFF09;
+    }];
+}
 </code></pre>
 
                     
@@ -484,10 +530,10 @@
         </div>
 
         
-        <a href="../../localmd/集成SDK.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK（Intergrated SDK）"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/摄像头设置/音量调节.html" class="navigation navigation-prev " aria-label="Previous page: 音量调节（volume）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/摄像头配网/二维码模式.html" class="navigation navigation-next " aria-label="Next page: 二维码模式（QR code mode）"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/摄像头设置/画面翻转.html" class="navigation navigation-next " aria-label="Next page: 画面翻转（Camera flip）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

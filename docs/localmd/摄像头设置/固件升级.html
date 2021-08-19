@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头配网（Camera distribution network） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <title>固件升级（Firmware upgrade） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../../localmd/摄像头配网/二维码模式.html" />
+    <link rel="next" href="../../localmd/摄像头设置/切换清晰度.html" />
     
     
-    <link rel="prev" href="../../localmd/集成SDK.html" />
+    <link rel="prev" href="../../localmd/摄像头设置/画面翻转.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="2"
-        data-chapter-title="摄像头配网（Camera distribution network）"
-        data-filepath="localmd/摄像头配网/摄像头配网.md"
+        data-level="6.7"
+        data-chapter-title="固件升级（Firmware upgrade）"
+        data-filepath="localmd/摄像头设置/固件升级.md"
         data-basepath="../.."
         data-revision="Thu Aug 19 2021 18:05:48 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -97,7 +97,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
+        <li class="chapter " data-level="2" data-path="localmd/摄像头配网/摄像头配网.html">
             
                 
                     <a href="../../localmd/摄像头配网/摄像头配网.html">
@@ -314,7 +314,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.7" data-path="localmd/摄像头设置/固件升级.html">
+        <li class="chapter active" data-level="6.7" data-path="localmd/摄像头设置/固件升级.html">
             
                 
                     <a href="../../localmd/摄像头设置/固件升级.html">
@@ -457,22 +457,13 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;camera-distribution-network&#xFF09;">&#x6444;&#x50CF;&#x5934;&#x914D;&#x7F51;&#xFF08;Camera distribution network&#xFF09;</h1>
-<p>&#x770B;&#x62A4;&#x5BB6;&#x667A;&#x80FD;&#x6444;&#x50CF;&#x673A; <strong>IOS </strong> <strong>SDK</strong> &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x9009;&#x62E9;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#x3002;&#xFF08;Nursing home smart camera <strong>IOS</strong>  <strong>SDK</strong>  provides three kinds of network distribution methods, you can choose the corresponding network distribution method according to the actual  situation.&#xFF09;</p>
-<p>&#x4E24;&#x79CD;&#x8054;&#x7F51;&#x914D;&#x7F51;&#xFF1A;&#xFF08;Two kinds of network distribution network:&#xFF09;</p>
-<ul>
-<li>&#x4E8C;&#x7EF4;&#x7801;&#x914D;&#x7F51;&#xFF08;QR code distribution network&#xFF09;</li>
-</ul>
-<ul>
-<li>&#x70ED;&#x70B9;&#x914D;&#x7F51;&#xFF08;Hotspot Distribution Network&#xFF09;</li>
-</ul>
-<pre><code class="lang-go">&#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x914D;&#x7F51;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x8BBE;&#x5907;&#x5339;&#x914D;&#x81F3;&#x53EF;&#x7528;&#x7684;&#x975E;<span class="hljs-number">5</span>G&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x5728;<span class="hljs-number">4</span>G&#x6216;Wi-Fi&#x7F51;&#x7EDC;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;&#xFF08;The above two network distribution methods match the device to an available non-<span class="hljs-number">5</span>G network, and the user can view the camera under the <span class="hljs-number">4</span>G or Wi-Fi network through the mobile phone APP.&#xFF09;
-</code></pre>
-<p>&#x4E00;&#x79CD;&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF1A;&#xFF08;One local connection:&#xFF09;</p>
-<ul>
-<li>AP &#x8FDE;&#x63A5;&#xFF08;AP connection&#xFF09;</li>
-</ul>
-<pre><code class="lang-go">AP&#x672C;&#x5730;&#x8FDE;&#x63A5;&#xFF0C;&#x5728;&#x65E0;<span class="hljs-number">4</span>G&#x548C;Wi-Fi&#x7F51;&#x7EDC;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x673A;APP&#xFF0C;&#x8FDE;&#x63A5;&#x8BBE;&#x5907;&#x70ED;&#x70B9;&#xFF0C;&#x67E5;&#x770B;&#x6444;&#x50CF;&#x5934;&#x3002;The AP is connected locally. In the absence of <span class="hljs-number">4</span>G and Wi-Fi networks, users can connect to the device hotspot and view the camera through the mobile phone APP.&#xFF09;
+                        <h1 id="&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#xFF08;firmware-upgrade&#xFF09;">&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#xFF08;Firmware upgrade&#xFF09;</h1>
+<pre><code class="lang-objective-c">KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+NSString *url = @&quot;127.0.0.1:aaa.img&quot;; // &#x56FA;&#x4EF6;&#x5730;&#x5740;
+[bDevice.mDeviceManager setNotifyUpgrade:url returnCallBack:^(BOOL success) {
+    // success = YES &#x64CD;&#x4F5C;&#x6210;&#x529F;
+    // success = NO &#x64CD;&#x4F5C;&#x5931;&#x8D25;
+}];
 </code></pre>
 
                     
@@ -484,10 +475,10 @@
         </div>
 
         
-        <a href="../../localmd/集成SDK.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK（Intergrated SDK）"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/摄像头设置/画面翻转.html" class="navigation navigation-prev " aria-label="Previous page: 画面翻转（Camera flip）"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../../localmd/摄像头配网/二维码模式.html" class="navigation navigation-next " aria-label="Next page: 二维码模式（QR code mode）"><i class="fa fa-angle-right"></i></a>
+        <a href="../../localmd/摄像头设置/切换清晰度.html" class="navigation navigation-next " aria-label="Next page: 切换清晰度（Picture quality）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
