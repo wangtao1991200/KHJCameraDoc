@@ -610,76 +610,10 @@
             timestampString = "589275099.037474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2405"
-            endingLineNumber = "2405"
+            startingLineNumber = "2416"
+            endingLineNumber = "2416"
             landmarkName = "-backGetPushListenerState:withDstring:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1376756-3EED-45C4-9C54-DE00D21B8001"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-            timestampString = "589274204.696514"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-saveSSID:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-            timestampString = "589274204.696589"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-connectDevice:withUid:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - 923f935300ae3fd4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[KHJAddHotVController connectDevice:withUid:]"
-                  moduleName = "KHJCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "400">
-               </Location>
-               <Location
-                  uuid = "DBBA5592-9E47-4B15-A39A-52C17E8837E7 - a9bc73c57c544b11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke.182"
-                  moduleName = "KHJCamera"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "163"
-                  endingLineNumber = "163"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -693,10 +627,42 @@
             timestampString = "589274204.696641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "-connectDevice:withUid:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0CCD834B-E918-4334-9C0E-BA9F999856AB - 923f935300ae3d79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[KHJAddHotVController connectDevice:withUid:]"
+                  moduleName = "KHJCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "0CCD834B-E918-4334-9C0E-BA9F999856AB - a9bc73c57c5430df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[KHJAddHotVController connectDevice:withUid:]_block_invoke.191"
+                  moduleName = "KHJCamera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/khj888/KHJCameraDoc/Demo/KHJCamera/VController/FourthController/KHJAddHotVController.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -770,22 +736,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8EBEEF09-DF7C-4E07-A0C1-98F81704E4D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KHJCamera/VController/DevieceViewController.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "-handleHotConnect:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "F7B16684-03BD-4D1D-B793-67AB193FB41D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -796,6 +746,38 @@
             startingLineNumber = "505"
             endingLineNumber = "505"
             landmarkName = "-otherStopRecodeVedio"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE5C0229-F59B-4456-93D5-FCA9C5769EBA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KHJCamera/VController/secondController/LANVController.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-addDeviceClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15A51534-0B05-49A7-9F0D-EC9D4BEAB379"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KHJCamera/Model/KHJUdpHelper.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-onUdpSocket:didReceiveData:withTag:fromHost:port:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

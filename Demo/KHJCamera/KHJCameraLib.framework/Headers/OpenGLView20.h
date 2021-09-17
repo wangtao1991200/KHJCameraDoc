@@ -63,7 +63,6 @@
 @property (nonatomic,copy)NSString *uidString;
 
 #pragma mark - 接口
-//- (void)displayYUV420pData:(void *)data width:(NSInteger)w height:(NSInteger)h;
 - (void)displayYUV420pData:(void *)dataY  andU:(void *)dataU andV:(void *)dataV  width:(NSInteger)w height:(NSInteger)h;
 
 - (void)setVideoSize:(GLuint)width height:(GLuint)height;

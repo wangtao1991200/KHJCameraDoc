@@ -145,15 +145,11 @@
 - (void)connectDevice:(int)success withUid:(NSString *)uidStr
 {
     CLog(@"连接成功?== %d",success);
-    
     CLog(@"connection succeeded?== %d",success);
-    
     if (success == 0) {
         
         CLog(@"连接设备成功");
-        
         CLog(@"Device connected successfully");
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [[KHJHub shareHub] showText:KHJLocalizedString(@"configSuccess", nil) addToView:self.view];
         });
@@ -166,9 +162,7 @@
     }
     else {
         CLog(@"连接设备失败");
-
         CLog(@"Failed to connect device");
-
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success == -20009) {
                 [[KHJToast share] showToastActionWithToastType:_WarningType

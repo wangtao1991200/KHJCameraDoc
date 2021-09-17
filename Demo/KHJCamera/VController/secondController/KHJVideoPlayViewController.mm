@@ -788,7 +788,10 @@
 
             if (self.myInfo.isAPMode) {
                 [self->bDevice.mDeviceManager disconnect];
-                [self->bDevice.mDeviceManager connect:self.myInfo.deviceRealPwd withUid:self.myInfo.deviceUid flag:flag successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
+                [self->bDevice.mDeviceManager connect:self.myInfo.deviceRealPwd
+                                              withUid:self.myInfo.deviceUid
+                                                 flag:flag
+                                      successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
                     [weakSelf connectDevice:(int)isSuccess withUid:uidStr];
                 } offLineCallBack:^{
                     [weakSelf connectofflineDevice];
@@ -797,7 +800,10 @@
             }
             else {
                 [self->bDevice.mDeviceManager disconnect];
-                [self->bDevice.mDeviceManager connect:self.myInfo.deviceRealPwd withUid:self.myInfo.deviceUid flag:flag successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
+                [self->bDevice.mDeviceManager connect:self.myInfo.deviceRealPwd
+                                              withUid:self.myInfo.deviceUid
+                                                 flag:flag
+                                      successCallBack:^(NSString *uidStr, NSInteger isSuccess) {
                     [weakSelf connectDevice:(int)isSuccess withUid:uidStr];
                 } offLineCallBack:^{
                     [weakSelf connectofflineDevice];
@@ -1342,8 +1348,13 @@
 {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         if (tFilename) {
-            [self->bDevice.mDeviceManager playSDVideo:tFilename withStart:NO seekTo:0 withUid:self.myInfo.deviceUid returnBlock:^(int mTotal, int mCurrentP) {
-            }];
+            [self->bDevice.mDeviceManager playSDVideo:tFilename
+                                            withStart:NO
+                                               seekTo:0
+                                              withUid:self.myInfo.deviceUid
+                                          returnBlock:^(int mTotal, int mCurrentP) {}
+                                        timeLineBlock:^(int updateTimeLine) {}];
+
         }
     });
 }

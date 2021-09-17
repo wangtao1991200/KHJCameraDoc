@@ -4,8 +4,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreVideo/CoreVideo.h>
-#import "OpenGLView20.h"
-#import "TimeInfo.h"
+#import <KHJCameraLib/OpenGLView20.h>
+#import <KHJCameraLib/TimeInfo.h>
 
 typedef NS_ENUM(NSInteger,KHJVideoQuality)
 {
@@ -28,7 +28,7 @@ typedef enum : NSUInteger {
 
 /**
 Create Camera
-
+ 
 @param deviceID deviceID
 @param keyword keyword
 */
@@ -270,7 +270,8 @@ offLineCallBack:(void(^)(void))offLineBlock;
          withStart:(BOOL)isStart
             seekTo:(NSInteger)startP
            withUid:(NSString *)uidStr
-       returnBlock:(void(^)(int mTotal,int mCurrentP))resultBlock;
+       returnBlock:(void(^)(int mTotal,int mCurrentP))resultBlock
+     timeLineBlock:(void(^)(int updateTimeLine))timeLineBlock;
 
 /**
  Download video file
