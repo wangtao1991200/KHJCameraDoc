@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>摄像头设置（Camera settings） | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
+        <title>上传设置（Upload settings) | 看护家智能摄像机iOS SDK  接入指南（iOS SDK Access Guide）</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,8 @@
         
     
     
-    <link rel="next" href="../../localmd/摄像头设置/摄像头校准.html" />
     
-    
-    <link rel="prev" href="../../localmd/摄像头报警.html" />
+    <link rel="prev" href="../../localmd/云存储/云存储.html" />
     
 
         
@@ -49,9 +47,9 @@
         
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="摄像头设置（Camera settings）"
-        data-filepath="localmd/摄像头设置/摄像头设置.md"
+        data-level="8.1"
+        data-chapter-title="上传设置（Upload settings)"
+        data-filepath="localmd/云存储/上传设置.md"
         data-basepath="../.."
         data-revision="Wed Oct 20 2021 15:18:22 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -208,7 +206,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="localmd/摄像头设置/摄像头设置.html">
+        <li class="chapter " data-level="6" data-path="localmd/摄像头设置/摄像头设置.html">
             
                 
                     <a href="../../localmd/摄像头设置/摄像头设置.html">
@@ -440,7 +438,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="8.1" data-path="localmd/云存储/上传设置.html">
+        <li class="chapter active" data-level="8.1" data-path="localmd/云存储/上传设置.html">
             
                 
                     <a href="../../localmd/云存储/上传设置.html">
@@ -493,9 +491,75 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x6444;&#x50CF;&#x5934;&#x8BBE;&#x7F6E;&#xFF08;camera-settings&#xFF09;">&#x6444;&#x50CF;&#x5934;&#x8BBE;&#x7F6E;&#xFF08;Camera settings&#xFF09;</h1>
-<p>&#x5728;&#x8BBE;&#x5907;&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x4E14;&#x4E0E;&#x8BBE;&#x5907;&#x4FDD;&#x6301;&#x8FDE;&#x63A5;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6444;&#x50CF;&#x5934;&#x3002;&#xFF08;When the device is successfully connected and remains connected to the device, you can set the camera.&#xFF09;</p>
-
+                        <h1 id="&#x4E0A;&#x4F20;&#x8BBE;&#x7F6E;&#xFF08;upload-settings&#xFF09;">&#x4E0A;&#x4F20;&#x8BBE;&#x7F6E;&#xFF08;Upload settings&#xFF09;</h1>
+<h4 id="&#x8BBE;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x5730;&#x5740;&#xFF08;--set-the-background-service-address-uploaded-by-cloud-storage--&#xFF09;">&#x8BBE;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x5730;&#x5740;&#xFF08;  Set the background service address uploaded by cloud storage  &#xFF09;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [bDevice.mDeviceManager setDeviceCloudUrl:@&quot;&quot; returnCallBack:^(BOOL success) {
+        if (success) {
+            NSLog(@&quot;&#x62A5;&#x8B66;&#x4E91;&#x5B58;&#x50A8;&#x5730;&#x5740;&#x6210;&#x529F;&quot;);
+            NSLog(@&quot;alarm cloud storage address succeeded&quot;); 
+        }
+        else {
+            NSLog(@&quot;&#x62A5;&#x8B66;&#x4E91;&#x5B58;&#x50A8;&#x5730;&#x5740;&#x5931;&#x8D25;&quot;);
+            NSLog(@&quot;Alarm cloud storage address failed&quot;); 
+        }
+    }];
+}
+</code></pre><h4 id="&#x67E5;&#x8BE2;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x5730;&#x5740;&#xFF08;--query-the-background-service-address-uploaded-by-cloud-storage--&#xFF09;">&#x67E5;&#x8BE2;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x7684;&#x540E;&#x53F0;&#x670D;&#x52A1;&#x5730;&#x5740;&#xFF08;  Query the background service address uploaded by cloud storage  &#xFF09;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [bDevice.mDeviceManager getDeviceCloudUrl:^(NSString *cloudUrl) {
+        NSLog(@&quot;cloudUrl = %@&quot;,cloudUrl);
+    }];
+}
+</code></pre><h4 id="&#x8BBE;&#x7F6E;&#x6444;&#x50CF;&#x5934;&#x4E0A;&#x4F20;&#x4E91;&#x5B58;&#x50A8;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4E0A;&#x62A5;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x53E3;&#x5730;&#x5740;">&#x8BBE;&#x7F6E;&#x6444;&#x50CF;&#x5934;&#x4E0A;&#x4F20;&#x4E91;&#x5B58;&#x50A8;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4E0A;&#x62A5;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x53E3;&#x5730;&#x5740;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [bDevice.mDeviceManager setDeviceCloudUploadUrl:@&quot;&quot; returnCallBack:^(BOOL success) {
+        if (success) {
+            NSLog(@&quot;&#x4E0A;&#x62A5;&#x6210;&#x529F;&quot;);
+            NSLog(@&quot;Reported successfully&quot;); 
+        }
+        else {
+            NSLog(@&quot;&#x4E0A;&#x62A5;&#x5931;&#x8D25;&quot;);
+            NSLog(@&quot;Report failed&quot;); 
+        }
+    }];
+}
+</code></pre><h4 id="&#x67E5;&#x8BE2;&#x6444;&#x50CF;&#x5934;&#x4E0A;&#x62A5;&#x4E91;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x63A5;&#x53E3;&#x5730;&#x5740;">&#x67E5;&#x8BE2;&#x6444;&#x50CF;&#x5934;&#x4E0A;&#x62A5;&#x4E91;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;&#x63A5;&#x53E3;&#x5730;&#x5740;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [bDevice.mDeviceManager getDeviceCloudUploadUrl:^(NSString *uploadCLoudUrl) {
+        NSLog(@&quot;uploadCLoudUrl = %@&quot;,uploadCLoudUrl);
+    }];
+}
+</code></pre><h4 id="&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x5F00;&#x5173;&#x72B6;&#x6001;">&#x83B7;&#x53D6;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x5F00;&#x5173;&#x72B6;&#x6001;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    [bDevice.mDeviceManager getCloundStorage:^(BOOL isOpen, int cloundType, NSString *uidString) {
+        // isOpen &#x662F;&#x5426;&#x5F00;&#x901A;&#x4E91;&#x5B58;&#x50A8;&#xFF08;Activate cloud storage&#xFF09;
+        // cloudType &#x4E91;&#x670D;&#x52A1;&#x7C7B;&#x578B;(1&#x5168;&#x5929;&#x5F55;&#x50CF;&#xFF0C;0&#x62A5;&#x8B66;&#x5F55;&#x5236;)&#xFF08;Cloud service type (1 all day recording, 0 alarm recording)&#xFF09;
+        // uidString &#x8BBE;&#x5907;id&#xFF08;Device ID&#xFF09;
+    }];
+}
+</code></pre><h4 id="&#x8BBE;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x5F00;&#x5173;&#x72B6;&#x6001;">&#x8BBE;&#x7F6E;&#x4E91;&#x5B58;&#x50A8;&#x4E0A;&#x4F20;&#x5F00;&#x5173;&#x72B6;&#x6001;</h4>
+<pre><code>KHJBaseDevice *dDevice = [[KHJAllBaseManager sharedBaseManager] searchForkey:Uid];
+if (bDevice) {
+    // type - &#x4E91;&#x670D;&#x52A1;&#x7C7B;&#x578B;(1&#x5168;&#x5929;&#x5F55;&#x50CF;&#xFF0C;0&#x62A5;&#x8B66;&#x5F55;&#x5236;)
+    // type - cloud service type (1 all day recording, 0 alarm recording) 
+    [bDevice.mDeviceManager setCloundStorage:YES andType:type returnBlock:^(BOOL success) {
+        if (success) {
+            NSLog(@&quot;&#x8BBE;&#x7F6E;&#x6210;&#x529F;&quot;);
+            NSLog(@&quot;Set successfully&quot;); 
+        }
+        else {
+            NSLog(@&quot;&#x8BBE;&#x7F6E;&#x5931;&#x8D25;&quot;);
+            NSLog(@&quot;Set failed&quot;); 
+        }
+    }];
+}
+</code></pre>
                     
                     </section>
                 
@@ -505,10 +569,8 @@
         </div>
 
         
-        <a href="../../localmd/摄像头报警.html" class="navigation navigation-prev " aria-label="Previous page: 摄像头报警（Camera alarm）"><i class="fa fa-angle-left"></i></a>
+        <a href="../../localmd/云存储/云存储.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 云存储（Cloud Storage）"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../../localmd/摄像头设置/摄像头校准.html" class="navigation navigation-next " aria-label="Next page: 摄像头校准（calibration）"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
