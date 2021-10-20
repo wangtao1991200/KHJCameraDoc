@@ -23,6 +23,6 @@
     * [监听设备（Monitoring video）](localmd/摄像头设置/监听设备.md)
     * [云台控制（PTZ control）](localmd/摄像头设置/云台控制.md)
 * [错误码（Error code）](localmd/错误码.md)
-* [云存储（Cloud Storage）](localmd/云存储/云存储.md)
-    * [上传设置（Upload settings)](localmd/云存储/上传设置.md)
+<!--* [云存储（Cloud Storage）](localmd/云存储/云存储.md)-->
+* [云存储（Upload settings)](localmd/云存储/上传设置.md)
 
